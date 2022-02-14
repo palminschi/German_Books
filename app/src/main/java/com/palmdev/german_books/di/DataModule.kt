@@ -8,6 +8,7 @@ import org.koin.dsl.module
 
 val dataModule = module {
 
+    // Books
     single<BooksContentStorage>{
         AssetsBooksContentStorage(context = get())
     }
