@@ -3,9 +3,27 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/bookReadingFragment">
-    <!-- TODO Change start destination -->
+    app:startDestination="@id/homeFragment">
 
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.palmdev.german_books.presentation.screens.home.HomeFragment"
+        android:label="home_fragment"
+        tools:layout="@layout/home_fragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_selectBookFragment"
+            app:destination="@id/selectBookFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/selectBookFragment"
+        android:name="com.palmdev.german_books.presentation.screens.books.BooksFragment"
+        android:label="select_book_fragment"
+        tools:layout="@layout/select_book_fragment" >
+        <action
+            android:id="@+id/action_selectBookFragment_to_bookReadingFragment"
+            app:destination="@id/bookReadingFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/bookReadingFragment"

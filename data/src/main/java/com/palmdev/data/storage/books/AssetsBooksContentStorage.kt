@@ -1,8 +1,9 @@
-package com.palmdev.data.storage
+package com.palmdev.data.storage.books
 
 import android.content.Context
 import android.content.res.AssetManager
-import com.palmdev.data.storage.model.BookContentEntity
+import com.palmdev.data.storage.books.model.BookContentEntity
+import com.palmdev.data.storage.books.model.BookReadingProgressEntity
 import com.palmdev.data.util.Constants
 import java.io.BufferedReader
 import java.io.IOException
@@ -22,13 +23,32 @@ class AssetsBooksContentStorage(context: Context) : BooksContentStorage {
         }
 
         val bookContent = getStringFromAssets(fileName = fileName)
-        val bookReadingProgress = mSharedPrefs.getInt(Constants.READING_PROGRESS_OF_BOOK_ID + bookId, 0)
 
-        return BookContentEntity(id = bookId, content = bookContent, readingProgress = bookReadingProgress)
+        return BookContentEntity(id = bookId, content = bookContent)
     }
 
-    override fun saveReadingProgress(bookId: Int, readingProgress: Int){
-        mSharedPrefs.edit().putInt(Constants.READING_PROGRESS_OF_BOOK_ID + bookId, readingProgress).apply()
+    override fun saveReadingProgress(readingProgress: BookReadingProgressEntity){
+        // Save Current Page
+        mSharedPrefs.edit().putInt(
+            Constants.BOOK_CURRENT_PAGE + readingProgress.bookId,
+            readingProgress.currentPage
+        ).apply()
+        // Save Total Pages
+        mSharedPrefs.edit().putInt(
+            Constants.BOOK_TOTAL_PAGES + readingProgress.bookId,
+            readingProgress.totalPages
+        ).apply()
+    }
+
+    override fun getReadingProgress(bookId: Int): BookReadingProgressEntity {
+        val currentPage = mSharedPrefs.getInt(Constants.BOOK_CURRENT_PAGE + bookId, 0)
+        val totalPages = mSharedPrefs.getInt(Constants.BOOK_TOTAL_PAGES + bookId, 100)
+
+        return BookReadingProgressEntity(
+            bookId = bookId,
+            currentPage = currentPage,
+            totalPages = totalPages
+        )
     }
 
 
