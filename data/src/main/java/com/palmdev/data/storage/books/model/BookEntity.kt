@@ -1,6 +1,6 @@
-package com.palmdev.domain.model
+package com.palmdev.data.storage.books.model
 
-data class Book(
+data class BookEntity(
     val id: Int,
     val title: String,
     val author: String,

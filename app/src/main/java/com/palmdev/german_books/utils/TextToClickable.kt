@@ -56,7 +56,7 @@ class TextToClickable {
                 mClickedWord = word
                 GoogleMLKitTranslator.translate(word)?.addOnSuccessListener {
                     TranslatePopupWindow.getPopupWindow(widget.context, word, it)
-                        .showAtLocation(widget, Gravity.NO_GRAVITY, xCoordinate, yCoordinate)
+                        .showAtLocation(widget, Gravity.NO_GRAVITY, xCoordinate, yCoordinate - 160)
                 }
 
             }

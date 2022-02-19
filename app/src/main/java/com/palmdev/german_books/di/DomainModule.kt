@@ -1,8 +1,6 @@
 package com.palmdev.german_books.di
 
-import com.palmdev.domain.usecase.books.GetBookContentUseCase
-import com.palmdev.domain.usecase.books.GetReadingProgressUseCase
-import com.palmdev.domain.usecase.books.SaveReadingProgressUseCase
+import com.palmdev.domain.usecase.books.*
 import com.palmdev.domain.usecase.user.GetTranslatorPreferencesUseCase
 import com.palmdev.domain.usecase.user.GetUserLanguageUseCase
 import com.palmdev.domain.usecase.user.SaveTranslatorPreferencesUseCase
@@ -20,6 +18,18 @@ val domainModule = module {
     }
     factory {
         GetReadingProgressUseCase(booksContentRepository = get())
+    }
+    factory {
+        GetBooksByTypeUseCase(booksRepository = get())
+    }
+    factory {
+        GetLastBookReadUseCase(booksRepository = get())
+    }
+    factory {
+        SaveLastBookReadUseCase(booksRepository = get())
+    }
+    factory {
+        SetBookFavoriteStatusUseCase(booksRepository = get())
     }
 
     // User

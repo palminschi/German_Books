@@ -19,7 +19,7 @@
         android:id="@+id/selectBookFragment"
         android:name="com.palmdev.german_books.presentation.screens.books.BooksFragment"
         android:label="select_book_fragment"
-        tools:layout="@layout/select_book_fragment" >
+        tools:layout="@layout/books_fragment" >
         <action
             android:id="@+id/action_selectBookFragment_to_bookReadingFragment"
             app:destination="@id/bookReadingFragment" />

@@ -1,19 +1,14 @@
 package com.palmdev.german_books.presentation.screens.book_reading
 
-import android.app.Dialog
-import android.util.Log
-import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.palmdev.domain.model.BookContent
 import com.palmdev.domain.model.BookReadingProgress
 import com.palmdev.domain.model.Language
 import com.palmdev.domain.usecase.books.GetBookContentUseCase
 import com.palmdev.domain.usecase.books.GetReadingProgressUseCase
 import com.palmdev.domain.usecase.books.SaveReadingProgressUseCase
 import com.palmdev.domain.usecase.user.GetTranslatorPreferencesUseCase
-import com.palmdev.german_books.utils.GoogleMLKitTranslator
 
 class BookReadingViewModel(
     private val getBookContentUseCase: GetBookContentUseCase,

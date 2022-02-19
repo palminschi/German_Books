@@ -1,6 +1,5 @@
 package com.palmdev.german_books.presentation.screens.book_reading
 
-import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -11,7 +10,7 @@ import com.palmdev.german_books.utils.GoogleMLKitTranslator
 
 class TranslatorLanguagesViewModel(
     private val saveTranslatorPreferencesUseCase: SaveTranslatorPreferencesUseCase,
-    private val getUserLanguageUseCase: GetUserLanguageUseCase
+    private val getUserLanguageUseCase: GetUserLanguageUseCase,
 ) : ViewModel() {
 
     private val _userLanguage = MutableLiveData<Language>()
@@ -38,7 +37,6 @@ class TranslatorLanguagesViewModel(
             name = languageName,
             code = availableLanguageCodes[index]
         )
-
         saveTranslatorPreferencesUseCase.execute(prefLang)
     }
 

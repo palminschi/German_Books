@@ -11,7 +11,11 @@ val appModule = module {
 
     viewModel { HomeViewModel() }
 
-    viewModel { BooksViewModel() }
+    viewModel {
+        BooksViewModel(
+            getBooksByTypeUseCase = get()
+        )
+    }
 
     viewModel {
         BookReadingViewModel(
@@ -25,7 +29,7 @@ val appModule = module {
     viewModel {
         TranslatorLanguagesViewModel(
             saveTranslatorPreferencesUseCase = get(),
-            getUserLanguageUseCase = get()
+            getUserLanguageUseCase = get(),
         )
     }
 

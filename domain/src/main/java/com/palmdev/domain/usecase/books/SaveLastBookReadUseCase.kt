@@ -1,5 +1,11 @@
 package com.palmdev.domain.usecase.books
 
-class SaveLastBookReadUseCase {
-    //TODO UseCase
+import com.palmdev.domain.repository.BooksRepository
+
+class SaveLastBookReadUseCase(private val booksRepository: BooksRepository) {
+
+    fun execute(bookId: Int){
+        booksRepository.saveLastBookRead(bookId = bookId)
+    }
+
 }
