@@ -86,11 +86,11 @@
                 android:id="@+id/tvFree"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:background="@color/green_light"
+                android:background="@color/green_2"
                 android:gravity="center"
                 android:padding="2dp"
                 android:text="@string/free"
-                android:textColor="@color/green"
+                android:textColor="@color/green_dark"
                 android:textSize="12sp" />
         </androidx.cardview.widget.CardView>
 

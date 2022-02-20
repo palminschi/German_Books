@@ -2,18 +2,23 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/homeFragment"
+        android:id="@id/homeFragment"
         android:title="@string/home"
-        android:icon="@drawable/ic_baseline_access_time_24"
+        android:icon="@drawable/menu_ic_home"
         />
     <item
-        android:id="@+id/bookReadingFragment"
+        android:id="@id/translatorFragment"
         android:title="@string/translator"
-        android:icon="@drawable/ic_baseline_access_time_24"
+        android:icon="@drawable/style_menu_ic_translator"
         />
     <item
-        android:id="@+id/selectBookFragment"
+        android:id="@id/selectBookFragment"
         android:title="@string/books"
-        android:icon="@drawable/ic_baseline_access_time_24"
+        android:icon="@drawable/menu_ic_books"
+        />
+    <item
+        android:id="@id/wordsFragment"
+        android:title="@string/words"
+        android:icon="@drawable/menu_ic_words"
         />
 </menu>

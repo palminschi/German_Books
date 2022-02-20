@@ -86,7 +86,7 @@ class BooksAdapter : RecyclerView.Adapter<BooksAdapter.BooksHolder>() {
             when (book.difficulty) {
                 "EASY" -> {
                     for (i in 0 until 2) {
-                        levelLines[i].setCardBackgroundColor(context.getColor(R.color.green_3))
+                        levelLines[i].setCardBackgroundColor(context.getColor(R.color.green_2))
                     }
                 }
                 "MEDIUM" -> {

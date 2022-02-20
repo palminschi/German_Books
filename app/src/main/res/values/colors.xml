@@ -21,10 +21,9 @@
     <color name="gray_03">#8E8E8E</color>
     <color name="gray_04">#676767</color>
     <color name="blue">#2395E8</color>
-    <color name="green">#43A047</color>
-    <color name="green_2">#6BBA6F</color>
-    <color name="green_3">#4AE695</color>
-    <color name="green_light">#C9FACB</color>
+    <color name="green_dark">#345C36</color>
+    <color name="green">#6BBA6F</color>
+    <color name="green_2">#4AE695</color>
     <color name="yellow">#FDD835</color>
     <color name="red">#F4511E</color>
 
