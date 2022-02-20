@@ -7,10 +7,11 @@ import android.view.Gravity
 import android.view.View
 import android.widget.PopupWindow
 import android.widget.TextView
+import androidx.fragment.app.FragmentManager
 import java.text.BreakIterator
 import java.util.*
 
-class TextToClickable {
+class TextToClickable(private val fragmentManager: FragmentManager) {
 
     private var mClickedWord = ""
     private var xCoordinate = 0
@@ -55,7 +56,9 @@ class TextToClickable {
             override fun onClick(widget: View) {
                 mClickedWord = word
                 GoogleMLKitTranslator.translate(word)?.addOnSuccessListener {
-                    TranslatePopupWindow.getPopupWindow(widget.context, word, it)
+                    TranslatePopupWindow(
+                        fragmentManager = fragmentManager
+                    ).getPopupWindow(widget.context, word, it)
                         .showAtLocation(widget, Gravity.NO_GRAVITY, xCoordinate, yCoordinate - 160)
                 }
 

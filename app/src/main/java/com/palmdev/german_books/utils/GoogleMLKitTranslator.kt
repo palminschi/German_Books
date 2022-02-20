@@ -1,14 +1,12 @@
 package com.palmdev.german_books.utils
 
 import com.google.android.gms.tasks.Task
-import com.google.mlkit.common.model.DownloadConditions
 import com.google.mlkit.nl.translate.TranslateLanguage
 import com.google.mlkit.nl.translate.Translation
 import com.google.mlkit.nl.translate.Translator
 import com.google.mlkit.nl.translate.TranslatorOptions
 import com.palmdev.domain.model.Language
 import java.util.*
-import kotlin.collections.ArrayList
 
 object GoogleMLKitTranslator {
 

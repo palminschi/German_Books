@@ -7,6 +7,7 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.ViewTreeObserver
 import android.widget.TextView
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.palmdev.data.util.Constants
@@ -44,7 +45,8 @@ class BookReadingFragment : Fragment(R.layout.book_reading_fragment) {
         viewModel.initTranslatorPreferences()
         val language = viewModel.translatorPreferences.value
         if (language?.name == Constants.SHARED_PREFS_NO_DATA){
-            val dialog = TranslatorLanguagesDialogFragment(cancelable = false)
+            val dialog = TranslatorLanguagesDialogFragment()
+            dialog.isCancelable = false
             dialog.show(
                 parentFragmentManager,
                 "TAG"
@@ -70,7 +72,7 @@ class BookReadingFragment : Fragment(R.layout.book_reading_fragment) {
         mCurrentPage = viewModel.currentPage.value ?: 0
 
         // Init TextToClickable
-        mTextToClickable = TextToClickable()
+        mTextToClickable = TextToClickable(fragmentManager = parentFragmentManager)
 
         // Set coordinates of click for Popup window
         binding.tvBookContent.setOnTouchListener { _, event ->

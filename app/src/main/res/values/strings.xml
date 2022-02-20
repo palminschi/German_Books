@@ -3,6 +3,7 @@
 
     <string name="save">Save</string>
     <string name="close">Close</string>
+    <string name="cancel">Cancel</string>
     <string name="wait">wait…</string>
     <string name="home">Home</string>
     <string name="books">Books</string>
@@ -14,4 +15,8 @@
     <string name="hard">Hard</string>
     <string name="free">Free</string>
     <string name="read">Read</string>
+    <string name="example">Example</string>
+    <string name="writeExample">write an example…</string>
+    <string name="inGerman">auf Deutsch</string>
+    <string name="inYourLang">in your language</string>
 </resources>

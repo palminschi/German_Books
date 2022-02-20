@@ -29,6 +29,14 @@
         android:id="@+id/bookReadingFragment"
         android:name="com.palmdev.german_books.presentation.screens.book_reading.BookReadingFragment"
         android:label="book_reading_fragment"
-        tools:layout="@layout/book_reading_fragment" />
+        tools:layout="@layout/book_reading_fragment" >
+        <action
+            android:id="@+id/action_bookReadingFragment_to_saveWordDialogFragment"
+            app:destination="@id/saveWordDialogFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/saveWordDialogFragment"
+        android:name="com.palmdev.german_books.presentation.screens.dialog_save_word.SaveWordDialogFragment"
+        android:label="SaveWordDialogFragment" />
 
 </navigation>
