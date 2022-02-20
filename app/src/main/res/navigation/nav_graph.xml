@@ -9,17 +9,23 @@
         android:id="@+id/homeFragment"
         android:name="com.palmdev.german_books.presentation.screens.home.HomeFragment"
         android:label="home_fragment"
-        tools:layout="@layout/home_fragment" >
+        tools:layout="@layout/home_fragment">
         <action
             android:id="@+id/action_homeFragment_to_selectBookFragment"
             app:destination="@id/selectBookFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_wordsFragment"
+            app:destination="@id/wordsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_translatorFragment2"
+            app:destination="@id/translatorFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/selectBookFragment"
         android:name="com.palmdev.german_books.presentation.screens.books.BooksFragment"
         android:label="select_book_fragment"
-        tools:layout="@layout/books_fragment" >
+        tools:layout="@layout/books_fragment">
         <action
             android:id="@+id/action_selectBookFragment_to_bookReadingFragment"
             app:destination="@id/bookReadingFragment" />
@@ -29,11 +35,39 @@
         android:id="@+id/bookReadingFragment"
         android:name="com.palmdev.german_books.presentation.screens.book_reading.BookReadingFragment"
         android:label="book_reading_fragment"
-        tools:layout="@layout/book_reading_fragment" >
+        tools:layout="@layout/book_reading_fragment">
+        <action
+            android:id="@+id/action_bookReadingFragment_to_translatorLanguagesDialogFragment"
+            app:destination="@id/translatorLanguagesDialogFragment" />
         <action
             android:id="@+id/action_bookReadingFragment_to_saveWordDialogFragment"
             app:destination="@id/saveWordDialogFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/translatorFragment"
+        android:name="com.palmdev.german_books.presentation.screens.translator.TranslatorFragment"
+        android:label="translator_fragment"
+        tools:layout="@layout/translator_fragment">
+        <action
+            android:id="@+id/action_translatorFragment_to_translatorLanguagesDialogFragment"
+            app:destination="@id/translatorLanguagesDialogFragment" />
+        <action
+            android:id="@+id/action_translatorFragment_to_saveWordDialogFragment2"
+            app:destination="@id/saveWordDialogFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/wordsFragment"
+        android:name="com.palmdev.german_books.presentation.screens.words.WordsFragment"
+        android:label="words_fragment"
+        tools:layout="@layout/words_fragment">
+        <action
+            android:id="@+id/action_wordsFragment_to_saveWordDialogFragment"
+            app:destination="@id/saveWordDialogFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/translatorLanguagesDialogFragment"
+        android:name="com.palmdev.german_books.presentation.screens.book_reading.TranslatorLanguagesDialogFragment"
+        android:label="TranslatorLanguagesDialogFragment" />
     <dialog
         android:id="@+id/saveWordDialogFragment"
         android:name="com.palmdev.german_books.presentation.screens.dialog_save_word.SaveWordDialogFragment"

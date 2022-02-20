@@ -13,6 +13,7 @@
         <entry key="..\:/Projects/German_Books/app/src/main/res/drawable/ic_sound.xml" value="0.2115" />
         <entry key="..\:/Projects/German_Books/app/src/main/res/drawable/style_books_header.xml" value="0.2115" />
         <entry key="..\:/Projects/German_Books/app/src/main/res/drawable/style_bottom_nav_menu.xml" value="0.2115" />
+        <entry key="..\:/Projects/German_Books/app/src/main/res/drawable/style_bottom_nav_view.xml" value="0.2115" />
         <entry key="..\:/Projects/German_Books/app/src/main/res/drawable/style_bottom_sheet_background.xml" value="0.2115" />
         <entry key="..\:/Projects/German_Books/app/src/main/res/drawable/style_btn_example.xml" value="0.2115" />
         <entry key="..\:/Projects/German_Books/app/src/main/res/drawable/style_btn_popup_line_top.xml" value="0.2115" />
@@ -26,6 +27,8 @@
         <entry key="..\:/Projects/German_Books/app/src/main/res/layout/item_book.xml" value="1.3090908636928607" />
         <entry key="..\:/Projects/German_Books/app/src/main/res/layout/popup_translate_word.xml" value="0.29270833333333335" />
         <entry key="..\:/Projects/German_Books/app/src/main/res/layout/select_book_fragment.xml" value="0.29270833333333335" />
+        <entry key="..\:/Projects/German_Books/app/src/main/res/layout/translator_fragment.xml" value="0.29270833333333335" />
+        <entry key="..\:/Projects/German_Books/app/src/main/res/layout/words_fragment.xml" value="0.29270833333333335" />
         <entry key="..\:/Projects/German_Books/app/src/main/res/menu/bottom_menu.xml" value="0.29270833333333335" />
       </map>
     </option>

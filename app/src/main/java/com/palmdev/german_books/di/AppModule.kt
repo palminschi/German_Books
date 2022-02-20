@@ -5,6 +5,8 @@ import com.palmdev.german_books.presentation.screens.book_reading.TranslatorLang
 import com.palmdev.german_books.presentation.screens.home.HomeViewModel
 import com.palmdev.german_books.presentation.screens.books.BooksViewModel
 import com.palmdev.german_books.presentation.screens.dialog_save_word.SaveWordViewModel
+import com.palmdev.german_books.presentation.screens.translator.TranslatorViewModel
+import com.palmdev.german_books.presentation.screens.words.WordsViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
@@ -36,6 +38,14 @@ val appModule = module {
 
     viewModel {
         SaveWordViewModel()
+    }
+
+    viewModel {
+        WordsViewModel()
+    }
+
+    viewModel {
+        TranslatorViewModel()
     }
 
 
