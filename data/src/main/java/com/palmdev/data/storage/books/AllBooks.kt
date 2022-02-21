@@ -25,10 +25,10 @@ class AllBooks(private val context: Context) {
 
         val book000 = BookEntity(
             id = 0,
-            title = "Hello World",
-            author = "hello",
+            title = "Das Mädchen mit den Schwefelhölzern",
+            author = "Hans Christian Andersen",
             difficulty = EASY,
-            encodedImage = getEncodedImageFromAssets("book_images/img_book_001.jpg"),
+            encodedImage = getEncodedImageFromAssets("book_images/img_book_000.jpg"),
             favorite = getBookFavoriteStatus(bookId = 0),
             premium = false
         )
@@ -36,10 +36,10 @@ class AllBooks(private val context: Context) {
 
         val book001 = BookEntity(
             id = 1,
-            title = "Hello World",
-            author = "hello",
-            difficulty = HARD,
-            encodedImage = getEncodedImageFromAssets("book_images/img_book_ex_3.jpg"),
+            title = "Alice's Abenteuer im Wunderland",
+            author = "Lewis Carroll",
+            difficulty = MEDIUM,
+            encodedImage = getEncodedImageFromAssets("book_images/img_book_001.jpg"),
             favorite = getBookFavoriteStatus(bookId = 1),
             premium = true
         )
@@ -47,14 +47,25 @@ class AllBooks(private val context: Context) {
 
         val book002 = BookEntity(
             id = 2,
-            title = "Hello World",
-            author = "hello",
-            difficulty = MEDIUM,
-            encodedImage = getEncodedImageFromAssets("book_images/img_book_001.jpg"),
+            title = "Emil und die Detektive",
+            author = "Erich Kästner",
+            difficulty = EASY,
+            encodedImage = getEncodedImageFromAssets("book_images/img_book_002.jpg"),
             favorite = getBookFavoriteStatus(bookId = 2),
-            premium = true
+            premium = false
         )
         allBooks.add(book002)
+
+        val book003 = BookEntity(
+            id = 3,
+            title = "Herr Vogel und Frau Wal",
+            author = "TheFableCottage.com",
+            difficulty = EASY,
+            encodedImage = getEncodedImageFromAssets("book_images/img_book_003.jpg"),
+            favorite = getBookFavoriteStatus(bookId = 3),
+            premium = false
+        )
+        allBooks.add(book003)
 
 
         return allBooks

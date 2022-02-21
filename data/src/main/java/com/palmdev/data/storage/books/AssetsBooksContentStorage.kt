@@ -17,9 +17,14 @@ class AssetsBooksContentStorage(context: Context) : BooksContentStorage {
 
     override fun getBookContentById(bookId: Int): BookContentEntity {
         val fileName = when(bookId){
-            0 -> "books/b_001_the_cat.txt"
-            1 -> "books/b_001_the_cat.txt"
-            else -> { "books/b_001_the_cat.txt" }
+            0 -> "books/b_000_das_maedchen_mit_den_schwefelhoelzern.txt"
+            1 -> "books/b_001_alice_abenteuer_im_wonderland.txt"
+            2 -> "books/b_002_emil_und_die_detektive.txt"
+            3 -> "books/b_003_herr_vogel_unde_frau_wal.txt"
+
+
+
+            else -> { "books/b_000_das_maedchen_mit_den_schwefelhoelzern.txt" }
         }
 
         val bookContent = getStringFromAssets(fileName = fileName)

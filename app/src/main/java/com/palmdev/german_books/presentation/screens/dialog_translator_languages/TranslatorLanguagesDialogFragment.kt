@@ -1,4 +1,4 @@
-package com.palmdev.german_books.presentation.screens.book_reading
+package com.palmdev.german_books.presentation.screens.dialog_translator_languages
 
 import android.app.Dialog
 import android.graphics.Color
@@ -6,12 +6,7 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.Log
 import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.Spinner
 import androidx.fragment.app.DialogFragment
-import com.google.mlkit.nl.translate.Translation
-import com.google.mlkit.nl.translate.Translator
-import com.google.mlkit.nl.translate.TranslatorOptions
 import com.palmdev.german_books.R
 import com.palmdev.german_books.databinding.DialogTranslatorLanguagesBinding
 import com.palmdev.german_books.utils.GoogleMLKitTranslator
@@ -43,7 +38,7 @@ class TranslatorLanguagesDialogFragment : DialogFragment() {
             val selectedItemId = binding.spinnerLanguages.selectedItemId.toInt()
             val translateTo = viewModel.availableLanguageCodes[selectedItemId]
             GoogleMLKitTranslator.createTranslator(
-                fromLanguage = "en",
+                fromLanguage = "de",
                 toLanguage = translateTo
             )?.addOnSuccessListener {
                 viewModel.saveTranslatorPreferences(binding.spinnerLanguages.selectedItem.toString())

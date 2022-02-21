@@ -1,7 +1,7 @@
 package com.palmdev.german_books.di
 
 import com.palmdev.german_books.presentation.screens.book_reading.BookReadingViewModel
-import com.palmdev.german_books.presentation.screens.book_reading.TranslatorLanguagesViewModel
+import com.palmdev.german_books.presentation.screens.dialog_translator_languages.TranslatorLanguagesViewModel
 import com.palmdev.german_books.presentation.screens.home.HomeViewModel
 import com.palmdev.german_books.presentation.screens.books.BooksViewModel
 import com.palmdev.german_books.presentation.screens.dialog_save_word.SaveWordViewModel

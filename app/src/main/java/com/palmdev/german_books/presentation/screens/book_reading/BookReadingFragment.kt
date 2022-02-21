@@ -2,18 +2,17 @@ package com.palmdev.german_books.presentation.screens.book_reading
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewTreeObserver
 import android.widget.TextView
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import com.palmdev.data.util.Constants
 import com.palmdev.german_books.R
 import com.palmdev.german_books.databinding.BookReadingFragmentBinding
 import com.palmdev.german_books.presentation.MainActivity
+import com.palmdev.german_books.presentation.screens.books.BooksFragment
+import com.palmdev.german_books.presentation.screens.dialog_translator_languages.TranslatorLanguagesDialogFragment
 import com.palmdev.german_books.utils.GoogleMLKitTranslator
 import com.palmdev.german_books.utils.Pagination
 import com.palmdev.german_books.utils.TextToClickable
@@ -31,11 +30,6 @@ class BookReadingFragment : Fragment(R.layout.book_reading_fragment) {
     private lateinit var mPagination: Pagination
     private lateinit var mTextToClickable: TextToClickable
 
-    override fun onDestroy() {
-        super.onDestroy()
-        Log.d("AAA", "Fragment Destroyed")
-    }
-
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -52,15 +46,12 @@ class BookReadingFragment : Fragment(R.layout.book_reading_fragment) {
                 "TAG"
             )
         }else if (language != null) {
-            GoogleMLKitTranslator.createTranslator("en", language.code) //TODO en -> de
+            GoogleMLKitTranslator.createTranslator("de", language.code)
         }
 
-
-
-
-
         // Set Book Content by ID
-        viewModel.initBook(mBookId) // TODO: Get Book Id from Args
+        mBookId = requireArguments().getInt(BooksFragment.ARG_OPENED_BOOK)
+        viewModel.initBook(mBookId)
         mBookContent = viewModel.bookContent.value ?: ""
         divideTextIntoPages(
             text = mBookContent,
@@ -68,7 +59,7 @@ class BookReadingFragment : Fragment(R.layout.book_reading_fragment) {
         )
 
         // Set the last page read
-        viewModel.initCurrentPage(mCurrentPage)
+        viewModel.initCurrentPage(bookId = mBookId)
         mCurrentPage = viewModel.currentPage.value ?: 0
 
         // Init TextToClickable

@@ -1,4 +1,4 @@
-package com.palmdev.german_books.presentation.screens.book_reading
+package com.palmdev.german_books.presentation.screens.dialog_translator_languages
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

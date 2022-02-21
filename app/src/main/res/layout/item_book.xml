@@ -25,6 +25,7 @@
 
             <ImageView
                 android:id="@+id/bookImg"
+                android:scaleType="centerCrop"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:contentDescription="@null" />
@@ -38,7 +39,7 @@
             android:layout_marginTop="7dp"
             android:text="Psychology of the Image"
             android:textColor="@color/white"
-            android:textSize="18sp"
+            android:textSize="17sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@id/bookAuthor"
             app:layout_constraintEnd_toEndOf="parent"
@@ -97,7 +98,7 @@
         <LinearLayout
             android:id="@+id/levelLayout"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="16dp"
             android:layout_marginStart="10dp"
             android:layout_marginBottom="10dp"
             android:orientation="horizontal"
@@ -107,54 +108,54 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/levelLine1"
                 android:layout_width="4dp"
-                android:layout_height="22dp"
+                android:layout_height="match_parent"
                 app:cardBackgroundColor="@color/gray_04"
-                app:cardCornerRadius="10dp"
+                app:cardCornerRadius="2dp"
                 app:cardElevation="0dp" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/levelLine2"
                 android:layout_marginStart="3dp"
                 android:layout_width="4dp"
-                android:layout_height="22dp"
+                android:layout_height="match_parent"
                 app:cardBackgroundColor="@color/gray_04"
-                app:cardCornerRadius="10dp"
+                app:cardCornerRadius="2dp"
                 app:cardElevation="0dp" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/levelLine3"
                 android:layout_marginStart="3dp"
                 android:layout_width="4dp"
-                android:layout_height="22dp"
+                android:layout_height="match_parent"
                 app:cardBackgroundColor="@color/gray_04"
-                app:cardCornerRadius="10dp"
+                app:cardCornerRadius="2dp"
                 app:cardElevation="0dp" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/levelLine4"
                 android:layout_marginStart="3dp"
                 android:layout_width="4dp"
-                android:layout_height="22dp"
+                android:layout_height="match_parent"
                 app:cardBackgroundColor="@color/gray_04"
-                app:cardCornerRadius="10dp"
+                app:cardCornerRadius="2dp"
                 app:cardElevation="0dp" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/levelLine5"
                 android:layout_marginStart="3dp"
                 android:layout_width="4dp"
-                android:layout_height="22dp"
+                android:layout_height="match_parent"
                 app:cardBackgroundColor="@color/gray_04"
-                app:cardCornerRadius="10dp"
+                app:cardCornerRadius="2dp"
                 app:cardElevation="0dp" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/levelLine6"
                 android:layout_marginStart="3dp"
                 android:layout_width="4dp"
-                android:layout_height="22dp"
+                android:layout_height="match_parent"
                 app:cardBackgroundColor="@color/gray_04"
-                app:cardCornerRadius="10dp"
+                app:cardCornerRadius="2dp"
                 app:cardElevation="0dp" />
         </LinearLayout>
 
