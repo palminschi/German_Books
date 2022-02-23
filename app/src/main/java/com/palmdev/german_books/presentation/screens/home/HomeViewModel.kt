@@ -49,7 +49,7 @@ class HomeViewModel(
 
     fun getWords() {
         viewModelScope.launch {
-            getWordsByGroupUseCase.invoke(2).collect {
+            getWordsByGroupUseCase.invoke(0).collect {
 
                 _words.value = it
 

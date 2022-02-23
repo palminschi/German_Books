@@ -42,7 +42,9 @@ val appModule = module {
     }
 
     viewModel {
-        SaveWordViewModel()
+        SaveWordViewModel(
+            addWordUseCase = get()
+        )
     }
 
     viewModel {

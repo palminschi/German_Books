@@ -44,7 +44,12 @@ class SaveWordDialogFragment(
         // Buttons
         binding.btnCancel.setOnClickListener { dialog.dismiss() }
         binding.btnSave.setOnClickListener {
-            // TODO SAVE WORD
+            viewModel.addWord(
+                word = binding.dialogWord.toString(),
+                translation = binding.dialogTranslatedWord.toString(),
+                sentence = binding.dialogPhrase.toString()
+            )
+            dialog.dismiss()
         }
         binding.btnExample.setOnClickListener {
             it.visibility = View.GONE
