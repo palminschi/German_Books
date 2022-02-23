@@ -1,8 +1,11 @@
 package com.palmdev.german_books.di
 
+import com.palmdev.data.database.WordsDao
+import com.palmdev.data.database.WordsDatabase
 import com.palmdev.data.repository.BooksContentRepositoryImpl
 import com.palmdev.data.repository.BooksRepositoryImpl
 import com.palmdev.data.repository.UserRepositoryImpl
+import com.palmdev.data.repository.WordsRepositoryImpl
 import com.palmdev.data.storage.books.AssetsBooksContentStorage
 import com.palmdev.data.storage.books.BooksContentStorage
 import com.palmdev.data.storage.books.BooksStorage
@@ -12,6 +15,7 @@ import com.palmdev.data.storage.user.UserStorage
 import com.palmdev.domain.repository.BooksContentRepository
 import com.palmdev.domain.repository.BooksRepository
 import com.palmdev.domain.repository.UserRepository
+import com.palmdev.domain.repository.WordsRepository
 import org.koin.dsl.module
 
 val dataModule = module {

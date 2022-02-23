@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -69,5 +70,6 @@ dependencies {
 
     // Google ML Kit Translator
     implementation 'com.google.mlkit:translate:17.0.0'
+
 
 }

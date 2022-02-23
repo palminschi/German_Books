@@ -12,4 +12,25 @@
         android:layout_height="wrap_content"
         android:text="Select Book" />
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="Hello" />
+
+    <Button
+        android:id="@+id/addWord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:text="add Word" />
+
+    <Button
+        android:id="@+id/getLast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:text="get"/>
+
 </FrameLayout>

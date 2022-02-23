@@ -5,6 +5,10 @@ import com.palmdev.domain.usecase.user.GetTranslatorPreferencesUseCase
 import com.palmdev.domain.usecase.user.GetUserLanguageUseCase
 import com.palmdev.domain.usecase.user.SaveTranslatorPreferencesUseCase
 import com.palmdev.domain.usecase.user.SaveUserLanguageUseCase
+import com.palmdev.domain.usecase.words.AddWordUseCase
+import com.palmdev.domain.usecase.words.GetAllWordsUseCase
+import com.palmdev.domain.usecase.words.GetGroupsOfWordsUseCase
+import com.palmdev.domain.usecase.words.GetWordsByGroupUseCase
 import org.koin.dsl.module
 
 val domainModule = module {
@@ -44,6 +48,20 @@ val domainModule = module {
     }
     factory {
         GetTranslatorPreferencesUseCase(userRepository = get())
+    }
+
+    // Words
+    factory {
+        GetAllWordsUseCase(wordsRepository = get())
+    }
+    factory {
+        AddWordUseCase(wordsRepository = get())
+    }
+    factory {
+        GetGroupsOfWordsUseCase(wordsRepository = get())
+    }
+    factory {
+        GetWordsByGroupUseCase(wordsRepository = get())
     }
 
 }
