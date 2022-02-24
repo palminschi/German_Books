@@ -19,4 +19,14 @@
     <string name="writeExample">write an example…</string>
     <string name="inGerman">auf Deutsch</string>
     <string name="inYourLang">in your language</string>
+    <string name="groupOfWords">Group</string>
+    <string name="words_s">words</string>
+    <string name="noWords">You have no words to learn,\nRead books and add words!</string>
+    <string name="readBooks">Read Books</string>
+    <string name="savedWords">Saved Words</string>
+    <string name="addWord">Add a word</string>
+    <string name="learnRandom">Learn random words</string>
+    <string name="gameWriteWord">Write</string>
+    <string name="gameFleshCards">Flesh Cards</string>
+    <string name="gameSelectWord">Select</string>
 </resources>

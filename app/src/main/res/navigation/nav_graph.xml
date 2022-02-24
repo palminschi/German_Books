@@ -63,6 +63,9 @@
         <action
             android:id="@+id/action_wordsFragment_to_saveWordDialogFragment"
             app:destination="@id/saveWordDialogFragment" />
+        <action
+            android:id="@+id/action_wordsFragment_to_groupOfWordsFragment"
+            app:destination="@id/groupOfWordsFragment" />
     </fragment>
     <dialog
         android:id="@+id/translatorLanguagesDialogFragment"
@@ -72,5 +75,10 @@
         android:id="@+id/saveWordDialogFragment"
         android:name="com.palmdev.german_books.presentation.screens.dialog_save_word.SaveWordDialogFragment"
         android:label="SaveWordDialogFragment" />
+    <fragment
+        android:id="@+id/groupOfWordsFragment"
+        android:name="com.palmdev.german_books.presentation.screens.group_of_words.GroupOfWordsFragment"
+        android:label="group_of_words_fragment"
+        tools:layout="@layout/group_of_words_fragment" />
 
 </navigation>

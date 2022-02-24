@@ -45,9 +45,9 @@ class SaveWordDialogFragment(
         binding.btnCancel.setOnClickListener { dialog.dismiss() }
         binding.btnSave.setOnClickListener {
             viewModel.addWord(
-                word = binding.dialogWord.toString(),
-                translation = binding.dialogTranslatedWord.toString(),
-                sentence = binding.dialogPhrase.toString()
+                word = binding.dialogWord.text.toString(),
+                translation = binding.dialogTranslatedWord.text.toString(),
+                sentence = binding.dialogPhrase.text.toString()
             )
             dialog.dismiss()
         }

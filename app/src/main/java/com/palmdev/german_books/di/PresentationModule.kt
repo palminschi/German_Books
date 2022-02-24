@@ -5,12 +5,13 @@ import com.palmdev.german_books.presentation.screens.dialog_translator_languages
 import com.palmdev.german_books.presentation.screens.home.HomeViewModel
 import com.palmdev.german_books.presentation.screens.books.BooksViewModel
 import com.palmdev.german_books.presentation.screens.dialog_save_word.SaveWordViewModel
+import com.palmdev.german_books.presentation.screens.group_of_words.GroupOfWordsViewModel
 import com.palmdev.german_books.presentation.screens.translator.TranslatorViewModel
 import com.palmdev.german_books.presentation.screens.words.WordsViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
-val appModule = module {
+val presentationModule = module {
 
     viewModel { HomeViewModel(
         getAllWordsUseCase = get(),
@@ -48,7 +49,15 @@ val appModule = module {
     }
 
     viewModel {
-        WordsViewModel()
+        WordsViewModel(
+            getGroupsOfWordsUseCase = get()
+        )
+    }
+
+    viewModel {
+        GroupOfWordsViewModel(
+            getWordsByGroupUseCase = get()
+        )
     }
 
     viewModel {
