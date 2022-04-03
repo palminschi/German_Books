@@ -10,6 +10,5 @@ data class WordEntity(
     val id: Long,
     val word: String,
     val translation: String,
-    val sentence: String? = null,
     val group: Int = 0
 )

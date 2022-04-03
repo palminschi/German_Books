@@ -25,6 +25,10 @@ class BookReadingViewModel(
     val currentPage: LiveData<Int> = _currentPage
     val translatorPreferences: LiveData<Language> = _translatorPreferences
 
+    init {
+        _translatorPreferences.value = getTranslatorPreferencesUseCase.execute()
+    }
+
     fun initBook(id: Int) {
         _bookContent.value = getBookContentUseCase.execute(id).content
     }
@@ -40,10 +44,6 @@ class BookReadingViewModel(
 
     fun initCurrentPage(bookId: Int){
         _currentPage.value = getReadingProgressUseCase.execute(bookId = bookId).currentPage
-    }
-
-    fun initTranslatorPreferences(){
-        _translatorPreferences.value = getTranslatorPreferencesUseCase.execute()
     }
 
 }

@@ -54,7 +54,6 @@ class WordsRepositoryImpl(private val wordsDao: WordsDao) : WordsRepository {
             id = wordEntity.id,
             word = wordEntity.word,
             translation = wordEntity.translation,
-            sentence = wordEntity.sentence,
             group = wordEntity.group
         )
     }
@@ -64,7 +63,6 @@ class WordsRepositoryImpl(private val wordsDao: WordsDao) : WordsRepository {
             id = word.id,
             word = word.word,
             translation = word.translation,
-            sentence = word.sentence,
             group = word.group
         )
     }

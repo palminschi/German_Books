@@ -29,7 +29,7 @@
         android:theme="@style/Theme.German_Books">
 
         <activity
-            android:name=".presentation.MainActivity"
+            android:name=".MainActivity"
             android:screenOrientation="portrait"
             android:exported="true"
             tools:ignore="LockedOrientationActivity">

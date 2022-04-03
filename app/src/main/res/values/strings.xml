@@ -4,6 +4,8 @@
     <string name="save">Save</string>
     <string name="close">Close</string>
     <string name="cancel">Cancel</string>
+    <string name="back">Back</string>
+    <string name="ok">OK</string>
     <string name="wait">wait…</string>
     <string name="home">Home</string>
     <string name="books">Books</string>
@@ -24,9 +26,16 @@
     <string name="noWords">You have no words to learn,\nRead books and add words!</string>
     <string name="readBooks">Read Books</string>
     <string name="savedWords">Saved Words</string>
-    <string name="addWord">Add a word</string>
+    <string name="addWord">Add</string>
     <string name="learnRandom">Learn random words</string>
     <string name="gameWriteWord">Write</string>
     <string name="gameFleshCards">Flesh Cards</string>
     <string name="gameSelectWord">Select</string>
+    <string name="translate">Translate</string>
+    <string name="pronunciation">Pronounce</string>
+    <string name="noInternet">You have a weak network connection.</string>
+    <string name="langDownloadInfo">The language package will be downloaded ≈ 30 MB</string>
+    <string name="selectYourLang">Select your language:</string>
+
+    <string name="toastSelectText">Select the text</string>
 </resources>

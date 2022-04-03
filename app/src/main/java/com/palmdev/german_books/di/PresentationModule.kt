@@ -13,12 +13,7 @@ import org.koin.dsl.module
 
 val presentationModule = module {
 
-    viewModel { HomeViewModel(
-        getAllWordsUseCase = get(),
-        addWordUseCase = get(),
-        getGroupsOfWordsUseCase = get(),
-        getWordsByGroupUseCase = get()
-    ) }
+    viewModel { HomeViewModel() }
 
     viewModel {
         BooksViewModel(

@@ -8,7 +8,6 @@ class VoiceText(private val context: Context) {
 
     private lateinit var mTextToSpeech: TextToSpeech
 
-
     fun init(){
         mTextToSpeech = TextToSpeech(context){
             mTextToSpeech.language = Locale.GERMAN

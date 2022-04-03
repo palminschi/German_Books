@@ -8,6 +8,7 @@ import android.view.View
 import androidx.fragment.app.DialogFragment
 import com.palmdev.german_books.R
 import com.palmdev.german_books.databinding.DialogSaveWordBinding
+import com.palmdev.german_books.utils.GoogleMLKitTranslator
 import com.palmdev.german_books.utils.VoiceText
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -46,15 +47,29 @@ class SaveWordDialogFragment(
         binding.btnSave.setOnClickListener {
             viewModel.addWord(
                 word = binding.dialogWord.text.toString(),
-                translation = binding.dialogTranslatedWord.text.toString(),
-                sentence = binding.dialogPhrase.text.toString()
+                translation = binding.dialogTranslatedWord.text.toString()
             )
             dialog.dismiss()
         }
-        binding.btnExample.setOnClickListener {
-            it.visibility = View.GONE
-            binding.dialogPhrase.visibility = View.VISIBLE
+
+        // Translate
+        val word = binding.dialogWord.text.toString()
+        if (word.isNotEmpty()) {
+            binding.dialogTranslatedWord.visibility = View.INVISIBLE
+            binding.progressBar.visibility = View.VISIBLE
+            GoogleMLKitTranslator
+                .translate(word)
+                ?.addOnSuccessListener {
+                    binding.dialogTranslatedWord.setText(it)
+                    binding.dialogTranslatedWord.visibility = View.VISIBLE
+                    binding.progressBar.visibility = View.INVISIBLE
+                }
+        } else {
+            binding.progressBar.visibility = View.INVISIBLE
+            binding.dialogTranslatedWord.visibility = View.VISIBLE
         }
+
+
         return dialog
     }
 

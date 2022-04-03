@@ -7,8 +7,7 @@ class AddWordUseCase(private val wordsRepository: WordsRepository) {
 
     suspend fun invoke(
         word: String,
-        translation: String,
-        sentence: String? = null
+        translation: String
     ){
         var group = 0
         val lastWord = wordsRepository.getLastWord()
@@ -26,7 +25,6 @@ class AddWordUseCase(private val wordsRepository: WordsRepository) {
             Word(
                 word = word,
                 translation = translation,
-                sentence = sentence,
                 group = group
             )
         )

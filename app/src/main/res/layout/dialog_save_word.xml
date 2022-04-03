@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cardView"
@@ -32,14 +31,15 @@
                 android:id="@+id/dialogWord"
                 android:layout_width="180dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="39dp"
+                android:layout_marginStart="43dp"
                 android:backgroundTint="@color/gray_03"
                 android:hint="@string/inGerman"
-                android:inputType="textAutoCorrect"
+                android:importantForAutofill="no"
+                android:inputType="textMultiLine"
+                android:lines="2"
                 android:textColor="@color/white"
                 android:textColorHint="@color/gray_03"
-                android:textSize="20sp"
-                android:importantForAutofill="no" />
+                android:textSize="18sp" />
 
             <ImageView
                 android:id="@+id/btnSound"
@@ -53,51 +53,34 @@
                 tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/btnExample"
+        <FrameLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:layout_marginEnd="10dp"
-            android:background="@drawable/style_btn_example"
-            android:paddingHorizontal="5dp"
-            android:paddingVertical="1dp"
-            android:text="@string/example"
-            android:textColor="@color/main_orange"
-            android:textSize="14sp"
-            tools:ignore="TextContrastCheck" />
-
-        <EditText
-            android:id="@+id/dialogPhrase"
-            android:layout_width="180dp"
-            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginHorizontal="5dp"
-            android:layout_marginBottom="10dp"
-            android:backgroundTint="@color/gray_03"
-            android:inputType="textAutoCorrect"
-            android:importantForAutofill="no"
-            android:hint="@string/writeExample"
-            android:textColor="@color/gray_03"
-            android:textColorHint="@color/gray_03"
-            android:textSize="14sp"
-            android:visibility="gone" />
+            android:layout_marginBottom="20dp">
 
-        <EditText
-            android:id="@+id/dialogTranslatedWord"
-            android:layout_width="180dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginHorizontal="5dp"
-            android:layout_marginBottom="20dp"
-            android:backgroundTint="@color/gray_03"
-            android:hint="@string/inYourLang"
-            android:importantForAutofill="no"
-            android:inputType="textAutoCorrect"
-            android:textColor="@color/gray_03"
-            android:textColorHint="@color/gray_03"
-            android:textSize="18sp"
-            tools:ignore="TouchTargetSizeCheck" />
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center" />
+
+            <EditText
+                android:id="@+id/dialogTranslatedWord"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:backgroundTint="@color/gray_03"
+                android:hint="@string/inYourLang"
+                android:importantForAutofill="no"
+                android:inputType="textMultiLine"
+                android:lines="2"
+                android:textColor="@color/gray_03"
+                android:textColorHint="@color/gray_03"
+                android:textSize="16sp"
+                tools:ignore="TouchTargetSizeCheck" />
+        </FrameLayout>
 
 
         <LinearLayout
@@ -113,9 +96,9 @@
                 android:layout_weight="1"
                 android:background="@drawable/style_btn_popup_line_right"
                 android:gravity="center"
-                android:textSize="16sp"
                 android:text="@string/cancel"
-                android:textColor="@color/main_orange" />
+                android:textColor="@color/main_orange"
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/btnSave"
@@ -123,9 +106,9 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:textSize="16sp"
                 android:text="@string/save"
-                android:textColor="@color/main_orange" />
+                android:textColor="@color/main_orange"
+                android:textSize="16sp" />
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

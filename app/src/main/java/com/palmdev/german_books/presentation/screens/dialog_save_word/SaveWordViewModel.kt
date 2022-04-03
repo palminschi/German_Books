@@ -13,13 +13,11 @@ class SaveWordViewModel(
     fun addWord(
         word: String,
         translation: String,
-        sentence: String?
     ) {
         viewModelScope.launch {
             addWordUseCase.invoke(
                 word = word,
-                translation = translation,
-                sentence = sentence
+                translation = translation
             )
         }
     }

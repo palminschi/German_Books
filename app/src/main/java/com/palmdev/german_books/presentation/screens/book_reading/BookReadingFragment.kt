@@ -1,21 +1,23 @@
 package com.palmdev.german_books.presentation.screens.book_reading
 
-import android.annotation.SuppressLint
 import android.os.Bundle
-import android.view.MotionEvent
 import android.view.View
 import android.view.ViewTreeObserver
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.palmdev.data.util.Constants
+import com.palmdev.german_books.MainActivity
 import com.palmdev.german_books.R
 import com.palmdev.german_books.databinding.BookReadingFragmentBinding
-import com.palmdev.german_books.presentation.MainActivity
 import com.palmdev.german_books.presentation.screens.books.BooksFragment
+import com.palmdev.german_books.presentation.screens.dialog_save_word.SaveWordDialogFragment
 import com.palmdev.german_books.presentation.screens.dialog_translator_languages.TranslatorLanguagesDialogFragment
+import com.palmdev.german_books.utils.EmptyTextSelection
 import com.palmdev.german_books.utils.GoogleMLKitTranslator
 import com.palmdev.german_books.utils.Pagination
-import com.palmdev.german_books.utils.TextToClickable
+import com.palmdev.german_books.utils.VoiceText
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class BookReadingFragment : Fragment(R.layout.book_reading_fragment) {
@@ -28,25 +30,23 @@ class BookReadingFragment : Fragment(R.layout.book_reading_fragment) {
     private var mBookContent: String = ""
     private var mCurrentPage = 0
     private lateinit var mPagination: Pagination
-    private lateinit var mTextToClickable: TextToClickable
 
 
-    @SuppressLint("ClickableViewAccessibility")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = BookReadingFragmentBinding.bind(view)
 
-        viewModel.initTranslatorPreferences()
-        val language = viewModel.translatorPreferences.value
-        if (language?.name == Constants.SHARED_PREFS_NO_DATA){
+        val translatorLanguage = viewModel.translatorPreferences.value
+
+        if (translatorLanguage?.name == Constants.SHARED_PREFS_NO_DATA) {
             val dialog = TranslatorLanguagesDialogFragment()
             dialog.isCancelable = false
             dialog.show(
                 parentFragmentManager,
                 "TAG"
             )
-        }else if (language != null) {
-            GoogleMLKitTranslator.createTranslator("de", language.code)
+        } else if (translatorLanguage != null) {
+            GoogleMLKitTranslator.createTranslator("de", translatorLanguage.code)
         }
 
         // Set Book Content by ID
@@ -62,25 +62,68 @@ class BookReadingFragment : Fragment(R.layout.book_reading_fragment) {
         viewModel.initCurrentPage(bookId = mBookId)
         mCurrentPage = viewModel.currentPage.value ?: 0
 
-        // Init TextToClickable
-        mTextToClickable = TextToClickable(fragmentManager = parentFragmentManager)
+        // Empty Text Selection Callback
+        binding.tvBookContent.customSelectionActionModeCallback = EmptyTextSelection()
 
-        // Set coordinates of click for Popup window
-        binding.tvBookContent.setOnTouchListener { _, event ->
-            if (event.action == MotionEvent.ACTION_UP) {
-                mTextToClickable.setCoordinates(
-                    x = event.x.toInt(),
-                    y = event.y.toInt()
+
+        setButtons()
+    }
+
+    private fun setButtons() {
+
+        // Button translate the text
+        binding.btnTranslate.setOnClickListener {
+            val selectionStart = binding.tvBookContent.selectionStart
+            val selectionEnd = binding.tvBookContent.selectionEnd
+            val selectedText = binding.tvBookContent.text.substring(
+                startIndex = selectionStart,
+                endIndex = selectionEnd
+            )
+
+            if (selectedText.isEmpty()) {
+                Toast.makeText(
+                    requireContext(),
+                    getString(R.string.toastSelectText),
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else {
+                val dialog = SaveWordDialogFragment(
+                    word = selectedText
                 )
-                false
-            } else false
+                dialog.show(parentFragmentManager, "TAG")
+            }
         }
+        // Button pronunciation
+        val voiceText = VoiceText(requireContext())
+        voiceText.init()
+
+        binding.btnPronounce.setOnClickListener {
+            val selectionStart = binding.tvBookContent.selectionStart
+            val selectionEnd = binding.tvBookContent.selectionEnd
+            val selectedText = binding.tvBookContent.text.substring(
+                startIndex = selectionStart,
+                endIndex = selectionEnd
+            )
+
+            if (selectedText.isEmpty()) {
+                Toast.makeText(
+                    requireContext(),
+                    getString(R.string.toastSelectText),
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else {
+                voiceText.play(selectedText)
+            }
+        }
+        // Button back
+        binding.btnBack.setOnClickListener { findNavController().popBackStack() }
 
     }
 
     override fun onResume() {
         super.onResume()
         MainActivity.hideBottomNavigation()
+
     }
 
     override fun onStop() {
@@ -110,40 +153,33 @@ class BookReadingFragment : Fragment(R.layout.book_reading_fragment) {
                     textView.lineSpacingExtra,
                     textView.includeFontPadding
                 )
-                updateText()
+                setPage()
             }
         })
 
         binding.btnPageBack.setOnClickListener {
             mCurrentPage = if (mCurrentPage > 0) mCurrentPage - 1 else 0
-            updateText()
+            setPage()
         }
         binding.btnPageNext.setOnClickListener {
             mCurrentPage =
                 if (mCurrentPage < mPagination.size() - 1) mCurrentPage + 1 else mPagination.size() - 1
-            updateText()
+            setPage()
         }
     }
 
-    @SuppressLint("SetTextI18n")
-    private fun updateText() {
-        val text = mPagination[mCurrentPage]
-        if (text != null) {
-            binding.tvBookContent.text = text
-            mTextToClickable.convertTextToClickable(text, binding.tvBookContent)
-        }
+    private fun setPage() {
+        binding.tvBookContent.text = mPagination[mCurrentPage] ?: ""
 
-        binding.currentPage.text = "${mCurrentPage + 1} / ${(mPagination.size())}"
+        val currentPage = "${mCurrentPage + 1} / ${(mPagination.size())}"
+        binding.currentPage.text = currentPage
 
-        if (mCurrentPage == 0) {
-            binding.btnPageBack.visibility = View.INVISIBLE
-        } else {
-            binding.btnPageBack.visibility = View.VISIBLE
-        }
-        if (mCurrentPage == mPagination.size() - 1) {
-            binding.btnPageNext.visibility = View.INVISIBLE
-        } else {
-            binding.btnPageNext.visibility = View.VISIBLE
-        }
+        binding.btnPageBack.visibility =
+            if (mCurrentPage == 0) View.INVISIBLE
+            else View.VISIBLE
+
+        binding.btnPageNext.visibility =
+            if (mCurrentPage == mPagination.size() - 1) View.INVISIBLE
+            else View.VISIBLE
     }
 }
