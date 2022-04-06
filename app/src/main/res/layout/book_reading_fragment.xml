@@ -81,7 +81,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@android:color/transparent"
+            android:background="@drawable/background_transparent_to_orange"
             android:contentDescription="@null"
             android:src="@drawable/ic_previous_page"
             android:textColor="@color/black"
@@ -104,7 +104,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@android:color/transparent"
+            android:background="@drawable/background_transparent_to_orange"
             android:contentDescription="@null"
             android:src="@drawable/ic_next_page"
             android:textColor="@color/black"
@@ -124,6 +124,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:background="@drawable/background_transparent_to_orange"
             android:gravity="center"
             android:orientation="horizontal">
 
@@ -146,13 +147,14 @@
             android:id="@+id/border"
             android:layout_width="1dp"
             android:layout_height="match_parent"
-            android:background="@color/gray_04" />
+            android:background="@color/gray_03" />
 
         <LinearLayout
             android:id="@+id/btnPronounce"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:background="@drawable/background_transparent_to_orange"
             android:gravity="center"
             android:orientation="horizontal">
 
@@ -168,7 +170,7 @@
                 android:layout_marginStart="2dp"
                 android:adjustViewBounds="true"
                 android:contentDescription="@null"
-                android:src="@drawable/ic_sound" />
+                android:src="@drawable/icon_sound" />
         </LinearLayout>
     </LinearLayout>
 
