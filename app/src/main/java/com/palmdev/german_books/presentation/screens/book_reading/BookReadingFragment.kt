@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewTreeObserver
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.palmdev.data.util.Constants
@@ -118,6 +119,13 @@ class BookReadingFragment : Fragment(R.layout.book_reading_fragment) {
         // Button back
         binding.btnBack.setOnClickListener { findNavController().popBackStack() }
 
+        // Button settings
+        binding.btnSettings.setOnClickListener {
+            findNavController().navigate(
+                R.id.action_bookReadingFragment_to_readingBottomSheetFragment,
+                bundleOf(BOOK_ID to mBookId)
+            )
+        }
     }
 
     override fun onResume() {
@@ -181,5 +189,9 @@ class BookReadingFragment : Fragment(R.layout.book_reading_fragment) {
         binding.btnPageNext.visibility =
             if (mCurrentPage == mPagination.size() - 1) View.INVISIBLE
             else View.VISIBLE
+    }
+
+    companion object {
+        const val BOOK_ID = "BOOK_ID"
     }
 }

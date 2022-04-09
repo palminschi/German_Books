@@ -42,6 +42,9 @@
         <action
             android:id="@+id/action_bookReadingFragment_to_saveWordDialogFragment"
             app:destination="@id/saveWordDialogFragment" />
+        <action
+            android:id="@+id/action_bookReadingFragment_to_readingBottomSheetFragment"
+            app:destination="@id/readingBottomSheetFragment" />
     </fragment>
     <fragment
         android:id="@+id/translatorFragment"
@@ -80,5 +83,10 @@
         android:name="com.palmdev.german_books.presentation.screens.group_of_words.GroupOfWordsFragment"
         android:label="group_of_words_fragment"
         tools:layout="@layout/group_of_words_fragment" />
+    <dialog
+        android:id="@+id/readingBottomSheetFragment"
+        android:name="com.palmdev.german_books.presentation.screens.book_reading.bottom_sheet.ReadingBottomSheetFragment"
+        android:label="reading_bottom_sheet_fragment"
+        tools:layout="@layout/reading_bottom_sheet_fragment" />
 
 </navigation>

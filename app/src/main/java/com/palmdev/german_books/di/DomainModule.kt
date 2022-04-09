@@ -35,6 +35,9 @@ val domainModule = module {
     factory {
         SetBookFavoriteStatusUseCase(booksRepository = get())
     }
+    factory {
+        GetBookByIdUseCase(booksRepository = get())
+    }
 
     // User
     factory {

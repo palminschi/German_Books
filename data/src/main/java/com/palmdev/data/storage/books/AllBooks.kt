@@ -49,7 +49,7 @@ class AllBooks(private val context: Context) {
             id = 2,
             title = "Emil und die Detektive",
             author = "Erich Kästner",
-            difficulty = EASY,
+            difficulty = MEDIUM,
             encodedImage = getEncodedImageFromAssets("book_images/img_book_002.jpg"),
             favorite = getBookFavoriteStatus(bookId = 2),
             premium = false

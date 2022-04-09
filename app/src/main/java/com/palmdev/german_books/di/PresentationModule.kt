@@ -1,6 +1,7 @@
 package com.palmdev.german_books.di
 
 import com.palmdev.german_books.presentation.screens.book_reading.BookReadingViewModel
+import com.palmdev.german_books.presentation.screens.book_reading.bottom_sheet.ReadingBottomSheetViewModel
 import com.palmdev.german_books.presentation.screens.dialog_translator_languages.TranslatorLanguagesViewModel
 import com.palmdev.german_books.presentation.screens.home.HomeViewModel
 import com.palmdev.german_books.presentation.screens.books.BooksViewModel
@@ -57,6 +58,15 @@ val presentationModule = module {
 
     viewModel {
         TranslatorViewModel()
+    }
+
+    viewModel {
+        ReadingBottomSheetViewModel(
+            setBookFavoriteStatusUseCase = get(),
+            getAllWordsUseCase = get(),
+            getTranslatorPreferencesUseCase = get(),
+            getBookByIdUseCase = get()
+        )
     }
 
 

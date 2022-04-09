@@ -12,4 +12,5 @@ interface BooksRepository {
 
     fun saveLastBookRead(bookId: Int)
 
+    fun getBookById(id: Int): Book
 }

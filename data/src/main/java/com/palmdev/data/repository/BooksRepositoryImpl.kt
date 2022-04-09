@@ -27,6 +27,10 @@ class BooksRepositoryImpl(private val booksStorage: BooksStorage) : BooksReposit
         booksStorage.saveLastBookRead(bookId = bookId)
     }
 
+    override fun getBookById(id: Int): Book {
+        return mapBookToDomain(bookEntity = booksStorage.getBookById(id))
+    }
+
 
     // Mappers
     private fun mapBookToDomain(bookEntity: BookEntity): Book {
