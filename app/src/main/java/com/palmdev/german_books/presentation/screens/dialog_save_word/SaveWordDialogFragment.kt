@@ -51,8 +51,14 @@ class SaveWordDialogFragment(
             )
             dialog.dismiss()
         }
+        binding.btnTranslate.setOnClickListener { translate() }
 
-        // Translate
+        translate()
+
+        return dialog
+    }
+
+    private fun translate(){
         val word = binding.dialogWord.text.toString()
         if (word.isNotEmpty()) {
             binding.dialogTranslatedWord.visibility = View.INVISIBLE
@@ -68,9 +74,6 @@ class SaveWordDialogFragment(
             binding.progressBar.visibility = View.INVISIBLE
             binding.dialogTranslatedWord.visibility = View.VISIBLE
         }
-
-
-        return dialog
     }
 
 }
