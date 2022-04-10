@@ -24,7 +24,7 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
 
         binding = HomeFragmentBinding.bind(view)
 
-        binding.button.setOnClickListener { findNavController().navigate(R.id.action_homeFragment_to_selectBookFragment) }
+       // binding.button.setOnClickListener { findNavController().navigate(R.id.action_homeFragment_to_selectBookFragment) }
 
     }
 

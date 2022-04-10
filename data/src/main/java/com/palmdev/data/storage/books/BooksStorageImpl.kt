@@ -17,7 +17,7 @@ class BooksStorageImpl(private val context: Context): BooksStorage {
     }
 
     override fun getLastBookRead(): BookEntity {
-        val bookId = mSharedPrefs.getInt(Constants.LAST_BOOK_READ, 0)
+        val bookId = mSharedPrefs.getInt(Constants.LAST_BOOK_READ, 999)
         return AllBooks(context).getBooks().get(index = bookId)
     }
 

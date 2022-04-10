@@ -59,7 +59,6 @@ class GroupOfWordsFragment : Fragment() {
             setContent()
         }
 
-
     }
 
     private fun setContent() {

@@ -16,9 +16,11 @@ class GroupOfWordsViewModel(
     val words: LiveData<List<Word>> = _words
 
     fun getWords(groupId: Int) {
-        viewModelScope.launch {
-            getWordsByGroupUseCase.invoke(groupId = groupId).collect {
-                _words.value = it
+        if (_words.value.isNullOrEmpty()) {
+            viewModelScope.launch {
+                getWordsByGroupUseCase.invoke(groupId = groupId).collect {
+                    _words.value = it
+                }
             }
         }
     }
