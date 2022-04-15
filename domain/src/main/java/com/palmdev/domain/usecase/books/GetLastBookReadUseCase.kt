@@ -5,7 +5,7 @@ import com.palmdev.domain.repository.BooksRepository
 
 class GetLastBookReadUseCase(private val booksRepository: BooksRepository) {
 
-    fun execute(): Book {
+    fun execute(): Book? {
         return booksRepository.getLastBookRead()
     }
 

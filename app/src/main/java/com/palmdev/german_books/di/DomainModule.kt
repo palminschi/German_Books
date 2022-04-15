@@ -1,10 +1,7 @@
 package com.palmdev.german_books.di
 
 import com.palmdev.domain.usecase.books.*
-import com.palmdev.domain.usecase.user.GetTranslatorPreferencesUseCase
-import com.palmdev.domain.usecase.user.GetUserLanguageUseCase
-import com.palmdev.domain.usecase.user.SaveTranslatorPreferencesUseCase
-import com.palmdev.domain.usecase.user.SaveUserLanguageUseCase
+import com.palmdev.domain.usecase.user.*
 import com.palmdev.domain.usecase.words.AddWordUseCase
 import com.palmdev.domain.usecase.words.GetAllWordsUseCase
 import com.palmdev.domain.usecase.words.GetGroupsOfWordsUseCase
@@ -51,6 +48,12 @@ val domainModule = module {
     }
     factory {
         GetTranslatorPreferencesUseCase(userRepository = get())
+    }
+    factory {
+        HasUserRatedAppUseCase(userRepository = get())
+    }
+    factory {
+        SetAppIsRatedUseCase(userRepository = get())
     }
 
     // Words

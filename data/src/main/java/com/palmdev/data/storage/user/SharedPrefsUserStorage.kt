@@ -61,4 +61,12 @@ class SharedPrefsUserStorage(context: Context): UserStorage {
         )
     }
 
+    override fun hasUserRatedApp(): Boolean {
+        return sharedPrefs.getBoolean(Constants.APP_IS_RATED, false)
+    }
+
+    override fun setAppIsRated(boolean: Boolean) {
+        sharedPrefs.edit().putBoolean(Constants.APP_IS_RATED, boolean).apply()
+    }
+
 }

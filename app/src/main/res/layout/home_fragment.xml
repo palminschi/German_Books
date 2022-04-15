@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:background="@color/background"
     android:scrollbars="none"
-    tools:context=".presentation.screens.home.HomeFragment">
+    tools:context=".presentation.screens.home.HomeFragment"
+    tools:ignore="TooManyViews">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,7 +18,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp">
+            android:layout_marginTop="18dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -94,11 +95,11 @@
                                     app:layout_constraintStart_toStartOf="parent">
 
                                     <ImageView
+                                        android:id="@+id/imgBook1"
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
                                         android:contentDescription="@null"
                                         android:scaleType="centerCrop"
-                                        android:src="@drawable/img_book_000"
                                         tools:ignore="TooDeepLayout" />
                                 </androidx.cardview.widget.CardView>
 
@@ -108,24 +109,23 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginHorizontal="6dp"
                                     android:layout_marginTop="6dp"
-                                    android:text="Das Mädchen mit den Schwefelhölzern"
                                     android:textColor="@color/gray_02"
                                     android:textStyle="bold"
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toEndOf="@id/cardImg1"
                                     app:layout_constraintTop_toTopOf="parent"
-                                    tools:ignore="HardcodedText" />
+                                    tools:text="Book 1 Title" />
 
                                 <TextView
+                                    android:id="@+id/bookAuthor1"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="6dp"
-                                    android:text="Hans Christian Andersen"
                                     android:textColor="@color/gray_03"
                                     android:textSize="12sp"
                                     app:layout_constraintStart_toEndOf="@id/cardImg1"
                                     app:layout_constraintTop_toBottomOf="@id/bookTitle1"
-                                    tools:ignore="HardcodedText" />
+                                    tools:text="Book 1 Author" />
 
                                 <LinearLayout
                                     android:layout_width="wrap_content"
@@ -174,11 +174,11 @@
                                     app:layout_constraintStart_toStartOf="parent">
 
                                     <ImageView
+                                        android:id="@+id/imgBook2"
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
                                         android:contentDescription="@null"
                                         android:scaleType="centerCrop"
-                                        android:src="@drawable/img_book_003"
                                         tools:ignore="TooDeepLayout" />
                                 </androidx.cardview.widget.CardView>
 
@@ -188,24 +188,104 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginHorizontal="6dp"
                                     android:layout_marginTop="6dp"
-                                    android:text="Herr Vogel und Frau Wal"
                                     android:textColor="@color/gray_02"
                                     android:textStyle="bold"
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toEndOf="@id/cardImg2"
                                     app:layout_constraintTop_toTopOf="parent"
-                                    tools:ignore="HardcodedText" />
+                                    tools:ignore="HardcodedText"
+                                    tools:text="Book 2 Title" />
 
                                 <TextView
+                                    android:id="@+id/bookAuthor2"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="6dp"
-                                    android:text="TheFableCottage.com"
                                     android:textColor="@color/gray_03"
                                     android:textSize="12sp"
                                     app:layout_constraintStart_toEndOf="@id/cardImg2"
                                     app:layout_constraintTop_toBottomOf="@id/bookTitle2"
-                                    tools:ignore="HardcodedText" />
+                                    tools:text="Book 2 Author" />
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="5dp"
+                                    android:gravity="center"
+                                    android:orientation="horizontal"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    tools:ignore="UseCompoundDrawables">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="@string/read"
+                                        android:textColor="@color/main_orange"
+                                        android:textStyle="bold" />
+
+                                    <ImageView
+                                        android:layout_width="15dp"
+                                        android:layout_height="10dp"
+                                        android:contentDescription="@null"
+                                        android:src="@drawable/icon_arrow_orange" />
+                                </LinearLayout>
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/newBook3"
+                            android:layout_width="300dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="12dp"
+                            app:cardBackgroundColor="@color/background"
+                            app:cardCornerRadius="10dp">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <androidx.cardview.widget.CardView
+                                    android:id="@+id/cardImg3"
+                                    android:layout_width="76dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_margin="6dp"
+                                    app:cardCornerRadius="6dp"
+                                    app:layout_constraintStart_toStartOf="parent">
+
+                                    <ImageView
+                                        android:id="@+id/imgBook3"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:contentDescription="@null"
+                                        android:scaleType="centerCrop"
+                                        tools:ignore="TooDeepLayout" />
+                                </androidx.cardview.widget.CardView>
+
+                                <TextView
+                                    android:id="@+id/bookTitle3"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginHorizontal="6dp"
+                                    android:layout_marginTop="6dp"
+                                    android:textColor="@color/gray_02"
+                                    android:textStyle="bold"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toEndOf="@id/cardImg3"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    tools:ignore="HardcodedText"
+                                    tools:text="Book 3 Title" />
+
+                                <TextView
+                                    android:id="@+id/bookAuthor3"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="6dp"
+                                    android:textColor="@color/gray_03"
+                                    android:textSize="12sp"
+                                    app:layout_constraintStart_toEndOf="@id/cardImg3"
+                                    app:layout_constraintTop_toBottomOf="@id/bookTitle3"
+                                    tools:text="Book 3 Author" />
 
                                 <LinearLayout
                                     android:layout_width="wrap_content"
@@ -261,10 +341,10 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/lastBookContainer"
             android:layout_width="match_parent"
             android:layout_height="180dp"
             android:layout_marginTop="12dp"
-            android:visibility="gone"
             app:cardBackgroundColor="@color/background_second"
             app:cardCornerRadius="10dp">
 
@@ -283,95 +363,132 @@
                     android:textStyle="bold" />
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/lastBook"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="6dp"
                     android:layout_marginBottom="6dp"
-                    app:cardBackgroundColor="@color/background"
+                    app:cardBackgroundColor="@color/green_dark"
                     app:cardCornerRadius="10dp">
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
+                    <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="match_parent"
+                        android:layout_margin="1dp"
+                        app:cardBackgroundColor="@color/background"
+                        app:cardCornerRadius="10dp">
 
-                        <androidx.cardview.widget.CardView
-                            android:id="@+id/cardImgLastBook"
-                            android:layout_width="76dp"
-                            android:layout_height="match_parent"
-                            android:layout_margin="6dp"
-                            app:cardCornerRadius="6dp"
-                            app:layout_constraintStart_toStartOf="parent">
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
 
-                            <ImageView
-                                android:id="@+id/imgLastBook"
-                                android:layout_width="match_parent"
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/cardImgLastBook"
+                                android:layout_width="76dp"
                                 android:layout_height="match_parent"
-                                android:contentDescription="@null"
-                                android:scaleType="centerCrop"
-                                android:src="@drawable/img_book_003"
-                                tools:ignore="TooDeepLayout" />
-                        </androidx.cardview.widget.CardView>
+                                android:layout_margin="6dp"
+                                app:cardCornerRadius="6dp"
+                                app:layout_constraintStart_toStartOf="parent">
 
-                        <TextView
-                            android:id="@+id/lastBookTitle"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginHorizontal="6dp"
-                            android:layout_marginTop="6dp"
-                            android:text="Herr Vogel und Frau Wal"
-                            android:textColor="@color/gray_02"
-                            android:textStyle="bold"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toEndOf="@id/cardImgLastBook"
-                            app:layout_constraintTop_toTopOf="parent"
-                            tools:ignore="HardcodedText" />
-
-                        <TextView
-                            android:id="@+id/lastBookAuthor"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="6dp"
-                            android:text="TheFableCottage.com"
-                            android:textColor="@color/gray_03"
-                            android:textSize="12sp"
-                            app:layout_constraintStart_toEndOf="@id/cardImgLastBook"
-                            app:layout_constraintTop_toBottomOf="@id/lastBookTitle"
-                            tools:ignore="HardcodedText" />
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="5dp"
-                            android:gravity="center"
-                            android:orientation="horizontal"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            tools:ignore="UseCompoundDrawables">
+                                <ImageView
+                                    android:id="@+id/imgLastBook"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:contentDescription="@null"
+                                    android:scaleType="centerCrop" />
+                            </androidx.cardview.widget.CardView>
 
                             <TextView
+                                android:id="@+id/lastBookTitle"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="6dp"
+                                android:layout_marginTop="6dp"
+                                android:textColor="@color/gray_02"
+                                android:textStyle="bold"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@id/cardImgLastBook"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:ignore="HardcodedText"
+                                tools:text="Last Book Read" />
+
+                            <TextView
+                                android:id="@+id/lastBookAuthor"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="6dp"
+                                android:text="Author"
+                                android:textColor="@color/gray_03"
+                                android:textSize="12sp"
+                                app:layout_constraintStart_toEndOf="@id/cardImgLastBook"
+                                app:layout_constraintTop_toBottomOf="@id/lastBookTitle"
+                                tools:ignore="HardcodedText" />
+
+                            <TextView
+                                android:id="@+id/tvReadingProgress"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/read"
-                                android:textColor="@color/main_orange"
-                                android:textStyle="bold" />
+                                android:layout_marginTop="10dp"
+                                android:fontFamily="@font/rale_way_medium"
+                                android:textColor="@color/green_2"
+                                android:textSize="24sp"
+                                android:textStyle="bold"
+                                app:fontFamily="@font/rale_way_medium"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@id/cardImgLastBook"
+                                app:layout_constraintTop_toBottomOf="@id/lastBookAuthor"
+                                tools:text="43%" />
 
-                            <ImageView
-                                android:layout_width="15dp"
-                                android:layout_height="10dp"
-                                android:contentDescription="@null"
-                                android:src="@drawable/icon_arrow_orange" />
-                        </LinearLayout>
-                    </androidx.constraintlayout.widget.ConstraintLayout>
+                            <ProgressBar
+                                android:id="@+id/readingProgressBar"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="6dp"
+                                android:max="100"
+                                android:progress="43"
+                                android:progressBackgroundTint="@color/green_dark"
+                                android:progressTint="@color/green_2"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@id/cardImgLastBook"
+                                app:layout_constraintTop_toBottomOf="@id/tvReadingProgress" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="5dp"
+                                android:gravity="center"
+                                android:orientation="horizontal"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                tools:ignore="UseCompoundDrawables">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/continue_2"
+                                    android:textColor="@color/green_2"
+                                    android:textStyle="bold" />
+
+                                <ImageView
+                                    android:layout_width="18dp"
+                                    android:layout_height="20dp"
+                                    android:contentDescription="@null"
+                                    android:src="@drawable/ic_next_page"
+                                    app:tint="@color/green_2" />
+                            </LinearLayout>
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </androidx.cardview.widget.CardView>
                 </androidx.cardview.widget.CardView>
+
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/lastWordContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:visibility="gone"
             app:cardBackgroundColor="@color/background_second"
             app:cardCornerRadius="10dp">
 
@@ -406,11 +523,11 @@
                             android:id="@+id/lastWord"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginVertical="2dp"
+                            android:layout_marginVertical="3dp"
                             android:gravity="center"
-                            android:text="Test"
                             android:textColor="@color/white"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            tools:text="Test" />
 
                         <View
                             android:layout_width="match_parent"
@@ -423,8 +540,9 @@
                             android:layout_height="wrap_content"
                             android:layout_marginVertical="2dp"
                             android:gravity="center"
-                            android:text="Test"
-                            android:textColor="@color/gray_02" />
+                            android:textColor="@color/gray_02"
+                            android:textSize="13sp"
+                            tools:text="Test" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -602,6 +720,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/ratingContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"

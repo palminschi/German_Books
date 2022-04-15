@@ -12,6 +12,7 @@ object Constants {
     const val SHARED_PREFS_NO_DATA = "SHARED_PREFS_NO_DATA"
     const val FAVORITE_BOOK = "FAVORITE_BOOK"
     const val LAST_BOOK_READ = "LAST_BOOK_READ"
+    const val APP_IS_RATED = "APP_IS_RATED"
 
     // ROOM
     const val DATABASE_NAME = "words_database"

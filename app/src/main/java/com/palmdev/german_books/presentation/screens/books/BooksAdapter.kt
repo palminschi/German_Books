@@ -1,14 +1,13 @@
 package com.palmdev.german_books.presentation.screens.books
 
 import android.content.Context
-import android.graphics.BitmapFactory
-import android.util.Base64
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.palmdev.data.util.Base64Coder
 import com.palmdev.data.util.Constants
 import com.palmdev.domain.model.Book
 import com.palmdev.german_books.R
@@ -49,9 +48,8 @@ class BooksAdapter : RecyclerView.Adapter<BooksAdapter.BooksHolder>() {
             binding.bookTitle.text = book.title
             binding.bookAuthor.text = book.author
             // Decode Book Image
-            val decodedString = Base64.decode(book.encodedImage, Base64.DEFAULT)
-            val decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.size)
-            binding.bookImg.setImageBitmap(decodedByte)
+            val decodedBitmap = Base64Coder.decodeImageToByte(book.encodedImage)
+            binding.bookImg.setImageBitmap(decodedBitmap)
             // Button Add Book To Favorite
             binding.toggleLike.setOnCheckedChangeListener { _, isChecked ->
                 mSharedPrefs.edit().putBoolean(Constants.FAVORITE_BOOK + book.id, isChecked).apply()

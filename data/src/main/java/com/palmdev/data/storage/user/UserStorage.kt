@@ -12,4 +12,8 @@ interface UserStorage {
 
     fun getTranslatorPreferences(): LanguageEntity
 
+    fun hasUserRatedApp(): Boolean
+
+    fun setAppIsRated(boolean: Boolean)
+
 }

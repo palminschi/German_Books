@@ -143,6 +143,9 @@ class BookReadingFragment : Fragment(R.layout.book_reading_fragment) {
             currentPage = mCurrentPage,
             totalPages = mPagination.size() - 1
         )
+        viewModel.saveLastBookRead(
+            bookId = mBookId
+        )
     }
 
 

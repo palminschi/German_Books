@@ -38,7 +38,7 @@ class ReadingBottomSheetViewModel(
     }
 
     fun getFavoriteStatus(bookId: Int) {
-        _favoriteStatus.value = getBookByIdUseCase.execute(bookId).favorite
+        _favoriteStatus.value = getBookByIdUseCase.execute(bookId)?.favorite
     }
 
     fun setFavoriteStatus(bookId: Int, status: Boolean) {

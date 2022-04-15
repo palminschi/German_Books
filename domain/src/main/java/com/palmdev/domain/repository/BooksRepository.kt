@@ -8,9 +8,9 @@ interface BooksRepository {
 
     fun setFavoriteStatus(bookId: Int, status: Boolean)
 
-    fun getLastBookRead(): Book
+    fun getLastBookRead(): Book?
 
     fun saveLastBookRead(bookId: Int)
 
-    fun getBookById(id: Int): Book
+    fun getBookById(id: Int): Book?
 }

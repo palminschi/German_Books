@@ -12,4 +12,8 @@ interface UserRepository {
 
     fun getTranslatorPreferences(): Language
 
+    fun hasUserRatedApp(): Boolean
+
+    fun setAppIsRated(boolean: Boolean)
+
 }

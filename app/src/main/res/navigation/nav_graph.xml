@@ -17,8 +17,11 @@
             android:id="@+id/action_homeFragment_to_wordsFragment"
             app:destination="@id/wordsFragment" />
         <action
-            android:id="@+id/action_homeFragment_to_translatorFragment2"
+            android:id="@+id/action_homeFragment_to_translatorFragment"
             app:destination="@id/translatorFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_shopFragment"
+            app:destination="@id/shopFragment" />
     </fragment>
 
     <fragment
@@ -88,5 +91,10 @@
         android:name="com.palmdev.german_books.presentation.screens.book_reading.bottom_sheet.ReadingBottomSheetFragment"
         android:label="reading_bottom_sheet_fragment"
         tools:layout="@layout/reading_bottom_sheet_fragment" />
+    <fragment
+        android:id="@+id/shopFragment"
+        android:name="com.palmdev.german_books.presentation.screens.shop.ShopFragment"
+        android:label="shop_fragment"
+        tools:layout="@layout/shop_fragment" />
 
 </navigation>

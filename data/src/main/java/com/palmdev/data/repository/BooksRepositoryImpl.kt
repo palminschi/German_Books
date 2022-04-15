@@ -17,7 +17,7 @@ class BooksRepositoryImpl(private val booksStorage: BooksStorage) : BooksReposit
         booksStorage.setFavoriteStatus(bookId = bookId, status = status)
     }
 
-    override fun getLastBookRead(): Book {
+    override fun getLastBookRead(): Book? {
         return mapBookToDomain(
             bookEntity = booksStorage.getLastBookRead()
         )
@@ -27,13 +27,14 @@ class BooksRepositoryImpl(private val booksStorage: BooksStorage) : BooksReposit
         booksStorage.saveLastBookRead(bookId = bookId)
     }
 
-    override fun getBookById(id: Int): Book {
+    override fun getBookById(id: Int): Book? {
         return mapBookToDomain(bookEntity = booksStorage.getBookById(id))
     }
 
 
     // Mappers
-    private fun mapBookToDomain(bookEntity: BookEntity): Book {
+    private fun mapBookToDomain(bookEntity: BookEntity?): Book? {
+        if (bookEntity == null) return null
         return Book(
             id = bookEntity.id,
             title = bookEntity.title,
@@ -46,9 +47,11 @@ class BooksRepositoryImpl(private val booksStorage: BooksStorage) : BooksReposit
     }
 
     private fun mapListOfBooksToDomain(listOfBookEntity: List<BookEntity>):List<Book> {
+
         val listOfBooks = ArrayList<Book>()
+
         listOfBookEntity.forEach {
-            listOfBooks.add(mapBookToDomain(it))
+            mapBookToDomain(it)?.let { book -> listOfBooks.add(book) }
         }
         return listOfBooks
     }

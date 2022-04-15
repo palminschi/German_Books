@@ -7,6 +7,7 @@ import com.palmdev.german_books.presentation.screens.home.HomeViewModel
 import com.palmdev.german_books.presentation.screens.books.BooksViewModel
 import com.palmdev.german_books.presentation.screens.dialog_save_word.SaveWordViewModel
 import com.palmdev.german_books.presentation.screens.group_of_words.GroupOfWordsViewModel
+import com.palmdev.german_books.presentation.screens.shop.ShopViewModel
 import com.palmdev.german_books.presentation.screens.translator.TranslatorViewModel
 import com.palmdev.german_books.presentation.screens.words.WordsViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -14,7 +15,16 @@ import org.koin.dsl.module
 
 val presentationModule = module {
 
-    viewModel { HomeViewModel() }
+    viewModel {
+        HomeViewModel(
+            getLastBookReadUseCase = get(),
+            getAllWordsUseCase = get(),
+            setAppIsRatedUseCase = get(),
+            hasUserRatedAppUseCase = get(),
+            getReadingProgressUseCase = get(),
+            getBookByIdUseCase = get()
+        )
+    }
 
     viewModel {
         BooksViewModel(
@@ -27,7 +37,8 @@ val presentationModule = module {
             getBookContentUseCase = get(),
             saveReadingProgressUseCase = get(),
             getReadingProgressUseCase = get(),
-            getTranslatorPreferencesUseCase = get()
+            getTranslatorPreferencesUseCase = get(),
+            saveLastBookReadUseCase = get()
         )
     }
 
@@ -67,6 +78,10 @@ val presentationModule = module {
             getTranslatorPreferencesUseCase = get(),
             getBookByIdUseCase = get()
         )
+    }
+
+    viewModel {
+        ShopViewModel()
     }
 
 

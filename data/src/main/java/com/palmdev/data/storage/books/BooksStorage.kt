@@ -8,10 +8,10 @@ interface BooksStorage {
 
     fun setFavoriteStatus(bookId: Int, status: Boolean)
 
-    fun getLastBookRead(): BookEntity
+    fun getLastBookRead(): BookEntity?
 
     fun saveLastBookRead(bookId: Int)
 
-    fun getBookById(id: Int): BookEntity
+    fun getBookById(id: Int): BookEntity?
 
 }

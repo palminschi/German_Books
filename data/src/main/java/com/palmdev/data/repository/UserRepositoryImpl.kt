@@ -29,6 +29,14 @@ class UserRepositoryImpl(private val userStorage: UserStorage): UserRepository {
         )
     }
 
+    override fun hasUserRatedApp(): Boolean {
+        return userStorage.hasUserRatedApp()
+    }
+
+    override fun setAppIsRated(boolean: Boolean) {
+        userStorage.setAppIsRated(boolean)
+    }
+
 
     // Mappers
     private fun mapLangToData(language: Language): LanguageEntity{

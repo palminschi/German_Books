@@ -5,7 +5,7 @@ import com.palmdev.domain.repository.BooksRepository
 
 class GetBookByIdUseCase (private val booksRepository: BooksRepository) {
 
-    fun execute(id: Int): Book {
+    fun execute(id: Int): Book? {
         return booksRepository.getBookById(id)
     }
 }

@@ -7,6 +7,7 @@ import com.palmdev.domain.model.BookReadingProgress
 import com.palmdev.domain.model.Language
 import com.palmdev.domain.usecase.books.GetBookContentUseCase
 import com.palmdev.domain.usecase.books.GetReadingProgressUseCase
+import com.palmdev.domain.usecase.books.SaveLastBookReadUseCase
 import com.palmdev.domain.usecase.books.SaveReadingProgressUseCase
 import com.palmdev.domain.usecase.user.GetTranslatorPreferencesUseCase
 
@@ -14,7 +15,8 @@ class BookReadingViewModel(
     private val getBookContentUseCase: GetBookContentUseCase,
     private val saveReadingProgressUseCase: SaveReadingProgressUseCase,
     private val getReadingProgressUseCase: GetReadingProgressUseCase,
-    private val getTranslatorPreferencesUseCase: GetTranslatorPreferencesUseCase
+    private val getTranslatorPreferencesUseCase: GetTranslatorPreferencesUseCase,
+    private val saveLastBookReadUseCase: SaveLastBookReadUseCase
 ) : ViewModel() {
 
     private val _bookContent = MutableLiveData<String>()
@@ -44,6 +46,10 @@ class BookReadingViewModel(
 
     fun initCurrentPage(bookId: Int){
         _currentPage.value = getReadingProgressUseCase.execute(bookId = bookId).currentPage
+    }
+
+    fun saveLastBookRead(bookId: Int){
+        saveLastBookReadUseCase.execute(bookId = bookId)
     }
 
 }
