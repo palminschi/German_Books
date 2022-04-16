@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -63,7 +64,15 @@ class GroupOfWordsFragment : Fragment() {
         }
 
         binding.btnGameChoice.setOnClickListener {
-            goToGame(R.id.action_groupOfWordsFragment_to_gameSelectWordFragment)
+            if (mWordsArray.size < 4) {
+                Toast.makeText(
+                    requireContext(),
+                    getText(R.string.toastMin4Words),
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else {
+                goToGame(R.id.action_groupOfWordsFragment_to_gameSelectWordFragment)
+            }
         }
     }
 
