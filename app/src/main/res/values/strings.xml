@@ -53,10 +53,13 @@
         \n- Disabling ads
         \n- For ever (∞)
     </string>
-    <string name="rateUs">Rate us</string>
+    <string name="rateUs">Rate this app</string>
     <string name="ourApps">Our applications</string>
     <string name="thxForFeedback">Thanks for your feedback</string>
     <string name="continue_2">Continue</string>
-
     <string name="toastSelectText">Select the text</string>
+    <string name="fleshCards">Flesh Cards</string>
+    <string name="show">Show</string>
+    <string name="next">Next</string>
+    <string name="done">Done</string>
 </resources>

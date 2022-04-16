@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.View
 import android.widget.ArrayAdapter
 import androidx.fragment.app.DialogFragment
+import androidx.navigation.fragment.findNavController
 import com.palmdev.german_books.R
 import com.palmdev.german_books.databinding.DialogTranslatorLanguagesBinding
 import com.palmdev.german_books.utils.GoogleMLKitTranslator
@@ -52,6 +53,12 @@ class TranslatorLanguagesDialogFragment : DialogFragment() {
                 dialog.dismiss()
             }
         }
+
+        binding.btnBack.setOnClickListener {
+            findNavController().popBackStack()
+            dialog.dismiss()
+        }
+
         return dialog
     }
 

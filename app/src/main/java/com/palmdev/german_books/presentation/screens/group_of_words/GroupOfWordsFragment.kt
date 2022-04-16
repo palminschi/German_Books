@@ -4,7 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
+import android.widget.TextView
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.palmdev.domain.model.Word
 import com.palmdev.german_books.R
 import com.palmdev.german_books.databinding.GroupOfWordsFragmentBinding
@@ -14,26 +18,9 @@ class GroupOfWordsFragment : Fragment() {
 
     private val viewModel: GroupOfWordsViewModel by viewModel()
     private lateinit var binding: GroupOfWordsFragmentBinding
-    private val mWordsViews by lazy {
-        listOf(
-            binding.word01, binding.word02, binding.word03, binding.word04, binding.word05,
-            binding.word06, binding.word07, binding.word08, binding.word09, binding.word10
-        )
-    }
-    private val mTranslationViews by lazy {
-        listOf(
-            binding.translation01, binding.translation02, binding.translation03,
-            binding.translation04, binding.translation05, binding.translation06,
-            binding.translation07, binding.translation08, binding.translation09,
-            binding.translation10
-        )
-    }
-    private val mLinesViews by lazy {
-        listOf(
-            binding.line01, binding.line02, binding.line03, binding.line04, binding.line05,
-            binding.line06, binding.line07, binding.line08, binding.line09, binding.line10
-        )
-    }
+    private val mWordsViews = ArrayList<TextView>()
+    private val mTranslationViews = ArrayList<TextView>()
+    private val mLinesViews = ArrayList<LinearLayout>()
     private val mWordsArray = ArrayList<Word>()
     private var mGroupId = 0
 
@@ -50,18 +37,55 @@ class GroupOfWordsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        mWordsArray.clear()
+        // Get id from args
         mGroupId = requireArguments().getInt(ARG_GROUP_ID)
 
+        // Set title
+        val title = getString(R.string.groupOfWords) + " " + (mGroupId + 1)
+        binding.groupOfWordsTitle.text = title
+
+        // Set words
         viewModel.getWords(mGroupId)
         viewModel.words.observe(viewLifecycleOwner) {
             mWordsArray.addAll(it)
             setContent()
         }
 
+        binding.btnDeleteGroup.setOnClickListener {
+            setContent()
+        }
+        binding.btnGameFleshCards.setOnClickListener {
+            findNavController().navigate(
+                R.id.action_groupOfWordsFragment_to_gameFleshCardsFragment,
+                bundleOf(
+                    ARG_WORDS_ARRAY to mWordsArray.map { it.word },
+                    ARG_TRANSLATIONS_ARRAY to mWordsArray.map { it.translation }
+                )
+            )
+        }
     }
 
     private fun setContent() {
+        binding.apply {
+            mLinesViews.addAll(
+                listOf(
+                    line01, line02, line03, line04, line05, line06, line07, line08, line09, line10
+                )
+            )
+            mTranslationViews.addAll(
+                listOf(
+                    translation01, translation02, translation03, translation04, translation05,
+                    translation06, translation07, translation08, translation09, translation10
+                )
+            )
+            mWordsViews.addAll(
+                listOf(
+                    word01, word02, word03, word04, word05, word06, word07, word08, word09, word10
+                )
+            )
+        }
+
         mLinesViews.forEach { it.visibility = View.INVISIBLE }
         for (i in 0 until mWordsArray.size) {
             mLinesViews[i].visibility = View.VISIBLE
@@ -72,5 +96,7 @@ class GroupOfWordsFragment : Fragment() {
 
     companion object {
         const val ARG_GROUP_ID = "ARG_GROUP_ID"
+        const val ARG_WORDS_ARRAY = "ARG_WORDS_ARRAY"
+        const val ARG_TRANSLATIONS_ARRAY = "ARG_TRANSLATIONS_ARRAY"
     }
 }

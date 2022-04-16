@@ -85,7 +85,17 @@
         android:id="@+id/groupOfWordsFragment"
         android:name="com.palmdev.german_books.presentation.screens.group_of_words.GroupOfWordsFragment"
         android:label="group_of_words_fragment"
-        tools:layout="@layout/group_of_words_fragment" />
+        tools:layout="@layout/group_of_words_fragment" >
+        <action
+            android:id="@+id/action_groupOfWordsFragment_to_gameFleshCardsFragment"
+            app:destination="@id/gameFleshCardsFragment" />
+        <action
+            android:id="@+id/action_groupOfWordsFragment_to_gameSelectWordFragment"
+            app:destination="@id/gameSelectWordFragment" />
+        <action
+            android:id="@+id/action_groupOfWordsFragment_to_gameWriteWordFragment"
+            app:destination="@id/gameWriteWordFragment" />
+    </fragment>
     <dialog
         android:id="@+id/readingBottomSheetFragment"
         android:name="com.palmdev.german_books.presentation.screens.book_reading.bottom_sheet.ReadingBottomSheetFragment"
@@ -96,5 +106,20 @@
         android:name="com.palmdev.german_books.presentation.screens.shop.ShopFragment"
         android:label="shop_fragment"
         tools:layout="@layout/shop_fragment" />
+    <fragment
+        android:id="@+id/gameFleshCardsFragment"
+        android:name="com.palmdev.german_books.presentation.screens.game_flesh_cards.GameFleshCardsFragment"
+        android:label="fragment_game_flesh_cards"
+        tools:layout="@layout/fragment_game_flesh_cards" />
+    <fragment
+        android:id="@+id/gameSelectWordFragment"
+        android:name="com.palmdev.german_books.presentation.screens.game_select_word.GameSelectWordFragment"
+        android:label="fragment_game_select_word"
+        tools:layout="@layout/fragment_game_select_word" />
+    <fragment
+        android:id="@+id/gameWriteWordFragment"
+        android:name="com.palmdev.german_books.presentation.screens.game_write_word.GameWriteWordFragment"
+        android:label="fragment_game_write_word"
+        tools:layout="@layout/fragment_game_write_word" />
 
 </navigation>
