@@ -59,7 +59,10 @@
     <string name="continue_2">Continue</string>
     <string name="toastSelectText">Select the text</string>
     <string name="fleshCards">Flesh Cards</string>
+    <string name="writeWord">Write the word</string>
+    <string name="write">write…</string>
     <string name="show">Show</string>
     <string name="next">Next</string>
     <string name="done">Done</string>
+    <string name="check">Check</string>
 </resources>

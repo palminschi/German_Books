@@ -52,18 +52,29 @@ class GroupOfWordsFragment : Fragment() {
             setContent()
         }
 
-        binding.btnDeleteGroup.setOnClickListener {
-            setContent()
-        }
+        // Games
         binding.btnGameFleshCards.setOnClickListener {
-            findNavController().navigate(
-                R.id.action_groupOfWordsFragment_to_gameFleshCardsFragment,
-                bundleOf(
-                    ARG_WORDS_ARRAY to mWordsArray.map { it.word },
-                    ARG_TRANSLATIONS_ARRAY to mWordsArray.map { it.translation }
-                )
-            )
+            goToGame(R.id.action_groupOfWordsFragment_to_gameFleshCardsFragment)
         }
+
+        binding.btnGameWrite.setOnClickListener {
+            // TODO: Restricted Content
+            goToGame(R.id.action_groupOfWordsFragment_to_gameWriteWordFragment)
+        }
+
+        binding.btnGameChoice.setOnClickListener {
+            goToGame(R.id.action_groupOfWordsFragment_to_gameSelectWordFragment)
+        }
+    }
+
+    private fun goToGame(action: Int) {
+        findNavController().navigate(
+            action,
+            bundleOf(
+                ARG_WORDS_ARRAY to mWordsArray.map { it.word },
+                ARG_TRANSLATIONS_ARRAY to mWordsArray.map { it.translation }
+            )
+        )
     }
 
     private fun setContent() {
