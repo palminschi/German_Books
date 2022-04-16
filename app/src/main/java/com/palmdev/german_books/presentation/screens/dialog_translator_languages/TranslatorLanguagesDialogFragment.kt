@@ -1,10 +1,11 @@
 package com.palmdev.german_books.presentation.screens.dialog_translator_languages
 
+import android.annotation.SuppressLint
 import android.app.Dialog
+import android.content.DialogInterface
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.ArrayAdapter
 import androidx.fragment.app.DialogFragment
@@ -14,18 +15,23 @@ import com.palmdev.german_books.databinding.DialogTranslatorLanguagesBinding
 import com.palmdev.german_books.utils.GoogleMLKitTranslator
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class TranslatorLanguagesDialogFragment : DialogFragment() {
+class TranslatorLanguagesDialogFragment(
+    private val onDismissListener: DialogInterface.OnDismissListener? = null
+) : DialogFragment() {
 
-    private val viewModel : TranslatorLanguagesViewModel by viewModel()
+    private val viewModel: TranslatorLanguagesViewModel by viewModel()
     private lateinit var binding: DialogTranslatorLanguagesBinding
+    private lateinit var mDialog: Dialog
 
+    @SuppressLint("DialogFragmentCallbacksDetector")
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
 
-        val dialog = Dialog(requireContext())
+        mDialog = Dialog(requireContext())
+
         val view = layoutInflater.inflate(R.layout.dialog_translator_languages, null)
         binding = DialogTranslatorLanguagesBinding.bind(view)
-        dialog.setContentView(view)
-        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        mDialog.setContentView(view)
+        mDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
         // Spinner with available languages
         val adapter = ArrayAdapter(
@@ -50,16 +56,21 @@ class TranslatorLanguagesDialogFragment : DialogFragment() {
                 binding.progressBar.visibility = View.INVISIBLE
 
                 viewModel.saveTranslatorPreferences(binding.spinnerLanguages.selectedItem.toString())
-                dialog.dismiss()
+                mDialog.dismiss()
             }
         }
 
         binding.btnBack.setOnClickListener {
             findNavController().popBackStack()
-            dialog.dismiss()
+            mDialog.dismiss()
         }
 
-        return dialog
+        return mDialog
+    }
+
+    override fun onDismiss(dialog: DialogInterface) {
+        super.onDismiss(dialog)
+        onDismissListener?.onDismiss(dialog)
     }
 
 }

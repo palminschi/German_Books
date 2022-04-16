@@ -18,7 +18,7 @@ class SaveWordDialogFragment(
 ) : DialogFragment() {
 
     private lateinit var binding: DialogSaveWordBinding
-    private val viewModel : SaveWordViewModel by viewModel()
+    private val viewModel: SaveWordViewModel by viewModel()
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
 
@@ -51,14 +51,15 @@ class SaveWordDialogFragment(
             )
             dialog.dismiss()
         }
-        binding.btnTranslate.setOnClickListener { translate() }
 
-        translate()
+        if (binding.dialogTranslatedWord.text.isEmpty()) {
+            translate()
+        } else binding.progressBar.visibility = View.GONE
 
         return dialog
     }
 
-    private fun translate(){
+    private fun translate() {
         val word = binding.dialogWord.text.toString()
         if (word.isNotEmpty()) {
             binding.dialogTranslatedWord.visibility = View.INVISIBLE

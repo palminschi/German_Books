@@ -67,4 +67,11 @@
     <string name="done">Done</string>
     <string name="check">Check</string>
     <string name="toastMin4Words">Min. 4 words for this game</string>
+    <string name="germanTo">German -</string>
+    <string name="typeText">Type something…</string>
+    <string name="addToWords">Add to words</string>
+    <string name="german">German</string>
+    <string name="offlineTranslator">Offline Translator</string>
+    <string name="error">Error</string>
+    <string name="toastCopied">Copied</string>
 </resources>

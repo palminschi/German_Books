@@ -68,7 +68,9 @@ val presentationModule = module {
     }
 
     viewModel {
-        TranslatorViewModel()
+        TranslatorViewModel(
+            getTranslatorPreferencesUseCase = get()
+        )
     }
 
     viewModel {
