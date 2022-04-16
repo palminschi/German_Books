@@ -46,13 +46,11 @@
     <string name="lastSavedWord">Last saved word</string>
     <string name="premiumAccount">Premium Account</string>
     <string name="getPremium">Get Premium</string>
-    <string name="oneTimePayment">One-time payment -</string>
+    <string name="oneTimePayment">One-time payment</string>
     <string name="price">2,99$</string>
-    <string name="purchaseDetails">
-        - Full content unlock
+    <string name="purchaseDetails">- Full content unlock
         \n- Disabling ads
-        \n- For ever (∞)
-    </string>
+        \n- For ever (∞)</string>
     <string name="rateUs">Rate this app</string>
     <string name="ourApps">Our applications</string>
     <string name="thxForFeedback">Thanks for your feedback</string>
@@ -74,4 +72,6 @@
     <string name="offlineTranslator">Offline Translator</string>
     <string name="error">Error</string>
     <string name="toastCopied">Copied</string>
+    <string name="shop">Shop</string>
+    <string name="clickForCurrency">*click to see the price in your currency</string>
 </resources>
