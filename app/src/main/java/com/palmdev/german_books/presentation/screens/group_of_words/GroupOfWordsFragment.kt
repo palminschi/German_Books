@@ -59,7 +59,7 @@ class GroupOfWordsFragment : Fragment() {
         }
 
         binding.btnGameWrite.setOnClickListener {
-            // TODO: Restricted Content
+            // TODO: If is premium user
             goToGame(R.id.action_groupOfWordsFragment_to_gameWriteWordFragment)
         }
 

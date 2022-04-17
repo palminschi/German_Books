@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "176076671574",
+    "project_id": "german-books",
+    "storage_bucket": "german-books.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:176076671574:android:4d822d6be10e17bbb2c9f7",
+        "android_client_info": {
+          "package_name": "com.palmdev.german_books"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "176076671574-vbci83s3hl7k4lvree75kks56gjocmkj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXRZwp-tzFT8rq6g7jSAsASJFSWcNGyBI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "176076671574-vbci83s3hl7k4lvree75kks56gjocmkj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

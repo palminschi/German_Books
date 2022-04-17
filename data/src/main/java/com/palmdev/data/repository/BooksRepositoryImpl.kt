@@ -42,7 +42,7 @@ class BooksRepositoryImpl(private val booksStorage: BooksStorage) : BooksReposit
             difficulty = bookEntity.difficulty,
             encodedImage = bookEntity.encodedImage,
             favorite = bookEntity.favorite,
-            premium = bookEntity.premium
+            isPremium = bookEntity.premium
         )
     }
 

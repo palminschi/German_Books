@@ -13,7 +13,7 @@ class BooksFragment : Fragment(R.layout.books_fragment) {
 
     private val viewModel: BooksViewModel by viewModel()
     private lateinit var binding: BooksFragmentBinding
-    private val mAdapter = BooksAdapter()
+    private val mAdapter by lazy {  BooksAdapter(parentFragmentManager) }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

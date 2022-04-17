@@ -14,8 +14,8 @@ import com.palmdev.data.util.Base64Coder
 import com.palmdev.german_books.BuildConfig
 import com.palmdev.german_books.R
 import com.palmdev.german_books.databinding.HomeFragmentBinding
-import com.palmdev.german_books.presentation.screens.book_reading.BookReadingFragment
 import com.palmdev.german_books.presentation.screens.books.BooksFragment
+import com.palmdev.german_books.presentation.screens.dialog_restricted_content.RestrictedContentDialogFragment
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
@@ -53,10 +53,15 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
                 binding.bookAuthor1.text = book.author
                 binding.imgBook1.setImageBitmap(Base64Coder.decodeImageToByte(book.encodedImage))
                 binding.newBook1.setOnClickListener {
-                    findNavController().navigate(
-                        R.id.bookReadingFragment,
-                        bundleOf( BooksFragment.ARG_OPENED_BOOK to book.id)
-                    )
+                    if (book.isPremium) {
+                        val dialog = RestrictedContentDialogFragment(withAdsOption = true)
+                        dialog.show(parentFragmentManager, "TAG")
+                    } else {
+                        findNavController().navigate(
+                            R.id.bookReadingFragment,
+                            bundleOf(BooksFragment.ARG_OPENED_BOOK to book.id)
+                        )
+                    }
                 }
             }
             books[1]?.let { book ->
@@ -65,10 +70,15 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
                 binding.bookAuthor2.text = book.author
                 binding.imgBook2.setImageBitmap(Base64Coder.decodeImageToByte(book.encodedImage))
                 binding.newBook2.setOnClickListener {
-                    findNavController().navigate(
-                        R.id.bookReadingFragment,
-                        bundleOf( BooksFragment.ARG_OPENED_BOOK to book.id)
-                    )
+                    if (book.isPremium) {
+                        val dialog = RestrictedContentDialogFragment(withAdsOption = true)
+                        dialog.show(parentFragmentManager, "TAG")
+                    } else {
+                        findNavController().navigate(
+                            R.id.bookReadingFragment,
+                            bundleOf(BooksFragment.ARG_OPENED_BOOK to book.id)
+                        )
+                    }
                 }
             }
             books[2]?.let { book ->
@@ -77,10 +87,16 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
                 binding.bookAuthor3.text = book.author
                 binding.imgBook3.setImageBitmap(Base64Coder.decodeImageToByte(book.encodedImage))
                 binding.newBook3.setOnClickListener {
-                    findNavController().navigate(
-                        R.id.bookReadingFragment,
-                        bundleOf( BooksFragment.ARG_OPENED_BOOK to book.id)
-                    )
+                    if (book.isPremium) {
+                        val dialog = RestrictedContentDialogFragment(withAdsOption = true)
+                        dialog.show(parentFragmentManager, "TAG")
+                        // TODO ADS
+                    } else {
+                        findNavController().navigate(
+                            R.id.bookReadingFragment,
+                            bundleOf(BooksFragment.ARG_OPENED_BOOK to book.id)
+                        )
+                    }
                 }
             }
 

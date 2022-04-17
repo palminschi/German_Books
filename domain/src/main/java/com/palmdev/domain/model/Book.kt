@@ -7,5 +7,5 @@ data class Book(
     val difficulty: String,
     val encodedImage: String,
     val favorite: Boolean = false,
-    val premium: Boolean
+    val isPremium: Boolean
 )

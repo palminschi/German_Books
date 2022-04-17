@@ -7,7 +7,9 @@ import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
+import com.google.android.gms.ads.MobileAds
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.FirebaseApp
 import com.palmdev.german_books.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -30,8 +32,9 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    companion object{
 
+
+    companion object{
         lateinit var bottomNavigationView: BottomNavigationView
 
         fun hideBottomNavigation(){
@@ -40,6 +43,5 @@ class MainActivity : AppCompatActivity() {
         fun showBottomNavigation(){
             bottomNavigationView.visibility = View.VISIBLE
         }
-
     }
 }

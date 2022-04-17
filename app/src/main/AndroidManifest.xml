@@ -28,6 +28,10 @@
         android:supportsRtl="false"
         android:theme="@style/Theme.German_Books">
 
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="@string/ADMOB_ID"/>
+
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait"

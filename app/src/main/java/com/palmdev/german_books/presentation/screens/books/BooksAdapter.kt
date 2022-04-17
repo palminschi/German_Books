@@ -1,10 +1,12 @@
 package com.palmdev.german_books.presentation.screens.books
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
+import androidx.fragment.app.FragmentManager
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.palmdev.data.util.Base64Coder
@@ -12,14 +14,15 @@ import com.palmdev.data.util.Constants
 import com.palmdev.domain.model.Book
 import com.palmdev.german_books.R
 import com.palmdev.german_books.databinding.ItemBookBinding
+import com.palmdev.german_books.presentation.screens.dialog_restricted_content.RestrictedContentDialogFragment
 
-class BooksAdapter : RecyclerView.Adapter<BooksAdapter.BooksHolder>() {
+class BooksAdapter(private val fragmentManager: FragmentManager) : RecyclerView.Adapter<BooksAdapter.BooksHolder>() {
 
     private val listOfBooks = ArrayList<Book>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BooksHolder {
         val item = LayoutInflater.from(parent.context).inflate(R.layout.item_book, parent, false)
-        return BooksHolder(item = item)
+        return BooksHolder(item = item, fragmentManager = fragmentManager)
     }
 
     override fun onBindViewHolder(holder: BooksHolder, position: Int) {
@@ -30,13 +33,14 @@ class BooksAdapter : RecyclerView.Adapter<BooksAdapter.BooksHolder>() {
         return listOfBooks.size
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun setBooks(books: List<Book>){
         listOfBooks.clear()
         listOfBooks.addAll(books)
         notifyDataSetChanged()
     }
 
-    class BooksHolder(item: View) : RecyclerView.ViewHolder(item) {
+    class BooksHolder(item: View, private val fragmentManager: FragmentManager) : RecyclerView.ViewHolder(item) {
 
         private val context = item.context
         private val binding = ItemBookBinding.bind(item)
@@ -58,13 +62,19 @@ class BooksAdapter : RecyclerView.Adapter<BooksAdapter.BooksHolder>() {
             // Open Book
             // TODO: if is premium
             binding.root.setOnClickListener {
-                itemView.findNavController().navigate(
+                if (book.isPremium){
+                    val dialog = RestrictedContentDialogFragment(withAdsOption = true)
+                    // TODO Ads
+                    dialog.show(fragmentManager, "TAG")
+                } else {
+                    itemView.findNavController().navigate(
                     R.id.action_selectBookFragment_to_bookReadingFragment,
                     bundleOf(BooksFragment.ARG_OPENED_BOOK to book.id)
-                )
+                )}
+
             }
             // Premium or not
-            if (book.premium) {
+            if (book.isPremium) {
                 binding.cardFree.visibility = View.GONE
                 binding.imgPremium.visibility = View.VISIBLE
             }else {

@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">German_Books</string>
     <string name="welcome">Willkommen!</string>
+    <string name="price">2,99$</string>
+    <string name="ADMOB_ID">ca-app-pub-6012847014470005~6834906431</string>
+    <string name="AD_REWARDED_ID">ca-app-pub-6012847014470005/8813368366</string>
 
     <string name="save">Save</string>
     <string name="close">Close</string>
@@ -47,7 +50,6 @@
     <string name="premiumAccount">Premium Account</string>
     <string name="getPremium">Get Premium</string>
     <string name="oneTimePayment">One-time payment</string>
-    <string name="price">2,99$</string>
     <string name="purchaseDetails">- Full content unlock
         \n- Disabling ads
         \n- For ever (∞)</string>
@@ -74,4 +76,9 @@
     <string name="toastCopied">Copied</string>
     <string name="shop">Shop</string>
     <string name="clickForCurrency">*click to see the price in your currency</string>
+    <string name="locked">Locked</string>
+    <string name="limitedContent">Limited content</string>
+    <string name="max30Words">max. 30 words</string>
+    <string name="or">or</string>
+    <string name="showAds">Watch an ad</string>
 </resources>
