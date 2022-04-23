@@ -83,7 +83,9 @@ val presentationModule = module {
     }
 
     viewModel {
-        ShopViewModel()
+        ShopViewModel(
+            getPremiumStatusUseCase = get()
+        )
     }
 
 }

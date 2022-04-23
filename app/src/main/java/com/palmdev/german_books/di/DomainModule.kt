@@ -1,6 +1,8 @@
 package com.palmdev.german_books.di
 
 import com.palmdev.domain.usecase.books.*
+import com.palmdev.domain.usecase.purchases.GetPremiumStatusUseCase
+import com.palmdev.domain.usecase.purchases.SetPremiumStatusUseCase
 import com.palmdev.domain.usecase.user.*
 import com.palmdev.domain.usecase.words.AddWordUseCase
 import com.palmdev.domain.usecase.words.GetAllWordsUseCase
@@ -68,6 +70,14 @@ val domainModule = module {
     }
     factory {
         GetWordsByGroupUseCase(wordsRepository = get())
+    }
+
+    // Purchase
+    factory {
+        GetPremiumStatusUseCase(purchasesRepository = get())
+    }
+    factory {
+        SetPremiumStatusUseCase(purchasesRepository = get())
     }
 
 }

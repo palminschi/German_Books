@@ -4,6 +4,7 @@
     <string name="price">2,99$</string>
     <string name="ADMOB_ID">ca-app-pub-6012847014470005~6834906431</string>
     <string name="AD_REWARDED_ID">ca-app-pub-6012847014470005/8813368366</string>
+    <string name="AD_INTERSTITIAL_ID">ca-app-pub-6012847014470005/8813368366</string>
 
     <string name="save">Save</string>
     <string name="close">Close</string>
@@ -81,4 +82,5 @@
     <string name="max30Words">max. 30 words</string>
     <string name="or">or</string>
     <string name="showAds">Watch an ad</string>
+    <string name="youHavePremium">You have Premium Account!</string>
 </resources>

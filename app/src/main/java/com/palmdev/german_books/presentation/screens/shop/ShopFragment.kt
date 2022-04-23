@@ -26,6 +26,15 @@ class ShopFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.btnPurchase.setOnClickListener {
+            viewModel.buyPremium(requireContext(), requireActivity())
+        }
+
+        viewModel.initPremiumStatus()
+        viewModel.premiumStatus.observe(viewLifecycleOwner){
+            if (it) binding.tvBtnPurchase.text = getText(R.string.youHavePremium)
+            else binding.tvBtnPurchase.text = getText(R.string.getPremium)
+        }
     }
 
 }
