@@ -7,12 +7,16 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
+import androidx.activity.addCallback
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.palmdev.domain.model.Word
 import com.palmdev.german_books.R
 import com.palmdev.german_books.databinding.GroupOfWordsFragmentBinding
+import com.palmdev.german_books.presentation.screens.dialog_restricted_content.RestrictedContentDialogFragment
+import com.palmdev.german_books.utils.AdMob
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class GroupOfWordsFragment : Fragment() {
@@ -39,6 +43,9 @@ class GroupOfWordsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         mWordsArray.clear()
+        // Load Ad
+        AdMob.loadInterstitialAd(requireContext())
+
         // Get id from args
         mGroupId = requireArguments().getInt(ARG_GROUP_ID)
 
@@ -59,8 +66,17 @@ class GroupOfWordsFragment : Fragment() {
         }
 
         binding.btnGameWrite.setOnClickListener {
-            // TODO: If is premium user
-            goToGame(R.id.action_groupOfWordsFragment_to_gameWriteWordFragment)
+            if (viewModel.userPremiumStatus.value == true) {
+                goToGame(R.id.action_groupOfWordsFragment_to_gameWriteWordFragment)
+            } else {
+                val dialog = RestrictedContentDialogFragment(
+                    withAdsOption = true,
+                    onUserEarnedRewardListener = {
+                        goToGame(R.id.action_groupOfWordsFragment_to_gameWriteWordFragment)
+                    }
+                )
+                dialog.show(parentFragmentManager, "TAG")
+            }
         }
 
         binding.btnGameChoice.setOnClickListener {
@@ -72,6 +88,24 @@ class GroupOfWordsFragment : Fragment() {
                 ).show()
             } else {
                 goToGame(R.id.action_groupOfWordsFragment_to_gameSelectWordFragment)
+            }
+        }
+
+        // Button back
+        binding.btnBack.setOnClickListener {
+            if (viewModel.userPremiumStatus.value == false) {
+                findNavController().popBackStack()
+                AdMob.showInterstitialAd(requireContext(), requireActivity())
+            } else {
+                findNavController().popBackStack()
+            }
+        }
+        activity?.onBackPressedDispatcher?.addCallback(viewLifecycleOwner) {
+            if (viewModel.userPremiumStatus.value == false) {
+                findNavController().popBackStack()
+                AdMob.showInterstitialAd(requireContext(), requireActivity())
+            } else {
+                findNavController().popBackStack()
             }
         }
     }

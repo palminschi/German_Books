@@ -6,9 +6,10 @@ import androidx.lifecycle.ViewModel
 import com.palmdev.domain.model.Book
 import com.palmdev.domain.model.BooksType
 import com.palmdev.domain.usecase.books.GetBooksByTypeUseCase
+import com.palmdev.domain.usecase.purchases.GetPremiumStatusUseCase
 
 class BooksViewModel(
-    private val getBooksByTypeUseCase: GetBooksByTypeUseCase,
+    private val getBooksByTypeUseCase: GetBooksByTypeUseCase
 ) : ViewModel() {
 
     private val _books = MutableLiveData<List<Book>>()

@@ -5,15 +5,24 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.palmdev.domain.model.Word
+import com.palmdev.domain.usecase.purchases.GetPremiumStatusUseCase
 import com.palmdev.domain.usecase.words.GetWordsByGroupUseCase
 import kotlinx.coroutines.launch
 
 class GroupOfWordsViewModel(
-    private val getWordsByGroupUseCase: GetWordsByGroupUseCase
+    private val getWordsByGroupUseCase: GetWordsByGroupUseCase,
+    private val getPremiumStatusUseCase: GetPremiumStatusUseCase
 ) : ViewModel() {
 
     private val _words = MutableLiveData<List<Word>>()
     val words: LiveData<List<Word>> = _words
+
+    private val _userPremiumStatus = MutableLiveData<Boolean>()
+    val userPremiumStatus: LiveData<Boolean> = _userPremiumStatus
+
+    init {
+        _userPremiumStatus.value = getPremiumStatusUseCase.execute()
+    }
 
     fun getWords(groupId: Int) {
         if (_words.value.isNullOrEmpty()) {

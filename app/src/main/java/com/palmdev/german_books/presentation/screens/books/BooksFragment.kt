@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.palmdev.german_books.R
 import com.palmdev.german_books.databinding.BooksFragmentBinding
+import com.palmdev.german_books.utils.AdMob
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class BooksFragment : Fragment(R.layout.books_fragment) {

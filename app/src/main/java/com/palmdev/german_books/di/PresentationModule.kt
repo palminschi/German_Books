@@ -22,7 +22,8 @@ val presentationModule = module {
             setAppIsRatedUseCase = get(),
             hasUserRatedAppUseCase = get(),
             getReadingProgressUseCase = get(),
-            getBookByIdUseCase = get()
+            getBookByIdUseCase = get(),
+            getPremiumStatusUseCase = get()
         )
     }
 
@@ -38,7 +39,8 @@ val presentationModule = module {
             saveReadingProgressUseCase = get(),
             getReadingProgressUseCase = get(),
             getTranslatorPreferencesUseCase = get(),
-            saveLastBookReadUseCase = get()
+            saveLastBookReadUseCase = get(),
+            getPremiumStatusUseCase = get()
         )
     }
 
@@ -51,7 +53,9 @@ val presentationModule = module {
 
     viewModel {
         SaveWordViewModel(
-            addWordUseCase = get()
+            addWordUseCase = get(),
+            getAllWordsUseCase = get(),
+            getPremiumStatusUseCase = get()
         )
     }
 
@@ -63,7 +67,8 @@ val presentationModule = module {
 
     viewModel {
         GroupOfWordsViewModel(
-            getWordsByGroupUseCase = get()
+            getWordsByGroupUseCase = get(),
+            getPremiumStatusUseCase = get()
         )
     }
 

@@ -11,6 +11,7 @@ import com.palmdev.domain.model.Word
 import com.palmdev.domain.usecase.books.GetBookByIdUseCase
 import com.palmdev.domain.usecase.books.GetLastBookReadUseCase
 import com.palmdev.domain.usecase.books.GetReadingProgressUseCase
+import com.palmdev.domain.usecase.purchases.GetPremiumStatusUseCase
 import com.palmdev.domain.usecase.user.HasUserRatedAppUseCase
 import com.palmdev.domain.usecase.user.SetAppIsRatedUseCase
 import com.palmdev.domain.usecase.words.AddWordUseCase
@@ -25,7 +26,8 @@ class HomeViewModel(
     private val setAppIsRatedUseCase: SetAppIsRatedUseCase,
     private val hasUserRatedAppUseCase: HasUserRatedAppUseCase,
     private val getReadingProgressUseCase: GetReadingProgressUseCase,
-    private val getBookByIdUseCase: GetBookByIdUseCase
+    private val getBookByIdUseCase: GetBookByIdUseCase,
+    private val getPremiumStatusUseCase: GetPremiumStatusUseCase
 ) : ViewModel() {
 
     private val _userRatedApp = MutableLiveData<Boolean>()
@@ -43,9 +45,12 @@ class HomeViewModel(
     private val _newBooks = MutableLiveData<List<Book?>>()
     val newBooks : LiveData<List<Book?>> = _newBooks
 
+    private val _userPremiumStatus = MutableLiveData<Boolean>()
+    val userPremiumStatus: LiveData<Boolean> = _userPremiumStatus
+
     init {
         _userRatedApp.value = hasUserRatedAppUseCase.execute()
-
+        _userPremiumStatus.value = getPremiumStatusUseCase.execute()
     }
 
     fun initNewBooks(id1: Int, id2: Int, id3: Int) {

@@ -16,7 +16,8 @@ import com.palmdev.german_books.R
 import com.palmdev.german_books.databinding.ItemBookBinding
 import com.palmdev.german_books.presentation.screens.dialog_restricted_content.RestrictedContentDialogFragment
 
-class BooksAdapter(private val fragmentManager: FragmentManager) : RecyclerView.Adapter<BooksAdapter.BooksHolder>() {
+class BooksAdapter(private val fragmentManager: FragmentManager) :
+    RecyclerView.Adapter<BooksAdapter.BooksHolder>() {
 
     private val listOfBooks = ArrayList<Book>()
 
@@ -34,13 +35,14 @@ class BooksAdapter(private val fragmentManager: FragmentManager) : RecyclerView.
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    fun setBooks(books: List<Book>){
+    fun setBooks(books: List<Book>) {
         listOfBooks.clear()
         listOfBooks.addAll(books)
         notifyDataSetChanged()
     }
 
-    class BooksHolder(item: View, private val fragmentManager: FragmentManager) : RecyclerView.ViewHolder(item) {
+    class BooksHolder(item: View, private val fragmentManager: FragmentManager) :
+        RecyclerView.ViewHolder(item) {
 
         private val context = item.context
         private val binding = ItemBookBinding.bind(item)
@@ -60,24 +62,32 @@ class BooksAdapter(private val fragmentManager: FragmentManager) : RecyclerView.
             }
             binding.toggleLike.isChecked = book.favorite
             // Open Book
-            // TODO: if is premium
             binding.root.setOnClickListener {
-                if (book.isPremium){
-                    val dialog = RestrictedContentDialogFragment(withAdsOption = true)
-                    // TODO Ads
+                val userPremiumStatus = mSharedPrefs.getBoolean(Constants.USER_PREMIUM_STATUS, false)
+                if (book.isPremium && !userPremiumStatus) {
+                    val dialog = RestrictedContentDialogFragment(
+                        withAdsOption = true,
+                        onUserEarnedRewardListener = {
+                            itemView.findNavController().navigate(
+                                R.id.bookReadingFragment,
+                                bundleOf(BooksFragment.ARG_OPENED_BOOK to book.id)
+                            )
+                        }
+                    )
                     dialog.show(fragmentManager, "TAG")
                 } else {
                     itemView.findNavController().navigate(
-                    R.id.action_selectBookFragment_to_bookReadingFragment,
-                    bundleOf(BooksFragment.ARG_OPENED_BOOK to book.id)
-                )}
+                        R.id.action_selectBookFragment_to_bookReadingFragment,
+                        bundleOf(BooksFragment.ARG_OPENED_BOOK to book.id)
+                    )
+                }
 
             }
             // Premium or not
             if (book.isPremium) {
                 binding.cardFree.visibility = View.GONE
                 binding.imgPremium.visibility = View.VISIBLE
-            }else {
+            } else {
                 binding.cardFree.visibility = View.VISIBLE
                 binding.imgPremium.visibility = View.GONE
             }

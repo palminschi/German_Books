@@ -7,14 +7,16 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.findNavController
+import com.google.android.gms.ads.OnUserEarnedRewardListener
 import com.palmdev.german_books.R
 import com.palmdev.german_books.databinding.DialogRestrictedContentFragmentBinding
+import com.palmdev.german_books.utils.AdMob
 import org.koin.android.ext.android.get
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class RestrictedContentDialogFragment(
-    private val withAdsOption: Boolean = false
-//TODO ADS
+    private val withAdsOption: Boolean = false,
+    private val onUserEarnedRewardListener: OnUserEarnedRewardListener? = null
 ) : DialogFragment() {
 
     private lateinit var binding: DialogRestrictedContentFragmentBinding
@@ -34,10 +36,18 @@ class RestrictedContentDialogFragment(
             findNavController().navigate(R.id.shopFragment)
         }
         if (withAdsOption) {
+            AdMob.loadRewardedAd(context = requireContext())
             binding.showAdsContainer.visibility = View.VISIBLE
             binding.dialogSubTitle.text = getText(R.string.limitedContent)
             binding.btnShowAds.setOnClickListener {
-                // TODO Ads
+                onUserEarnedRewardListener?.let {
+                    dialog.dismiss()
+                    AdMob.showRewardedVideo(
+                        context = requireContext(),
+                        activity = requireActivity(),
+                        it
+                    )
+                }
             }
         } else {
             binding.showAdsContainer.visibility = View.GONE

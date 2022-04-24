@@ -8,6 +8,7 @@ import android.view.View
 import androidx.fragment.app.DialogFragment
 import com.palmdev.german_books.R
 import com.palmdev.german_books.databinding.DialogSaveWordBinding
+import com.palmdev.german_books.presentation.screens.dialog_restricted_content.RestrictedContentDialogFragment
 import com.palmdev.german_books.utils.GoogleMLKitTranslator
 import com.palmdev.german_books.utils.VoiceText
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -17,6 +18,7 @@ class SaveWordDialogFragment(
     private val translatedWord: String? = null
 ) : DialogFragment() {
 
+    private val wordsLimit = 30
     private lateinit var binding: DialogSaveWordBinding
     private val viewModel: SaveWordViewModel by viewModel()
 
@@ -42,14 +44,24 @@ class SaveWordDialogFragment(
             voiceText.play(binding.dialogWord.text.toString())
         }
 
-        // Buttons
         binding.btnCancel.setOnClickListener { dialog.dismiss() }
+
+        viewModel.initWords()
+        // Saving
         binding.btnSave.setOnClickListener {
-            viewModel.addWord(
-                word = binding.dialogWord.text.toString(),
-                translation = binding.dialogTranslatedWord.text.toString()
-            )
             dialog.dismiss()
+
+            if (viewModel.words.value?.size!! >= wordsLimit && viewModel.userPremiumStatus.value == false) {
+                val dialogRestrictedContent =
+                    RestrictedContentDialogFragment(withAdsOption = false)
+                dialogRestrictedContent.show(parentFragmentManager, "TAG")
+            } else {
+                viewModel.addWord(
+                    word = binding.dialogWord.text.toString(),
+                    translation = binding.dialogTranslatedWord.text.toString()
+                )
+            }
+
         }
 
         if (binding.dialogTranslatedWord.text.isEmpty()) {

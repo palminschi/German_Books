@@ -9,6 +9,7 @@ import com.palmdev.domain.usecase.books.GetBookContentUseCase
 import com.palmdev.domain.usecase.books.GetReadingProgressUseCase
 import com.palmdev.domain.usecase.books.SaveLastBookReadUseCase
 import com.palmdev.domain.usecase.books.SaveReadingProgressUseCase
+import com.palmdev.domain.usecase.purchases.GetPremiumStatusUseCase
 import com.palmdev.domain.usecase.user.GetTranslatorPreferencesUseCase
 
 class BookReadingViewModel(
@@ -16,19 +17,23 @@ class BookReadingViewModel(
     private val saveReadingProgressUseCase: SaveReadingProgressUseCase,
     private val getReadingProgressUseCase: GetReadingProgressUseCase,
     private val getTranslatorPreferencesUseCase: GetTranslatorPreferencesUseCase,
-    private val saveLastBookReadUseCase: SaveLastBookReadUseCase
+    private val saveLastBookReadUseCase: SaveLastBookReadUseCase,
+    private val getPremiumStatusUseCase: GetPremiumStatusUseCase
 ) : ViewModel() {
 
     private val _bookContent = MutableLiveData<String>()
     private val _currentPage = MutableLiveData<Int>()
     private val _translatorPreferences = MutableLiveData<Language>()
+    private val _userPremiumStatus = MutableLiveData<Boolean>()
 
     val bookContent: LiveData<String> = _bookContent
     val currentPage: LiveData<Int> = _currentPage
     val translatorPreferences: LiveData<Language> = _translatorPreferences
+    val userPremiumStatus: LiveData<Boolean> = _userPremiumStatus
 
     init {
         _translatorPreferences.value = getTranslatorPreferencesUseCase.execute()
+        _userPremiumStatus.value = getPremiumStatusUseCase.execute()
     }
 
     fun initBook(id: Int) {

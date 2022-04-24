@@ -2,7 +2,9 @@ package com.palmdev.german_books.presentation.screens.home
 
 import android.annotation.SuppressLint
 import android.content.ActivityNotFoundException
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
@@ -11,6 +13,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.palmdev.data.util.Base64Coder
+import com.palmdev.data.util.Constants
 import com.palmdev.german_books.BuildConfig
 import com.palmdev.german_books.R
 import com.palmdev.german_books.databinding.HomeFragmentBinding
@@ -53,8 +56,16 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
                 binding.bookAuthor1.text = book.author
                 binding.imgBook1.setImageBitmap(Base64Coder.decodeImageToByte(book.encodedImage))
                 binding.newBook1.setOnClickListener {
-                    if (book.isPremium) {
-                        val dialog = RestrictedContentDialogFragment(withAdsOption = true)
+                    if (book.isPremium && viewModel.userPremiumStatus.value == false) {
+                        val dialog = RestrictedContentDialogFragment(
+                            withAdsOption = true,
+                            onUserEarnedRewardListener = {
+                                findNavController().navigate(
+                                    R.id.bookReadingFragment,
+                                    bundleOf(BooksFragment.ARG_OPENED_BOOK to book.id)
+                                )
+                            }
+                        )
                         dialog.show(parentFragmentManager, "TAG")
                     } else {
                         findNavController().navigate(
@@ -71,7 +82,15 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
                 binding.imgBook2.setImageBitmap(Base64Coder.decodeImageToByte(book.encodedImage))
                 binding.newBook2.setOnClickListener {
                     if (book.isPremium) {
-                        val dialog = RestrictedContentDialogFragment(withAdsOption = true)
+                        val dialog = RestrictedContentDialogFragment(
+                            withAdsOption = true,
+                            onUserEarnedRewardListener = {
+                                findNavController().navigate(
+                                    R.id.bookReadingFragment,
+                                    bundleOf(BooksFragment.ARG_OPENED_BOOK to book.id)
+                                )
+                            }
+                        )
                         dialog.show(parentFragmentManager, "TAG")
                     } else {
                         findNavController().navigate(
@@ -88,9 +107,16 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
                 binding.imgBook3.setImageBitmap(Base64Coder.decodeImageToByte(book.encodedImage))
                 binding.newBook3.setOnClickListener {
                     if (book.isPremium) {
-                        val dialog = RestrictedContentDialogFragment(withAdsOption = true)
+                        val dialog = RestrictedContentDialogFragment(
+                            withAdsOption = true,
+                            onUserEarnedRewardListener = {
+                                findNavController().navigate(
+                                    R.id.bookReadingFragment,
+                                    bundleOf(BooksFragment.ARG_OPENED_BOOK to book.id)
+                                )
+                            }
+                        )
                         dialog.show(parentFragmentManager, "TAG")
-                        // TODO ADS
                     } else {
                         findNavController().navigate(
                             R.id.bookReadingFragment,

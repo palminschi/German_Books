@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewTreeObserver
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.addCallback
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -15,10 +16,7 @@ import com.palmdev.german_books.databinding.BookReadingFragmentBinding
 import com.palmdev.german_books.presentation.screens.books.BooksFragment
 import com.palmdev.german_books.presentation.screens.dialog_save_word.SaveWordDialogFragment
 import com.palmdev.german_books.presentation.screens.dialog_translator_languages.TranslatorLanguagesDialogFragment
-import com.palmdev.german_books.utils.EmptyTextSelection
-import com.palmdev.german_books.utils.GoogleMLKitTranslator
-import com.palmdev.german_books.utils.Pagination
-import com.palmdev.german_books.utils.VoiceText
+import com.palmdev.german_books.utils.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class BookReadingFragment : Fragment(R.layout.book_reading_fragment) {
@@ -36,6 +34,8 @@ class BookReadingFragment : Fragment(R.layout.book_reading_fragment) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = BookReadingFragmentBinding.bind(view)
+        // Load Ad
+        AdMob.loadInterstitialAd(requireContext())
 
         val translatorLanguage = viewModel.translatorPreferences.value
 
@@ -117,7 +117,20 @@ class BookReadingFragment : Fragment(R.layout.book_reading_fragment) {
             }
         }
         // Button back
-        binding.btnBack.setOnClickListener { findNavController().popBackStack() }
+        binding.btnBack.setOnClickListener {
+            findNavController().popBackStack()
+            if (viewModel.userPremiumStatus.value == false) AdMob.showInterstitialAd(
+                requireContext(),
+                requireActivity()
+            )
+        }
+        activity?.onBackPressedDispatcher?.addCallback(viewLifecycleOwner) {
+            findNavController().popBackStack()
+            if (viewModel.userPremiumStatus.value == false) AdMob.showInterstitialAd(
+                requireContext(),
+                requireActivity()
+            )
+        }
 
         // Button settings
         binding.btnSettings.setOnClickListener {
