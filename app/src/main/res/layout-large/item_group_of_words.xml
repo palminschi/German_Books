@@ -7,8 +7,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:maxHeight="120dp">
+        android:layout_height="160dp">
 
         <ImageView
             android:id="@+id/fileImg"
@@ -33,7 +32,7 @@
             android:layout_marginStart="5dp"
             android:text="@string/groupOfWords"
             android:textColor="@color/white"
-            android:textSize="14sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/fileImg"
             app:layout_constraintStart_toStartOf="@id/fileImg"
@@ -45,10 +44,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
-            android:textSize="13sp"
+            android:textSize="16sp"
             app:layout_constraintStart_toStartOf="@id/groupTitle"
             app:layout_constraintTop_toBottomOf="@id/groupTitle"
-            tools:ignore="TextContrastCheck"
+            tools:ignore="TextContrastCheck,TextContrastCheck"
             tools:text="10" />
 
         <TextView
@@ -57,7 +56,7 @@
             android:layout_marginStart="3dp"
             android:text="@string/words_s"
             android:textColor="@color/white"
-            android:textSize="13sp"
+            android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@id/numberOfWords"
             app:layout_constraintTop_toTopOf="@id/numberOfWords"
             tools:ignore="TextContrastCheck" />

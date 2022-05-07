@@ -157,7 +157,8 @@
             android:text="@string/show"
             android:textColor="@color/white"
             android:textSize="19sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:ignore="TextContrastCheck" />
     </androidx.cardview.widget.CardView>
 
 </LinearLayout>

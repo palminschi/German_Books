@@ -23,9 +23,23 @@
         <entry key="..\:/Projects/German_Books/app/src/main/res/drawable/style_like.xml" value="0.2115" />
         <entry key="..\:/Projects/German_Books/app/src/main/res/drawable/style_menu_ic_home.xml" value="0.2115" />
         <entry key="..\:/Projects/German_Books/app/src/main/res/drawable/style_menu_ic_translator.xml" value="0.222" />
+        <entry key="..\:/Projects/German_Books/app/src/main/res/layout-large/book_reading_fragment.xml" value="0.15709090364314326" />
+        <entry key="..\:/Projects/German_Books/app/src/main/res/layout-large/books_fragment.xml" value="0.19199999334161955" />
+        <entry key="..\:/Projects/German_Books/app/src/main/res/layout-large/dialog_restricted_content_fragment.xml" value="0.14635416666666667" />
+        <entry key="..\:/Projects/German_Books/app/src/main/res/layout-large/dialog_save_word.xml" value="0.14635416666666667" />
+        <entry key="..\:/Projects/German_Books/app/src/main/res/layout-large/dialog_translator_languages.xml" value="0.14635416666666667" />
+        <entry key="..\:/Projects/German_Books/app/src/main/res/layout-large/fragment_game_flesh_cards.xml" value="0.14635416666666667" />
+        <entry key="..\:/Projects/German_Books/app/src/main/res/layout-large/fragment_game_select_word.xml" value="0.14635416666666667" />
+        <entry key="..\:/Projects/German_Books/app/src/main/res/layout-large/fragment_game_write_word.xml" value="0.14635416666666667" />
+        <entry key="..\:/Projects/German_Books/app/src/main/res/layout-large/group_of_words_fragment.xml" value="0.15709090364314326" />
+        <entry key="..\:/Projects/German_Books/app/src/main/res/layout-large/home_fragment.xml" value="0.15709090364314326" />
+        <entry key="..\:/Projects/German_Books/app/src/main/res/layout-large/item_book.xml" value="0.14635416666666667" />
+        <entry key="..\:/Projects/German_Books/app/src/main/res/layout-large/item_group_of_words.xml" value="0.14635416666666667" />
+        <entry key="..\:/Projects/German_Books/app/src/main/res/layout-large/shop_fragment.xml" value="0.14635416666666667" />
+        <entry key="..\:/Projects/German_Books/app/src/main/res/layout-large/words_fragment.xml" value="0.14635416666666667" />
         <entry key="..\:/Projects/German_Books/app/src/main/res/layout-v28/home_fragment.xml" value="0.29270833333333335" />
         <entry key="..\:/Projects/German_Books/app/src/main/res/layout/activity_main.xml" value="0.29270833333333335" />
-        <entry key="..\:/Projects/German_Books/app/src/main/res/layout/book_reading_fragment.xml" value="0.2879999900124293" />
+        <entry key="..\:/Projects/German_Books/app/src/main/res/layout/book_reading_fragment.xml" value="0.5847272524494778" />
         <entry key="..\:/Projects/German_Books/app/src/main/res/layout/books_fragment.xml" value="0.2879999900124293" />
         <entry key="..\:/Projects/German_Books/app/src/main/res/layout/custom_action_mode.xml" value="0.5847272524494778" />
         <entry key="..\:/Projects/German_Books/app/src/main/res/layout/dialog_restricted_content_fragment.xml" value="0.2879999900124293" />
