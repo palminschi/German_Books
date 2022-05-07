@@ -21,7 +21,19 @@ class AssetsBooksContentStorage(context: Context) : BooksContentStorage {
             1 -> "books/b_001_alice_abenteuer_im_wonderland.txt"
             2 -> "books/b_002_emil_und_die_detektive.txt"
             3 -> "books/b_003_herr_vogel_unde_frau_wal.txt"
-
+            4 -> "books/b_004_die_kleine_hexe.txt"
+            5 -> "books/b_005_wo_warst_du.txt"
+            6 -> "books/b_006_krabat.txt"
+            7 -> "books/b_007_der_junge_koenig.txt"
+            8 -> "books/b_008_kaltes_blut.txt"
+            9 -> "books/b_009_anna_berlin.txt"
+            10 -> "books/b_010_der_schnee.txt"
+            11 -> "books/b_011_das_kalte_herz.txt"
+            12 -> "books/b_012_vom_fischer_und_seiner_frau.txt"
+            13 -> "books/b_013_aladdin_und_die_wunderlampe.txt"
+            14 -> "books/b_014_heidi_kann_brauchen_was_es_gelernt_hat.txt"
+            15 -> "books/b_015_die_biene_maja_und_ihre_abenteuer.txt"
+            16 -> "books/b_016_peterchens_mondfahrt.txt"
 
 
             else -> { "books/b_000_das_maedchen_mit_den_schwefelhoelzern.txt" }

@@ -19,7 +19,13 @@ class BooksStorageImpl(private val context: Context): BooksStorage {
     override fun getLastBookRead(): BookEntity? {
         val bookId = mSharedPrefs.getInt(Constants.LAST_BOOK_READ, 999)
         if (bookId == 999) return null
-        return AllBooks(context).getBooks().get(index = bookId)
+
+        val allBooks = AllBooks(context).getBooks()
+        var book: BookEntity? = null
+        allBooks.forEach {
+            if (it.id == bookId) book = it
+        }
+        return book
     }
 
     override fun saveLastBookRead(bookId: Int) {
@@ -28,10 +34,11 @@ class BooksStorageImpl(private val context: Context): BooksStorage {
 
     override fun getBookById(id: Int): BookEntity? {
         val allBooks = AllBooks(context).getBooks()
-
-        if (id > allBooks.lastIndex) return null
-
-        return allBooks.get(index = id)
+        var book: BookEntity? = null
+        allBooks.forEach {
+            if (it.id == id) book = it
+        }
+        return book
     }
 
 }

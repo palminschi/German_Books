@@ -37,7 +37,7 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
         initRatingButtons()
         setLastBookRead()
         setLastSavedWord()
-        initNewBooks(id1 = 0, id2 = 1, id3 = 2)
+        initNewBooks(id1 = 8, id2 = 0, id3 = 2)
 
     }
 
