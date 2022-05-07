@@ -9,6 +9,7 @@ import androidx.fragment.app.DialogFragment
 import com.palmdev.german_books.R
 import com.palmdev.german_books.databinding.DialogSaveWordBinding
 import com.palmdev.german_books.presentation.screens.dialog_restricted_content.RestrictedContentDialogFragment
+import com.palmdev.german_books.utils.AppReview
 import com.palmdev.german_books.utils.GoogleMLKitTranslator
 import com.palmdev.german_books.utils.VoiceText
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -50,7 +51,9 @@ class SaveWordDialogFragment(
         // Saving
         binding.btnSave.setOnClickListener {
             dialog.dismiss()
-
+            // App Review
+            if (viewModel.words.value?.size!! == 4) AppReview.rateApp(requireActivity())
+            // Saving
             if (viewModel.words.value?.size!! >= wordsLimit && viewModel.userPremiumStatus.value == false) {
                 val dialogRestrictedContent =
                     RestrictedContentDialogFragment(withAdsOption = false)

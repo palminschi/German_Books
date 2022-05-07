@@ -189,6 +189,9 @@ class BookReadingFragment : Fragment(R.layout.book_reading_fragment) {
             mCurrentPage =
                 if (mCurrentPage < mPagination.size() - 1) mCurrentPage + 1 else mPagination.size() - 1
             setPage()
+
+            // App Review
+            if (mCurrentPage == 5) AppReview.rateApp(requireActivity())
         }
     }
 
