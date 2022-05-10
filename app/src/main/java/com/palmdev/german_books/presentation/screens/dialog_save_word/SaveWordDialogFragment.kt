@@ -4,8 +4,11 @@ import android.app.Dialog
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
+import com.palmdev.domain.model.Word
 import com.palmdev.german_books.R
 import com.palmdev.german_books.databinding.DialogSaveWordBinding
 import com.palmdev.german_books.presentation.screens.dialog_restricted_content.RestrictedContentDialogFragment
@@ -19,9 +22,11 @@ class SaveWordDialogFragment(
     private val translatedWord: String? = null
 ) : DialogFragment() {
 
-    private val wordsLimit = 30
+    private lateinit var mDialog: Dialog
+    private val mWordsLimit = 30
     private lateinit var binding: DialogSaveWordBinding
     private val viewModel: SaveWordViewModel by viewModel()
+
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
 
@@ -30,9 +35,9 @@ class SaveWordDialogFragment(
         binding = DialogSaveWordBinding.bind(view)
 
         // Create dialog
-        val dialog = Dialog(view.context)
-        dialog.setContentView(view)
-        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        mDialog = Dialog(view.context)
+        mDialog.setContentView(view)
+        mDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
         // Set texts
         binding.dialogWord.setText(word)
@@ -45,34 +50,50 @@ class SaveWordDialogFragment(
             voiceText.play(binding.dialogWord.text.toString())
         }
 
-        binding.btnCancel.setOnClickListener { dialog.dismiss() }
+        binding.btnCancel.setOnClickListener { mDialog.dismiss() }
 
         viewModel.initWords()
+
         // Saving
+        var isPremiumUser = false
+        var numberOfSavedWords = 0
+        var lastWord: Word? = null
+
+        viewModel.words.observe(this) {
+            if (!it.isNullOrEmpty()) {
+                numberOfSavedWords = it.size
+                lastWord = it.last()
+            }
+        }
+        viewModel.userPremiumStatus.observe(this) {
+            isPremiumUser = it
+        }
+
         binding.btnSave.setOnClickListener {
-            dialog.dismiss()
+            mDialog.dismiss()
             // App Review
-            if (viewModel.words.value?.size!! == 4) AppReview.rateApp(requireActivity())
+            if (numberOfSavedWords == 4) AppReview.rateApp(requireActivity())
             // Saving
-            if (viewModel.words.value?.size!! >= wordsLimit && viewModel.userPremiumStatus.value == false) {
+            if (numberOfSavedWords >= mWordsLimit && !isPremiumUser) {
                 val dialogRestrictedContent =
                     RestrictedContentDialogFragment(withAdsOption = false)
                 dialogRestrictedContent.show(parentFragmentManager, "TAG")
             } else {
                 viewModel.addWord(
                     word = binding.dialogWord.text.toString(),
-                    translation = binding.dialogTranslatedWord.text.toString()
+                    translation = binding.dialogTranslatedWord.text.toString(),
+                    lastWord = lastWord
                 )
             }
-
         }
-
+        // Translate
         if (binding.dialogTranslatedWord.text.isEmpty()) {
             translate()
         } else binding.progressBar.visibility = View.GONE
 
-        return dialog
+        return mDialog
     }
+
 
     private fun translate() {
         val word = binding.dialogWord.text.toString()

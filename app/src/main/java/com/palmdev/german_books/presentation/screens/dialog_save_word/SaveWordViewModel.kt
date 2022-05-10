@@ -34,11 +34,12 @@ class SaveWordViewModel(
         }
     }
 
-    fun addWord(word: String, translation: String) {
+    fun addWord(word: String, translation: String, lastWord: Word?) {
         viewModelScope.launch {
             addWordUseCase.invoke(
                 word = word,
-                translation = translation
+                translation = translation,
+                lastWord = lastWord
             )
         }
     }
