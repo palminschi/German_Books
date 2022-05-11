@@ -11,6 +11,7 @@ import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.palmdev.data.util.Constants
+import com.palmdev.domain.model.Language
 import com.palmdev.german_books.R
 import com.palmdev.german_books.databinding.TranslatorFragmentBinding
 import com.palmdev.german_books.presentation.screens.dialog_save_word.SaveWordDialogFragment
@@ -25,6 +26,7 @@ class TranslatorFragment : Fragment() {
     private lateinit var binding: TranslatorFragmentBinding
     private val mTranslator = GoogleMLKitTranslator
     private val mVoiceText by lazy { VoiceText(context = requireContext()) }
+    private var mTranslatorPrefs: Language? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,7 +41,12 @@ class TranslatorFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.initTranslatorPrefs()
-        if (viewModel.translatorPrefs.value?.name == Constants.SHARED_PREFS_NO_DATA) {
+        viewModel.translatorPrefs.observe(viewLifecycleOwner) {
+            mTranslatorPrefs =
+                if (it.name == Constants.SHARED_PREFS_NO_DATA) null
+                else it
+        }
+        if (mTranslatorPrefs == null) {
             val dialogTranslatorLanguages = TranslatorLanguagesDialogFragment {
                 setUpTranslator()
             }
@@ -60,7 +67,7 @@ class TranslatorFragment : Fragment() {
 
     private fun setUpTranslator() {
         viewModel.initTranslatorPrefs()
-        viewModel.translatorPrefs.value?.let {
+        mTranslatorPrefs?.let {
             mTranslator.createTranslator(toLanguage = it.code)
             binding.tvTranslateTo.text = it.name
             binding.tvTranslateFrom.text = getText(R.string.german)
