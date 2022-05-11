@@ -47,6 +47,7 @@ val presentationModule = module {
     viewModel {
         TranslatorLanguagesViewModel(
             saveTranslatorPreferencesUseCase = get(),
+            getTranslatorPreferencesUseCase = get(),
             getUserLanguageUseCase = get(),
         )
     }

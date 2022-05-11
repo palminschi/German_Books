@@ -10,10 +10,12 @@ import android.view.View
 import android.widget.ArrayAdapter
 import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.findNavController
+import com.palmdev.data.util.Constants
 import com.palmdev.german_books.R
 import com.palmdev.german_books.databinding.DialogTranslatorLanguagesBinding
 import com.palmdev.german_books.utils.GoogleMLKitTranslator
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import java.util.*
 
 class TranslatorLanguagesDialogFragment(
     private val onDismissListener: DialogInterface.OnDismissListener? = null
@@ -39,7 +41,25 @@ class TranslatorLanguagesDialogFragment(
             android.R.layout.simple_spinner_item,
             viewModel.availableLanguageNames
         )
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding.spinnerLanguages.adapter = adapter
+
+        // Set Spinner select
+        val deviceLanguage = Locale.getDefault().language
+        viewModel.translatorPrefs.observe(this) {
+            if (it.name == Constants.SHARED_PREFS_NO_DATA) {
+                binding.spinnerLanguages.setSelection(
+                    viewModel.availableLanguageCodes.indexOf(
+                        deviceLanguage
+                    )
+                )
+            } else {
+                binding.spinnerLanguages.setSelection(
+                    viewModel.availableLanguageCodes.indexOf(it.code)
+                )
+            }
+        }
+
 
         // Download translator if needed
         binding.btnDownload.setOnClickListener {

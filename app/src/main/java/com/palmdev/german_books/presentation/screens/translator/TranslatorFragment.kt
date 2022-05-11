@@ -45,16 +45,20 @@ class TranslatorFragment : Fragment() {
             mTranslatorPrefs =
                 if (it.name == Constants.SHARED_PREFS_NO_DATA) null
                 else it
-        }
-        if (mTranslatorPrefs == null) {
-            val dialogTranslatorLanguages = TranslatorLanguagesDialogFragment {
+
+            if (it.name == Constants.SHARED_PREFS_NO_DATA) {
+                val dialogTranslatorLanguages = TranslatorLanguagesDialogFragment {
+                    setUpTranslator()
+                }
+                dialogTranslatorLanguages.isCancelable = false
+                dialogTranslatorLanguages.show(parentFragmentManager, "TAG")
+            } else {
                 setUpTranslator()
             }
-            dialogTranslatorLanguages.isCancelable = false
-            dialogTranslatorLanguages.show(parentFragmentManager, "TAG")
-        } else {
-            setUpTranslator()
         }
+
+
+
 
         initButtonSelectLang()
         initButtonSwapLang()
@@ -66,11 +70,10 @@ class TranslatorFragment : Fragment() {
 
 
     private fun setUpTranslator() {
-        viewModel.initTranslatorPrefs()
         mTranslatorPrefs?.let {
             mTranslator.createTranslator(toLanguage = it.code)
             binding.tvTranslateTo.text = it.name
-            binding.tvTranslateFrom.text = getText(R.string.german)
+            binding.tvTranslateFrom.text = context?.getText(R.string.german)
             binding.btnSelectLang.text = it.name
         }
     }
@@ -79,6 +82,7 @@ class TranslatorFragment : Fragment() {
     private fun initButtonSelectLang() {
         binding.btnSelectLang.setOnClickListener {
             val dialogTranslatorLanguages = TranslatorLanguagesDialogFragment {
+                viewModel.initTranslatorPrefs()
                 setUpTranslator()
             }
             dialogTranslatorLanguages.show(parentFragmentManager, "TAG")

@@ -63,7 +63,7 @@
             android:fontFamily="@font/droid_serif"
             android:lineSpacingExtra="8sp"
             android:textColor="@color/book_color_text"
-            android:textColorHighlight="@color/background"
+            android:textColorHighlight="@color/orange_transparent"
             android:textColorLink="@color/book_color_text"
             android:textIsSelectable="true"
             android:textSize="17sp"
