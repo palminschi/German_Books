@@ -36,6 +36,10 @@ class WordsRepositoryImpl(private val wordsDao: WordsDao) : WordsRepository {
         )
     }
 
+    override suspend fun deleteByGroup(groupId: Int) {
+        wordsDao.deleteByGroup(groupId)
+    }
+
 
 
 

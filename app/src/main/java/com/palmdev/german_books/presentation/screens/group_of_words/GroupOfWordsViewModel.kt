@@ -6,12 +6,14 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.palmdev.domain.model.Word
 import com.palmdev.domain.usecase.purchases.GetPremiumStatusUseCase
+import com.palmdev.domain.usecase.words.DeleteByGroupUseCase
 import com.palmdev.domain.usecase.words.GetWordsByGroupUseCase
 import kotlinx.coroutines.launch
 
 class GroupOfWordsViewModel(
     private val getWordsByGroupUseCase: GetWordsByGroupUseCase,
-    private val getPremiumStatusUseCase: GetPremiumStatusUseCase
+    private val getPremiumStatusUseCase: GetPremiumStatusUseCase,
+    private val deleteByGroupUseCase: DeleteByGroupUseCase
 ) : ViewModel() {
 
     private val _words = MutableLiveData<List<Word>>()
@@ -31,6 +33,12 @@ class GroupOfWordsViewModel(
                     _words.value = it
                 }
             }
+        }
+    }
+
+    fun deleteWords(groupId: Int) {
+        viewModelScope.launch {
+            deleteByGroupUseCase.execute(groupId = groupId)
         }
     }
 }

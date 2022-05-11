@@ -69,7 +69,8 @@ val presentationModule = module {
     viewModel {
         GroupOfWordsViewModel(
             getWordsByGroupUseCase = get(),
-            getPremiumStatusUseCase = get()
+            getPremiumStatusUseCase = get(),
+            deleteByGroupUseCase = get()
         )
     }
 

@@ -108,6 +108,11 @@ class GroupOfWordsFragment : Fragment() {
                 findNavController().popBackStack()
             }
         }
+
+        binding.btnDeleteGroup.setOnClickListener {
+            findNavController().popBackStack()
+            viewModel.deleteWords(mGroupId)
+        }
     }
 
     private fun goToGame(action: Int) {

@@ -22,21 +22,41 @@ class GetGroupsOfWordsUseCase(private val wordsRepository: WordsRepository) {
         val array = ArrayList<GroupOfWords>()
 
         if (list.isNotEmpty()) {
-            val totalWords = list.last().id.toInt()
-            val totalGroups = list.last().group
 
-            for (i in 0..totalGroups) {
-                val numberOfWords = if (i == totalGroups) {
-                    totalWords - (totalGroups * 10)
-                } else 10
+            val totalWords = list.size
+            var totalGroups = 0
 
-                array.add(
-                    GroupOfWords(
-                        groupId = i,
-                        numberOfWords = numberOfWords
-                    )
-                )
+            var numberOfWordsFirstGroup = 0
+            list.map {
+                if (it.group == list.first().group) numberOfWordsFirstGroup++
             }
+            array.add(
+                GroupOfWords(
+                    groupId = list.first().group,
+                    numberOfWords = numberOfWordsFirstGroup
+                )
+            )
+
+            for (i in list.indices) {
+                val currentWord = list[i]
+                val previousWord = if (i == 0) list[0] else list[i - 1]
+                if (currentWord.group > previousWord.group) {
+                    totalGroups++
+
+                    var numberOfWordsInGroup = 0
+                    list.map {
+                        if (it.group == currentWord.group) numberOfWordsInGroup++
+                    }
+                    array.add(
+                        GroupOfWords(
+                            groupId = currentWord.group,
+                            numberOfWords = numberOfWordsInGroup
+                        )
+                    )
+                }
+            }
+
+
         }
 
         return array

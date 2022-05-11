@@ -4,10 +4,7 @@ import com.palmdev.domain.usecase.books.*
 import com.palmdev.domain.usecase.purchases.GetPremiumStatusUseCase
 import com.palmdev.domain.usecase.purchases.SetPremiumStatusUseCase
 import com.palmdev.domain.usecase.user.*
-import com.palmdev.domain.usecase.words.AddWordUseCase
-import com.palmdev.domain.usecase.words.GetAllWordsUseCase
-import com.palmdev.domain.usecase.words.GetGroupsOfWordsUseCase
-import com.palmdev.domain.usecase.words.GetWordsByGroupUseCase
+import com.palmdev.domain.usecase.words.*
 import org.koin.dsl.module
 
 val domainModule = module {
@@ -70,6 +67,9 @@ val domainModule = module {
     }
     factory {
         GetWordsByGroupUseCase(wordsRepository = get())
+    }
+    factory {
+        DeleteByGroupUseCase(wordsRepository = get())
     }
 
     // Purchase

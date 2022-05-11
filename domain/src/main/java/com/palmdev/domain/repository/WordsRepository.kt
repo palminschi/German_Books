@@ -13,4 +13,5 @@ interface WordsRepository {
 
     suspend fun getWordsByGroup(groupId: Int): Flow<List<Word>>
 
+    suspend fun deleteByGroup(groupId: Int)
 }

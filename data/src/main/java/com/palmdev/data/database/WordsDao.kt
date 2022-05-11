@@ -20,4 +20,6 @@ interface WordsDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addWord(word: WordEntity)
 
+    @Query("DELETE FROM words_table WHERE `group` = :group")
+    suspend fun deleteByGroup(group: Int)
 }
