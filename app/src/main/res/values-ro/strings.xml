@@ -1,2 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="save">Salvează</string>
+    <string name="close">Închide</string>
+    <string name="cancel">Anulare</string>
+    <string name="back">Înapoi</string>
+    <string name="ok">OK</string>
+    <string name="wait">aşteapta…</string>
+    <string name="home">Home</string>
+    <string name="books">Cărţi</string>
+    <string name="words">Cuvinte</string>
+    <string name="translator">Trăducător</string>
+    <string name="all">Toate</string>
+    <string name="easy">Simplu</string>
+    <string name="medium">Mediu</string>
+    <string name="hard">Dificil</string>
+    <string name="free">Gratuit</string>
+    <string name="read">Citeşte</string>
+    <string name="example">Exemplu</string>
+    <string name="writeExample">scrie un exemplu…</string>
+    <string name="inGerman">auf Deutsch</string>
+    <string name="inYourLang">în română</string>
+    <string name="groupOfWords">Grupa</string>
+    <string name="words_s">cuvinte</string>
+    <string name="noWords">Nu aveţi cuvinte salvate,\nCiteşte şi adaugă cuvinte!</string>
+    <string name="readBooks">Cărţi</string>
+    <string name="savedWords">Cuvinte salvate</string>
+    <string name="addWord">Adaugă</string>
+    <string name="learnRandom">Învaţă în mod random</string>
+    <string name="gameWriteWord">Scrie</string>
+    <string name="gameFleshCards">Flesh Cards</string>
+    <string name="gameSelectWord">Alege</string>
+    <string name="translate">Traduce</string>
+    <string name="pronunciation">Pronunţă</string>
+    <string name="noInternet">Aveți o conexiune slabă la rețea.</string>
+    <string name="langDownloadInfo">Pachetul lingvistic va fi descărcat ≈ 30 MB</string>
+    <string name="selectYourLang">Alegeţi limba maternă:</string>
+    <string name="addToFavorites">Adaugă la favorite</string>
+    <string name="selectedWords">Cuvinte salvate:</string>
+    <string name="translatorLang">Limba traducătorului</string>
+    <string name="newBooks">Cărţi noi</string>
+    <string name="viewAll">Vezi toate</string>
+    <string name="continueReading">Continuă cartea</string>
+    <string name="lastSavedWord">Ultimul cuvânt salvat</string>
+    <string name="premiumAccount">Premium Account</string>
+    <string name="getPremium">Primeşte Premium</string>
+    <string name="oneTimePayment">Achită o singură dată</string>
+    <string name="purchaseDetails">- Dezblocarea contentului
+        \n- Fară reclamă
+        \n- Salvezi cuvinte nelimitat
+        \n- Pentru totdeauna (∞)</string>
+    <string name="rateUs">Apreciază aplicaţia</string>
+    <string name="ourApps">Alte aplicaţii</string>
+    <string name="thxForFeedback">Mulţumim pentru apreciere</string>
+    <string name="continue_2">Continuă</string>
+    <string name="toastSelectText">Selectează textul</string>
+    <string name="fleshCards">Flesh Cards</string>
+    <string name="writeWord">Scrie cuvântul</string>
+    <string name="selectWord">Selectează cuvântul</string>
+    <string name="write">scrie…</string>
+    <string name="show">Arată</string>
+    <string name="next">Următorul</string>
+    <string name="done">Sfârşit</string>
+    <string name="check">Vezi</string>
+    <string name="toastMin4Words">Min. 4 cuvinte pentru acest exerciţiu</string>
+    <string name="germanTo">German -</string>
+    <string name="typeText">Type something…</string>
+    <string name="addToWords">Add to words</string>
+    <string name="german">German</string>
+    <string name="offlineTranslator">Offline Translator</string>
+    <string name="error">Eroare</string>
+    <string name="toastCopied">Copiat</string>
+    <string name="shop">Shop</string>
+    <string name="clickForCurrency">*click pentru a vedea preţul în valuta dvs.</string>
+    <string name="locked">Blocat</string>
+    <string name="limitedContent">Conținut limitat</string>
+    <string name="max30Words">max. 30 cuvinte</string>
+    <string name="or">sau</string>
+    <string name="showAds">Vizionează o publicitate</string>
+    <string name="youHavePremium">Deja ai Premium Account!</string>
+</resources>

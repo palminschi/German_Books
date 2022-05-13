@@ -1,2 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="save">Сохранить</string>
+    <string name="close">Закрыть</string>
+    <string name="cancel">Отметить</string>
+    <string name="back">Назад</string>
+    <string name="ok">ОК</string>
+    <string name="wait">ждём…</string>
+    <string name="home">Главная</string>
+    <string name="books">Книги</string>
+    <string name="words">Слова</string>
+    <string name="translator">Переводчик</string>
+    <string name="all">Все</string>
+    <string name="easy">Легко</string>
+    <string name="medium">Средне</string>
+    <string name="hard">Сложно</string>
+    <string name="free">Бесплатно</string>
+    <string name="read">Читать</string>
+    <string name="example">Пример</string>
+    <string name="writeExample">напишите пример…</string>
+    <string name="inGerman">auf Deutsch</string>
+    <string name="inYourLang">на русском</string>
+    <string name="groupOfWords">Группа</string>
+    <string name="words_s">слов</string>
+    <string name="noWords">Нету сохраненных слов,\n Читайте книги и добавляйте слова</string>
+    <string name="readBooks">Читать книги</string>
+    <string name="savedWords">Сохранённые слова</string>
+    <string name="addWord">Добавить</string>
+    <string name="learnRandom">Учить в случайном порядке</string>
+    <string name="gameWriteWord">Написать</string>
+    <string name="gameFleshCards">Карточки</string>
+    <string name="gameSelectWord">Выбор</string>
+    <string name="translate">Перевести</string>
+    <string name="pronunciation">Произнести</string>
+    <string name="noInternet">Плохое соединение с интернетом</string>
+    <string name="langDownloadInfo">Языковой пакет будет скачан ≈ 30 MB</string>
+    <string name="selectYourLang">Выберите свой язык:</string>
+    <string name="addToFavorites">Добавить к избранным</string>
+    <string name="selectedWords">Сохраненных слов:</string>
+    <string name="translatorLang">Язык переводчика</string>
+    <string name="newBooks">Новые книги</string>
+    <string name="viewAll">Смотреть все</string>
+    <string name="continueReading">Продолжить чтение</string>
+    <string name="lastSavedWord">Последние сохранённые слова</string>
+    <string name="premiumAccount">Премиум аккаунт</string>
+    <string name="getPremium">Получить</string>
+    <string name="oneTimePayment">Единоразовый платёж</string>
+    <string name="purchaseDetails">- Полная разблокировка контента
+        \n- Отключение рекламы
+        \n- Неограниченное количество слов
+        \n- Навсегда (∞)</string>
+    <string name="rateUs">Оцените приложение</string>
+    <string name="ourApps">Наши приложения</string>
+    <string name="thxForFeedback">Спасибо за оценку!</string>
+    <string name="continue_2">Продолжить</string>
+    <string name="toastSelectText">Выделите текст</string>
+    <string name="fleshCards">Флэш-Карточки</string>
+    <string name="writeWord">Написать слово</string>
+    <string name="selectWord">Выбрать слово</string>
+    <string name="write">написать…</string>
+    <string name="show">Показать</string>
+    <string name="next">Далее</string>
+    <string name="done">Готово</string>
+    <string name="check">Проверить</string>
+    <string name="toastMin4Words">Мин. 4 слов для этой игры</string>
+    <string name="germanTo">Немецкий -</string>
+    <string name="typeText">Введите текст…</string>
+    <string name="addToWords">Сохранить</string>
+    <string name="german">Немецкий</string>
+    <string name="offlineTranslator">Offline-Переводчик</string>
+    <string name="error">Ошибка</string>
+    <string name="toastCopied">Скопировано</string>
+    <string name="shop">Магазин</string>
+    <string name="clickForCurrency">*нажмите чтобы увидеть цену в вашей валюте</string>
+    <string name="locked">Закрыто</string>
+    <string name="limitedContent">Ограниченный контент</string>
+    <string name="max30Words">Макс. 30 слов</string>
+    <string name="or">или</string>
+    <string name="showAds">Смотреть рекламу</string>
+    <string name="youHavePremium">У вас Премиум-Аккаунт</string>
+</resources>
