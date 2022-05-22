@@ -33,7 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="@string/fleshCards"
+            android:text="@string/flashCards"
             android:textColor="@color/main_orange"
             android:textSize="26sp"
             app:layout_constraintBottom_toBottomOf="parent"

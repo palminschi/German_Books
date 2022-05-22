@@ -2,7 +2,7 @@
 <resources>
     <string name="save">Сохранить</string>
     <string name="close">Закрыть</string>
-    <string name="cancel">Отметить</string>
+    <string name="cancel">Отменить</string>
     <string name="back">Назад</string>
     <string name="ok">ОК</string>
     <string name="wait">ждём…</string>
@@ -28,7 +28,7 @@
     <string name="addWord">Добавить</string>
     <string name="learnRandom">Учить в случайном порядке</string>
     <string name="gameWriteWord">Написать</string>
-    <string name="gameFleshCards">Карточки</string>
+    <string name="gameFlashCards">Карточки</string>
     <string name="gameSelectWord">Выбор</string>
     <string name="translate">Перевести</string>
     <string name="pronunciation">Произнести</string>
@@ -54,7 +54,7 @@
     <string name="thxForFeedback">Спасибо за оценку!</string>
     <string name="continue_2">Продолжить</string>
     <string name="toastSelectText">Выделите текст</string>
-    <string name="fleshCards">Флэш-Карточки</string>
+    <string name="flashCards">Флэш-Карточки</string>
     <string name="writeWord">Написать слово</string>
     <string name="selectWord">Выбрать слово</string>
     <string name="write">написать…</string>
@@ -74,7 +74,7 @@
     <string name="clickForCurrency">*нажмите чтобы увидеть цену в вашей валюте</string>
     <string name="locked">Закрыто</string>
     <string name="limitedContent">Ограниченный контент</string>
-    <string name="max30Words">Макс. 30 слов</string>
+    <string name="max30Words">макс. 30 слов</string>
     <string name="or">или</string>
     <string name="showAds">Смотреть рекламу</string>
     <string name="youHavePremium">У вас Премиум-Аккаунт</string>

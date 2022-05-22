@@ -28,7 +28,7 @@
     <string name="addWord">Agregar</string>
     <string name="learnRandom">Aprende palabras aleatorias</string>
     <string name="gameWriteWord">Escribe</string>
-    <string name="gameFleshCards">Flesh Cards</string>
+    <string name="gameFlashCards">Flash Cards</string>
     <string name="gameSelectWord">Seleccione</string>
     <string name="translate">Traducir</string>
     <string name="pronunciation">Pronunciar</string>
@@ -53,7 +53,7 @@
     <string name="thxForFeedback">Gracias por tus comentarios</string>
     <string name="continue_2">Continuar</string>
     <string name="toastSelectText">Seleccione el texto</string>
-    <string name="fleshCards">Flesh Cards</string>
+    <string name="flashCards">Flesh Cards</string>
     <string name="writeWord">Escribe la palabra</string>
     <string name="selectWord">Seleccione la palabra</string>
     <string name="write">escribe…</string>

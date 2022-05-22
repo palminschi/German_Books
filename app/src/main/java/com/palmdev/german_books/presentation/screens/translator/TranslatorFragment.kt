@@ -25,7 +25,7 @@ class TranslatorFragment : Fragment() {
     private val viewModel: TranslatorViewModel by viewModel()
     private lateinit var binding: TranslatorFragmentBinding
     private val mTranslator = GoogleMLKitTranslator
-    private val mVoiceText by lazy { VoiceText(context = requireContext()) }
+    private lateinit var mVoiceText: VoiceText
     private var mTranslatorPrefs: Language? = null
 
     override fun onCreateView(
@@ -57,8 +57,8 @@ class TranslatorFragment : Fragment() {
             }
         }
 
-
-
+        mVoiceText = VoiceText(requireContext())
+        mVoiceText.init()
 
         initButtonSelectLang()
         initButtonSwapLang()

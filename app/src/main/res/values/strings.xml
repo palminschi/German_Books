@@ -34,7 +34,7 @@
     <string name="addWord">Add</string>
     <string name="learnRandom">Learn random words</string>
     <string name="gameWriteWord">Write</string>
-    <string name="gameFleshCards">Flesh Cards</string>
+    <string name="gameFlashCards">Flash Cards</string>
     <string name="gameSelectWord">Select</string>
     <string name="translate">Translate</string>
     <string name="pronunciation">Pronounce</string>
@@ -59,7 +59,7 @@
     <string name="thxForFeedback">Thanks for your feedback</string>
     <string name="continue_2">Continue</string>
     <string name="toastSelectText">Select the text</string>
-    <string name="fleshCards">Flesh Cards</string>
+    <string name="flashCards">Flash Cards</string>
     <string name="writeWord">Write the word</string>
     <string name="selectWord">Select the word</string>
     <string name="write">write…</string>

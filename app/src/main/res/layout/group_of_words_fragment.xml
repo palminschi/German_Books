@@ -600,7 +600,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="3dp"
                     android:gravity="center"
-                    android:text="@string/gameFleshCards"
+                    android:text="@string/gameFlashCards"
                     android:textColor="@color/white"
                     android:textSize="12sp"
                     android:textStyle="bold"

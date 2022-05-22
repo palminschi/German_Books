@@ -28,7 +28,7 @@
     <string name="addWord">Adaugă</string>
     <string name="learnRandom">Învaţă în mod random</string>
     <string name="gameWriteWord">Scrie</string>
-    <string name="gameFleshCards">Flesh Cards</string>
+    <string name="gameFlashCards">Flesh Cards</string>
     <string name="gameSelectWord">Alege</string>
     <string name="translate">Traduce</string>
     <string name="pronunciation">Pronunţă</string>
@@ -54,7 +54,7 @@
     <string name="thxForFeedback">Mulţumim pentru apreciere</string>
     <string name="continue_2">Continuă</string>
     <string name="toastSelectText">Selectează textul</string>
-    <string name="fleshCards">Flesh Cards</string>
+    <string name="flashCards">Flesh Cards</string>
     <string name="writeWord">Scrie cuvântul</string>
     <string name="selectWord">Selectează cuvântul</string>
     <string name="write">scrie…</string>
