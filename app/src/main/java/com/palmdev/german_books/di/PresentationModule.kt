@@ -29,7 +29,8 @@ val presentationModule = module {
 
     viewModel {
         BooksViewModel(
-            getBooksByTypeUseCase = get()
+            getBooksByTypeUseCase = get(),
+            getPremiumStatusUseCase = get()
         )
     }
 

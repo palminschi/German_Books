@@ -35,6 +35,8 @@
         <entry key="..\:/Projects/German_Books/app/src/main/res/layout-large/home_fragment.xml" value="0.15709090364314326" />
         <entry key="..\:/Projects/German_Books/app/src/main/res/layout-large/item_book.xml" value="0.14635416666666667" />
         <entry key="..\:/Projects/German_Books/app/src/main/res/layout-large/item_group_of_words.xml" value="0.14635416666666667" />
+        <entry key="..\:/Projects/German_Books/app/src/main/res/layout-large/native_ad_type_1.xml" value="0.122181813944667" />
+        <entry key="..\:/Projects/German_Books/app/src/main/res/layout-large/native_ad_type_2.xml" value="0.4363636212309535" />
         <entry key="..\:/Projects/German_Books/app/src/main/res/layout-large/shop_fragment.xml" value="0.14635416666666667" />
         <entry key="..\:/Projects/German_Books/app/src/main/res/layout-large/words_fragment.xml" value="0.14635416666666667" />
         <entry key="..\:/Projects/German_Books/app/src/main/res/layout-v28/home_fragment.xml" value="0.29270833333333335" />
@@ -49,9 +51,12 @@
         <entry key="..\:/Projects/German_Books/app/src/main/res/layout/fragment_game_select_word.xml" value="0.21818181061547676" />
         <entry key="..\:/Projects/German_Books/app/src/main/res/layout/fragment_game_write_word.xml" value="0.2879999900124293" />
         <entry key="..\:/Projects/German_Books/app/src/main/res/layout/group_of_words_fragment.xml" value="0.2879999900124293" />
-        <entry key="..\:/Projects/German_Books/app/src/main/res/layout/home_fragment.xml" value="0.2879999900124293" />
+        <entry key="..\:/Projects/German_Books/app/src/main/res/layout/home_fragment.xml" value="0.5847272524494778" />
         <entry key="..\:/Projects/German_Books/app/src/main/res/layout/item_book.xml" value="0.4363636212309535" />
         <entry key="..\:/Projects/German_Books/app/src/main/res/layout/item_group_of_words.xml" value="0.2879999900124293" />
+        <entry key="..\:/Projects/German_Books/app/src/main/res/layout/item_native_ad.xml" value="0.24027362120564344" />
+        <entry key="..\:/Projects/German_Books/app/src/main/res/layout/native_ad_type_1.xml" value="0.2879999900124293" />
+        <entry key="..\:/Projects/German_Books/app/src/main/res/layout/native_ad_type_2.xml" value="0.4363636212309535" />
         <entry key="..\:/Projects/German_Books/app/src/main/res/layout/popup_translate_word.xml" value="0.29270833333333335" />
         <entry key="..\:/Projects/German_Books/app/src/main/res/layout/reading_bottom_sheet_fragment.xml" value="0.2879999900124293" />
         <entry key="..\:/Projects/German_Books/app/src/main/res/layout/select_book_fragment.xml" value="0.29270833333333335" />

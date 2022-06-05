@@ -9,29 +9,37 @@ import com.palmdev.domain.usecase.books.GetBooksByTypeUseCase
 import com.palmdev.domain.usecase.purchases.GetPremiumStatusUseCase
 
 class BooksViewModel(
-    private val getBooksByTypeUseCase: GetBooksByTypeUseCase
+    private val getBooksByTypeUseCase: GetBooksByTypeUseCase,
+    private val getPremiumStatusUseCase: GetPremiumStatusUseCase
 ) : ViewModel() {
 
     private val _books = MutableLiveData<List<Book>>()
-    var books: LiveData<List<Book>> = _books
+    val books: LiveData<List<Book>> = _books
 
-    fun initAllBooks(){
+    private val _premiumStatus = MutableLiveData<Boolean>()
+    val premiumStatus: LiveData<Boolean> = _premiumStatus
+
+    init {
+        _premiumStatus.value = getPremiumStatusUseCase.execute()
+    }
+
+    fun initAllBooks() {
         _books.value = getBooksByTypeUseCase.execute(type = BooksType.ALL)
     }
 
-    fun initEasyBooks(){
+    fun initEasyBooks() {
         _books.value = getBooksByTypeUseCase.execute(type = BooksType.EASY)
     }
 
-    fun initMediumBooks(){
+    fun initMediumBooks() {
         _books.value = getBooksByTypeUseCase.execute(type = BooksType.MEDIUM)
     }
 
-    fun initHardBooks(){
+    fun initHardBooks() {
         _books.value = getBooksByTypeUseCase.execute(type = BooksType.HARD)
     }
 
-    fun initFavoriteBooks(){
+    fun initFavoriteBooks() {
         _books.value = getBooksByTypeUseCase.execute(type = BooksType.FAVORITES)
     }
 

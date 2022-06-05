@@ -33,6 +33,21 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
         super.onViewCreated(view, savedInstanceState)
         binding = HomeFragmentBinding.bind(view)
 
+        // Load the ad
+        viewModel.userPremiumStatus.observe(viewLifecycleOwner) {
+            when (it) {
+                true -> binding.adContainer?.visibility = View.GONE
+                false -> {
+                    binding.adContainer?.let { view ->
+                        viewModel.loadAd(context = requireContext(), root = view, onClickDismiss = {
+                            findNavController().navigate(R.id.shopFragment)
+                        })
+                    }
+                }
+            }
+        }
+
+
         initNavButtons()
         initRatingButtons()
         setLastBookRead()

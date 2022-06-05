@@ -5,6 +5,8 @@
     <string name="ADMOB_ID" translatable="false">ca-app-pub-6012847014470005~6834906431</string>
     <string name="AD_REWARDED_ID" translatable="false">ca-app-pub-6012847014470005/8813368366</string>
     <string name="AD_INTERSTITIAL_ID" translatable="false">ca-app-pub-6012847014470005/8286539154</string>
+    <string name="AD_NATIVE_TYPE_1_ID" translatable="false">ca-app-pub-6012847014470005/6118875507</string>
+    <string name="AD_NATIVE_TYPE_2_ID" translatable="false">ca-app-pub-6012847014470005/3711633192</string>
 
     <string name="save">Save</string>
     <string name="close">Close</string>
@@ -83,4 +85,8 @@
     <string name="or">or</string>
     <string name="showAds">Watch an ad</string>
     <string name="youHavePremium">You have Premium Account!</string>
+    <string name="ad" translatable="false">Ad •</string>
+    <string name="dismiss">Dismiss</string>
+    <string name="install">Install</string>
+    <string name="loading">loading…</string>
 </resources>
