@@ -135,7 +135,7 @@ class BookReadingFragment : Fragment(R.layout.book_reading_fragment) {
         // Button settings
         binding.btnSettings.setOnClickListener {
             findNavController().navigate(
-                R.id.action_bookReadingFragment_to_readingBottomSheetFragment,
+                R.id.readingBottomSheetFragment,
                 bundleOf(BOOK_ID to mBookId)
             )
         }

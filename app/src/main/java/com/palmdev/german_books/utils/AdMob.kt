@@ -60,7 +60,8 @@ object AdMob {
                 Log.d(TAG, "Ad was shown.")
             }
 
-            override fun onAdFailedToShowFullScreenContent(adError: AdError?) {
+
+            override fun onAdFailedToShowFullScreenContent(adError: AdError) {
                 // Called when ad fails to show.
                 Log.d(TAG, "Ad failed to show.")
                 mRewardedAd = null
@@ -112,7 +113,7 @@ object AdMob {
                     loadInterstitialAd(context)
                 }
 
-                override fun onAdFailedToShowFullScreenContent(adError: AdError?) {
+                override fun onAdFailedToShowFullScreenContent(adError: AdError) {
                     Log.d(TAG, "Ad failed to show.")
                     mInterstitialAd = null
                 }

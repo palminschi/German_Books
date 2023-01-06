@@ -329,7 +329,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/viewAll"
                         android:textColor="@color/gray_03"
-                        android:textSize="13sp"
+                        android:textSize="14sp"
                         tools:ignore="TextContrastCheck" />
 
                     <ImageView
@@ -491,6 +491,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp">
+
             <include
                 android:id="@+id/ad_content"
                 layout="@layout/native_ad_type_1" />
@@ -573,7 +574,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/viewAll"
                         android:textColor="@color/gray_03"
-                        android:textSize="13sp"
+                        android:textSize="14sp"
                         tools:ignore="TextContrastCheck" />
 
                     <ImageView
@@ -722,7 +723,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/getPremium"
                         android:textColor="@color/gray_03"
-                        android:textSize="13sp" />
+                        android:textSize="14sp" />
 
                     <ImageView
                         android:layout_width="20dp"

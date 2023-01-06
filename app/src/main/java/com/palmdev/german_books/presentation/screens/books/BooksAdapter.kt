@@ -123,7 +123,7 @@ class BooksAdapter(
                     dialog.show(fragmentManager, "TAG")
                 } else {
                     itemView.findNavController().navigate(
-                        R.id.action_selectBookFragment_to_bookReadingFragment,
+                        R.id.bookReadingFragment,
                         bundleOf(BooksFragment.ARG_OPENED_BOOK to book.id)
                     )
                 }

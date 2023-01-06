@@ -62,17 +62,17 @@ class GroupOfWordsFragment : Fragment() {
 
         // Games
         binding.btnGameFleshCards.setOnClickListener {
-            goToGame(R.id.action_groupOfWordsFragment_to_gameFleshCardsFragment)
+            goToGame(R.id.gameFleshCardsFragment)
         }
 
         binding.btnGameWrite.setOnClickListener {
             if (viewModel.userPremiumStatus.value == true) {
-                goToGame(R.id.action_groupOfWordsFragment_to_gameWriteWordFragment)
+                goToGame(R.id.gameWriteWordFragment)
             } else {
                 val dialog = RestrictedContentDialogFragment(
                     withAdsOption = true,
                     onUserEarnedRewardListener = {
-                        goToGame(R.id.action_groupOfWordsFragment_to_gameWriteWordFragment)
+                        goToGame(R.id.gameWriteWordFragment)
                     }
                 )
                 dialog.show(parentFragmentManager, "TAG")
@@ -87,7 +87,7 @@ class GroupOfWordsFragment : Fragment() {
                     Toast.LENGTH_SHORT
                 ).show()
             } else {
-                goToGame(R.id.action_groupOfWordsFragment_to_gameSelectWordFragment)
+                goToGame(R.id.gameSelectWordFragment)
             }
         }
 

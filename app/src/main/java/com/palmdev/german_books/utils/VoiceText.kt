@@ -2,6 +2,7 @@ package com.palmdev.german_books.utils
 
 import android.content.Context
 import android.speech.tts.TextToSpeech
+import android.speech.tts.Voice
 import java.util.*
 
 class VoiceText(private val context: Context) {
@@ -11,7 +12,7 @@ class VoiceText(private val context: Context) {
     fun init(){
         mTextToSpeech = TextToSpeech(context){
             mTextToSpeech.language = Locale.GERMAN
-            mTextToSpeech.setSpeechRate(0.80f)
+            mTextToSpeech.setSpeechRate(0.90f)
         }
     }
 

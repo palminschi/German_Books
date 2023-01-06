@@ -330,7 +330,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/viewAll"
                         android:textColor="@color/gray_03"
-                        android:textSize="13sp"
+                        android:textSize="16sp"
                         tools:ignore="TextContrastCheck" />
 
                     <ImageView
@@ -469,6 +469,7 @@
                                     android:layout_height="wrap_content"
                                     android:text="@string/continue_2"
                                     android:textColor="@color/green_2"
+                                    android:textSize="16sp"
                                     android:textStyle="bold" />
 
                                 <ImageView
@@ -485,6 +486,17 @@
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
+
+        <FrameLayout
+            android:id="@+id/adContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp">
+
+            <include
+                android:id="@+id/ad_content"
+                layout="@layout/native_ad_type_1" />
+        </FrameLayout>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/lastWordContainer"
@@ -562,7 +574,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/viewAll"
                         android:textColor="@color/gray_03"
-                        android:textSize="13sp"
+                        android:textSize="16sp"
                         tools:ignore="TextContrastCheck" />
 
                     <ImageView
@@ -711,7 +723,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/getPremium"
                         android:textColor="@color/gray_03"
-                        android:textSize="13sp"
+                        android:textSize="16sp"
                         tools:ignore="TextContrastCheck" />
 
                     <ImageView

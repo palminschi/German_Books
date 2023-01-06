@@ -193,16 +193,16 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
 
     private fun initNavButtons() {
         binding.btnTranslator.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_translatorFragment)
+            findNavController().navigate(R.id.translatorFragment)
         }
         binding.btnViewAllBooks.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_selectBookFragment)
+            findNavController().navigate(R.id.selectBookFragment)
         }
         binding.btnAllWords.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_wordsFragment)
+            findNavController().navigate(R.id.wordsFragment)
         }
         binding.btnGetPremium.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_shopFragment)
+            findNavController().navigate(R.id.shopFragment)
         }
         binding.btnOurApps.setOnClickListener {
             try {

@@ -2,6 +2,7 @@ package com.palmdev.german_books.utils
 
 import android.app.Activity
 import android.content.Context
+import android.util.Log
 import android.widget.Toast
 import com.android.billingclient.api.*
 import com.palmdev.data.util.Constants
@@ -101,7 +102,7 @@ class InAppPurchases(private val context: Context, private val activity: Activit
     private fun handlePurchases(purchases: List<Purchase>) {
         for (purchase in purchases) {
             //if item is purchased
-            if (Constants.PRODUCT_ID == purchase.sku && purchase.purchaseState == Purchase.PurchaseState.PURCHASED) {
+            if (Constants.PRODUCT_ID == purchase.skus.first() && purchase.purchaseState == Purchase.PurchaseState.PURCHASED) {
                 if (!verifyValidSignature(purchase.originalJson, purchase.signature)) {
                     // Invalid purchase
                     // show error to user
@@ -130,12 +131,12 @@ class InAppPurchases(private val context: Context, private val activity: Activit
                         ).show()
                     }
                 }
-            } else if (Constants.PRODUCT_ID == purchase.sku && purchase.purchaseState == Purchase.PurchaseState.PENDING) {
+            } else if (Constants.PRODUCT_ID == purchase.skus.first() && purchase.purchaseState == Purchase.PurchaseState.PENDING) {
                 Toast.makeText(
                     context,
                     "Purchase is Pending. Please complete Transaction", Toast.LENGTH_SHORT
                 ).show()
-            } else if (Constants.PRODUCT_ID == purchase.sku && purchase.purchaseState == Purchase.PurchaseState.UNSPECIFIED_STATE) {
+            } else if (Constants.PRODUCT_ID == purchase.skus.first() && purchase.purchaseState == Purchase.PurchaseState.UNSPECIFIED_STATE) {
                 setUserPremiumStatus(false)
                 //=-
                 Toast.makeText(
