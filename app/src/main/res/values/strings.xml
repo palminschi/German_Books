@@ -8,6 +8,8 @@
     <string name="AD_NATIVE_TYPE_1_ID" translatable="false">ca-app-pub-6012847014470005/6118875507</string>
     <string name="AD_NATIVE_TYPE_2_ID" translatable="false">ca-app-pub-6012847014470005/3711633192</string>
 
+    <string name="iSpeakAppTitle">iSpeak. German learning app</string>
+
     <string name="save">Save</string>
     <string name="close">Close</string>
     <string name="cancel">Cancel</string>

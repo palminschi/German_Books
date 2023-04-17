@@ -53,8 +53,7 @@ class BooksAdapter(
         if (getItemViewType(position) == AD_TYPE) {
             AdMob.loadNativeAd(
                 context = holder.itemView.context,
-                root = holder.itemView.rootView as ViewGroup,
-                type = AdMob.AD_TYPE_02
+                root = holder.itemView.rootView as ViewGroup
             )
         } else {
             if (position > AD_CONDITION) {

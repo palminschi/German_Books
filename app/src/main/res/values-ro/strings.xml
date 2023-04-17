@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <string name="iSpeakAppTitle">iSpeak. Învață Germana</string>
+
     <string name="save">Salvează</string>
     <string name="close">Închide</string>
     <string name="cancel">Anulare</string>

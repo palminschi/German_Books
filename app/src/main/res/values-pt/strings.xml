@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <string name="iSpeakAppTitle">iSpeak. Aprende alemão</string>
+
     <string name="addToFavorites">Adicionar aos favoritos</string>
     <string name="addToWords">Adicionar às palavras</string>
     <string name="addWord">Adicionar</string>

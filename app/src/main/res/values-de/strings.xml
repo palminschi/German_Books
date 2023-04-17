@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <string name="iSpeakAppTitle">iSpeak. Deutsch lernen app</string>
+
     <string name="save">Speichern</string>
     <string name="close">Schließen</string>
     <string name="cancel">Absagen</string>

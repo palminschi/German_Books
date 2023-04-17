@@ -1,16 +1,11 @@
 package com.palmdev.german_books.presentation.screens.home
 
-import android.content.Context
-import android.view.View
-import android.view.ViewGroup
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.navigation.NavController
 import com.palmdev.domain.model.Book
 import com.palmdev.domain.model.BookReadingProgress
-import com.palmdev.domain.model.GroupOfWords
 import com.palmdev.domain.model.Word
 import com.palmdev.domain.usecase.books.GetBookByIdUseCase
 import com.palmdev.domain.usecase.books.GetLastBookReadUseCase
@@ -18,11 +13,7 @@ import com.palmdev.domain.usecase.books.GetReadingProgressUseCase
 import com.palmdev.domain.usecase.purchases.GetPremiumStatusUseCase
 import com.palmdev.domain.usecase.user.HasUserRatedAppUseCase
 import com.palmdev.domain.usecase.user.SetAppIsRatedUseCase
-import com.palmdev.domain.usecase.words.AddWordUseCase
 import com.palmdev.domain.usecase.words.GetAllWordsUseCase
-import com.palmdev.domain.usecase.words.GetGroupsOfWordsUseCase
-import com.palmdev.domain.usecase.words.GetWordsByGroupUseCase
-import com.palmdev.german_books.utils.AdMob
 import kotlinx.coroutines.launch
 
 class HomeViewModel(
@@ -85,9 +76,5 @@ class HomeViewModel(
                 else _lastWord.value = it.last()
             }
         }
-    }
-
-    fun loadAd(context: Context, root: ViewGroup, onClickDismiss: View.OnClickListener) {
-        AdMob.loadNativeAd(context = context, root = root, type = AdMob.AD_TYPE_01, onClickDismiss)
     }
 }

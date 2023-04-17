@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <string name="iSpeakAppTitle">iSpeak. Вивчай німецьку</string>
+
+
     <string name="save">Зберегти</string>
     <string name="close">Закрити</string>
     <string name="cancel">Відзначити</string>

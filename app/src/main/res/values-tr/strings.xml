@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <string name="iSpeakAppTitle">iSpeak. Almanca öğren</string>
+
     <string name="addToFavorites">Favorilere ekle</string>
     <string name="addToWords">kelimelere ekle</string>
     <string name="addWord">Ekle</string>

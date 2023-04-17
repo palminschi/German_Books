@@ -7,6 +7,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
@@ -33,26 +34,24 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
         super.onViewCreated(view, savedInstanceState)
         binding = HomeFragmentBinding.bind(view)
 
-        // Load the ad
-        viewModel.userPremiumStatus.observe(viewLifecycleOwner) {
-            when (it) {
-                true -> binding.adContainer?.visibility = View.GONE
-                false -> {
-                    binding.adContainer?.let { view ->
-                        viewModel.loadAd(context = requireContext(), root = view, onClickDismiss = {
-                            findNavController().navigate(R.id.shopFragment)
-                        })
-                    }
-                }
-            }
-        }
-
-
         initNavButtons()
         initRatingButtons()
         setLastBookRead()
         setLastSavedWord()
         initNewBooks(id1 = 8, id2 = 0, id3 = 2)
+
+        binding.nativeAdView.setOnClickListener {
+            val intent = Intent(
+                Intent.ACTION_VIEW,
+                Uri.parse("market://details?id=ispeak.german.learning.app.words.german.conversations.dialogues")
+            )
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            try {
+                requireContext().startActivity(intent)
+            } catch (e: Exception) {
+                e.message?.let { Log.e("TAG", it) }
+            }
+        }
 
     }
 
@@ -209,14 +208,14 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
                 startActivity(
                     Intent(
                         Intent.ACTION_VIEW,
-                        Uri.parse("market://developer?id=DevPalm")
+                        Uri.parse("market://dev?id=8261851803988829969")
                     )
                 )
             } catch (anfe: ActivityNotFoundException) {
                 startActivity(
                     Intent(
                         Intent.ACTION_VIEW,
-                        Uri.parse("https://play.google.com/store/apps/developer?id=DevPalm")
+                        Uri.parse("https://play.google.com/store/apps/dev?id=8261851803988829969")
                     )
                 )
             }

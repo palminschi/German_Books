@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <string name="iSpeakAppTitle">iSpeak. Apprendre l\'allemand</string>
+
+
     <string name="save">Gardez</string>
     <string name="close">Fermer</string>
     <string name="cancel">Annuler</string>
