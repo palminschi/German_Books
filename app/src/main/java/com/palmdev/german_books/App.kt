@@ -6,27 +6,25 @@ import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.tasks.Task
 import com.google.firebase.FirebaseApp
 import com.google.firebase.messaging.FirebaseMessaging
-import com.palmdev.german_books.di.presentationModule
-import com.palmdev.german_books.di.databaseModule
-import com.palmdev.german_books.di.dataModule
-import com.palmdev.german_books.di.domainModule
-import org.koin.android.ext.koin.androidContext
-import org.koin.core.context.startKoin
+import com.jakewharton.threetenabp.AndroidThreeTen
+import dagger.hilt.android.HiltAndroidApp
 
+@HiltAndroidApp
 class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
 
-        // Koin init
-        startKoin {
-            androidContext(this@App)
-            modules(listOf(dataModule, domainModule, presentationModule, databaseModule))
-        }
+        // Init Ads
+        MobileAds.initialize(this)
 
-        // Firebase init
+        // Init Firebase
         FirebaseApp.initializeApp(this)
-        // Firebase Messaging init
+
+        // ThreeTenBP - for Time, Date, Duration
+        AndroidThreeTen.init(this)
+
+        // Init Firebase Messaging
         FirebaseMessaging.getInstance().token
             .addOnCompleteListener { task: Task<String> ->
                 if (!task.isSuccessful) {
@@ -35,8 +33,6 @@ class App : Application() {
                 val token = task.result
                 Log.d("TAG", "Token ->$token")
             }
-        // Admob init
-        MobileAds.initialize(this)
     }
 
 }

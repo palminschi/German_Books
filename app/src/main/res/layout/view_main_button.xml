@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:focusable="true"
+    tools:parentTag="android.widget.FrameLayout">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="6dp"
+        app:cardBackgroundColor="@color/purple_dark"
+        app:cardCornerRadius="14dp"
+        app:cardElevation="0dp" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        app:cardCornerRadius="14dp"
+        app:cardElevation="0dp">
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:background="@drawable/gradient_purple">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="16dp"
+                android:layout_marginHorizontal="10dp"
+                android:gravity="center"
+                android:text="@string/start"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:visibility="visible"
+                app:fontFamily="@font/nexa_text_extra_bold" />
+
+            <TextView
+                android:id="@+id/tvTranscriptionLine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="\-"
+                android:layout_marginEnd="4dp"
+                android:textColor="@color/textColorGrayAccent"
+                android:textSize="12sp"
+                android:visibility="gone"
+                tools:visibility="visible"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/tvTranscription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                tools:text="@string/start"
+                android:textColor="@color/textColorGrayAccent"
+                android:textSize="14sp"
+                android:visibility="gone"
+                tools:visibility="visible"
+                />
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+
+</merge>

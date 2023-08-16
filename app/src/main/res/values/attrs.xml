@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="RoundButtonView">
+        <attr name="shadowBackgroundTint" format="color" />
+        <attr name="transparentBackgroundTint" format="color" />
+        <attr name="buttonDrawable" format="integer" />
+        <attr name="buttonText" format="string" />
+        <attr name="buttonTextSize" format="float" />
+        <attr name="withImage" format="boolean" />
+        <attr name="isChecked" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="MainButtonView">
+        <attr name="textButton" format="string" />
+        <attr name="buttonTextAllCaps" format="boolean" />
+        <attr name="textSizeButton" format="dimension" />
+        <attr name="buttonCornerRadius" format="dimension" />
+        <attr name="buttonWithImage" format="boolean" />
+        <attr name="textMarginVertical" format="dimension" />
+        <attr name="transcriptionText" format="string" />
+        <attr name="buttonColor" format="enum">
+            <enum name="purple" value="0" />
+            <enum name="gray" value="1" />
+            <enum name="white" value="2" />
+            <enum name="yellow" value="3" />
+        </attr>
+
+    </declare-styleable>
+
+    <declare-styleable name="SpeakButtonView">
+        <attr name="corners" format="dimension" />
+        <attr name="isSpeaking" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="BottomNavigationView">
+        <attr name="badgeWordsCount" format="integer" />
+        <attr name="selectedItem" format="enum">
+            <enum name="story" value="1" />
+            <enum name="words" value="2" />
+            <enum name="video" value="3" />
+            <enum name="profile" value="4" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="WordCategoryView">
+        <attr name="categoryIconUrl" format="string" />
+        <attr name="categoryName" format="string" />
+        <attr name="progressMax" format="integer" />
+        <attr name="currentProgress" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="DifficultyButtonView">
+        <attr name="nextTimeText" format="string" />
+        <attr name="difficultyText" format="string" />
+        <attr name="colorBackground" format="enum">
+            <enum name="red" value="0" />
+            <enum name="orange" value="1" />
+            <enum name="green" value="2" />
+        </attr>
+
+
+    </declare-styleable>
+</resources>

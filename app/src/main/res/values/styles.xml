@@ -7,6 +7,10 @@
 
     <style name="AppModalStyle"
         parent="Widget.Design.BottomSheet.Modal">
-        <item name="android:background">@drawable/style_bottom_nav_view</item>
+        <item name="android:background">@drawable/style_bottom_sheet_background</item>
+    </style>
+
+    <style name="BottomNavigation.ActiveItemTextAppearance" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/nexa_text_bold</item>
     </style>
 </resources>

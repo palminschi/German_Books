@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/redHint"
+        android:visibility="gone"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="6dp"
+        app:tint="@color/red" />
+        <!--android:contentDescription="@string/picture"-->
+        <!--app:srcCompat="@drawable/shape_circle"-->
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/btnSound"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:contentDescription="@string/picture"
+        android:padding="6dp"
+        app:srcCompat="@drawable/style_ic_sound" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="10dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/tvWord"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textIsSelectable="true"
+                android:textSize="17sp"
+                app:fontFamily="@font/nexa_text_extra_bold"
+                tools:text="Word" />
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/tvTranscriptionLine"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="top"
+                android:textColor="@color/gray_accent"
+                android:layout_marginStart="6dp"
+                android:textIsSelectable="true"
+                android:textSize="12sp"
+                android:text="\-"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/tvTranscription"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="top"
+                android:textColor="@color/gray_accent"
+                android:layout_marginStart="6dp"
+                android:textIsSelectable="true"
+                android:textSize="12sp"
+                tools:text="" />
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/tvTranslation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/gray_accent"
+            android:textSize="14sp"
+            tools:text="Translation" />
+
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/icLearned"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center"
+        android:layout_marginEnd="12dp"
+        android:contentDescription="@string/picture"
+        app:srcCompat="@drawable/ic_checked_2"
+        android:visibility="gone"
+        tools:visibility="gone"
+        />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/btnDelete"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center"
+        app:srcCompat="@drawable/ic_delete"
+        android:contentDescription="@string/picture"
+        android:visibility="visible"
+        />
+</LinearLayout>

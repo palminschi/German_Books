@@ -1,84 +1,212 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="joinUs">Присоединяйтесь к нам</string>
+    <string name="joinUsInfo">Присоединяйтесь к нашему сообществу, чтобы найти друзей и партнеров по разговору</string>
+    <string name="hintReading1">Нажмите на слово, чтобы увидеть перевод</string>
+    <string name="hintReading2">Выделите текст + нажмите (Перевод), чтобы перевести более длинный текст.</string>
+    <string name="dailyStreak">Ежедневная серия</string>
+    <string name="unlockAllFeatures">Разблокировать все функции</string>
+    <string name="getPremiumAccount">Получить Премиум аккаунт</string>
+    <string name="tasksForToday">Задачи на сегодня</string>
+    <string name="openTheApp"><strike>Открыть приложение</strike></string>
+    <string name="newBooks">Недавно добавленные книги</string>
+    <string name="mostPopularVideos">Самые популярные видео</string>
+    <string name="task1ReadBook">Начать читать книгу</string>
+    <string name="task2SaveWords">Сохранить 5 новых слов</string>
+    <string name="task3WatchVideo">Посмотреть хотя бы 1 видео</string>
+    <string name="settings">Настройки</string>
+    <string name="yourLanguage">Ваш язык</string>
+    <string name="learnOtherLanguages">Изучать другие языки</string>
+    <string name="inviteFriend">Пригласить друга</string>
+    <string name="rateApp">Оценить приложение</string>
+    <string name="privacy">Политика конфиденциальности</string>
+    <string name="followUs">Присоединиться к нашему сообществу</string>
+    <string name="shareAppText">Хотите легко выучить немецкий язык? Установите это приложение:</string>
 
-    <string name="iSpeakAppTitle">iSpeak. Учить Немецкий</string>
+    <string name="favoriteBooks">Любимые книги</string>
+    <string name="continueReading">Продолжить чтение</string>
+    <string name="a1Title">A1: Начинающие</string>
+    <string name="a2Title">A2: Ниже среднего</string>
+    <string name="b1Title">B1: Средний уровень</string>
+    <string name="b2Title">B2: Выше среднего</string>
+    <string name="seeAll">Смотреть все</string>
+    <string name="selectText">Выберите текст для перевода</string>
+    <string name="wordHasBeenSaved">Слово было сохранено</string>
+    <string name="deleteWordConfirmation">Вы хотите удалить это слово?</string>
+    <string name="delete">Удалить</string>
+    <string name="no">Нет</string>
+    <string name="video">Видео</string>
+    <string name="videos">Видео</string>
+    <string name="views">Просмотров</string>
+    <string name="likes">Лайков</string>
+    <string name="savedVideos">Сохранённые видео</string>
+    <string name="continueWatching">Продолжить просмотр</string>
+    <string name="topVideos1">Фильмы для начинающих</string>
+    <string name="topVideos2">Самые популярные</string>
+    <string name="recommended">Рекомендуемые</string>
+    <string name="videosPerDay">3 видео / день</string>
+    <string name="videosLimitInfo">С вашим базовым планом вы можете смотреть только 3 видео в день. <b>Перейдите на PRO</b>, чтобы смотреть неограниченное количество видео и многое другое.\nОднако вы все еще можете смотреть сохраненные видео</string>
+    <string name="saved">Сохранено</string>
 
-    <string name="save">Сохранить</string>
+    <string name="whatIsUrLevel">Какой у тебя сейчас уровень немецкого?</string>
+    <string name="beginner">Начинающий</string>
+    <string name="intermediate">Средний</string>
+    <string name="advanced">Продвинутый</string>
+    <string name="howMuchTime">Сколько времени вы готовы потратить на обучение?</string>
+    <string name="tenMin">10 минут в день</string>
+    <string name="fifteenMin">15 минут в день</string>
+    <string name="thirtyMin">30 минут в день</string>
+    <string name="whatBooksULike">Какие книги вам нравятся?</string>
+    <string name="thriller">Триллер</string>
+    <string name="horror">Ужасы</string>
+    <string name="drama">Драма</string>
+    <string name="history">История</string>
+    <string name="novel">Роман</string>
+    <string name="shortStory">Рассказ</string>
+    <string name="biography">Биография</string>
+    <string name="detective">Детектив</string>
+    <string name="crime">Криминал</string>
+    <string name="continueButton">Продолжить</string>
+    <string name="almostThere">Почти готово!</string>
+    <string name="letsFindOut">Давайте узнаем ваш план изучения немецкого языка</string>
+    <string name="onBoardingExplore1">Читайте книги и сохраняйте слова</string>
+    <string name="onBoardingExplore2">Повторяйте сохраненные слова</string>
+    <string name="onBoardingExplore3">Смотрите видео с двойными субтитрами</string>
+    <string name="allSet">Все готово</string>
+    <string name="startWith">Вы можете начать с:</string>
+    <string name="readingBooks">Читать книги</string>
+    <string name="take5minTest">Пройти 5-минутный тест</string>
+    <string name="subscriptionInfo">Подписку можно отменить в любое время по любой причине. Чтобы избежать неожиданных расходов, вы можете отключить автоматическое продление не менее чем за 24 часа до конца текущего периода оплаты. \n\n
+Вы можете управлять своей подпиской в любое время в настройках своей учетной записи Google Play. Вы продолжите иметь доступ к премиум-контенту и функциям до конца периода оплаты вашей подписки. \n\n
+Если у вас возникли проблемы с оплатой, свяжитесь с нами.</string>
+    <string name="contactUsColon">Свяжитесь с нами:</string>
+    <string name="email">Электронная почта</string>
     <string name="close">Закрыть</string>
-    <string name="cancel">Отменить</string>
-    <string name="back">Назад</string>
-    <string name="ok">ОК</string>
-    <string name="wait">ждём…</string>
+    <string name="picture">Изображение</string>
+    <string name="congratulations">Поздравляем!</string>
+    <string name="details">Подробности</string>
+    <string name="somethingWentWrongQuestion">Что-то пошло не так?</string>
+    <string name="manageSubscription">Управление подписками\n(Google Play)</string>
+    <string name="perMonth">/ месяц</string>
+    <string name="onBoardingStartInfo">Учите немецкий по 15 минут в день</string>
+    <string name="whatIsYourNativeLang">Какой у вас родной язык?</string>
+    <string name="confirm">Подтвердить</string>
+    <string name="selectLanguage">Выберите язык</string>
+    <string name="languageMayBeDownloaded">Языковой пакет может быть загружен по мере необходимости</string>
+    <string name="whyAreUPracticing">Почему вы практикуете немецкий язык?</string>
+    <string name="travel">Путешествия</string>
+    <string name="jobOpp">Работа</string>
+    <string name="education">Образование</string>
+    <string name="communication">Общение</string>
+    <string name="other">Другое</string>
+    <string name="start">Начать</string>
+    <string name="viewAllOptions"><u>Посмотреть все опции</u></string>
+    <string name="startFreeTrial">Начать бесплатную пробную версию</string>
+    <string name="howItWorks">Как это работает?</string>
+    <string name="trialStep1">Начните 7-дневную бесплатную пробную версию сегодня и изучайте немецкий язык</string>
+    <string name="trialStep2">Мы напомним вам за 2 дня до окончания</string>
+    <string name="trialStep3">Вы решаете продолжить бесплатную или платную версию</string>
+    <string name="popular">Популярный</string>
+    <string name="oneYear">12 месяцев</string>
+    <string name="oneMonth">1 месяц</string>
+    <string name="threeMonth">3 месяца</string>
+    <string name="priceExample">10,50$</string>
+    <string name="trialInfo">7-дневная бесплатная пробная версия</string>
+    <string name="featureUnlimitedWords">Неограниченное количество сохраненных слов в <u>вашем словаре</u></string>
+    <string name="featureBooksAccess">Доступ к <u>Премиум</u> книгам</string>
+    <string name="featureLessonAccess">Неограниченный доступ ко всем видео</string>
+    <string name="featureExamsAccess">Доступ к <u>Премиум</u> экзаменам</string>
+    <string name="featureCustomerSupport">24/7 поддержка клиентов</string>
+    <string name="featureNoAds">Нет рекламы</string>
+    <string name="yourLimit">Ваш лимит</string>
+    <string name="cancelAnytime">Вы можете отменить в любое время</string>
+    <string name="getPremium">Получить Премиум</string>
+    <!-- Home Fragment { -->
+    <string name="selectedWords">Сохранённых слов:</string>
     <string name="home">Главная</string>
     <string name="books">Книги</string>
     <string name="words">Слова</string>
-    <string name="translator">Переводчик</string>
-    <string name="all">Все</string>
-    <string name="easy">Легко</string>
-    <string name="medium">Средне</string>
-    <string name="hard">Сложно</string>
-    <string name="free">Бесплатно</string>
-    <string name="read">Читать</string>
-    <string name="example">Пример</string>
-    <string name="writeExample">напишите пример…</string>
-    <string name="inGerman">auf Deutsch</string>
+    <!-- } -->
+
+    <!-- Books Fragment { -->
+    <string name="btnRead">Читать</string>
+    <!-- } -->
+
+    <!-- ReadBook Fragment { -->
+    <string name="saveBook">Добавить к избранным</string>
+    <string name="darkMode">Тёмная тема</string>
+    <string name="fontSize">Размер шрифта</string>
+    <!-- } -->
+
+    <!-- Dialogs { -->
+    <string name="langSettings">Offline Переводчик</string>
+    <string name="chooseLang">Выберите родной язык:</string>
+    <string name="dialogLangInfo">Языковой пакет для оффлайн перевода будет скачан ~ 30MB</string>
+    <string name="back">Назад</string>
+    <string name="ok">OK</string>
+    <string name="noInternet">Нету интернета!</string>
+    <string name="pleaseRateApp">Пожалуйста, оцените приложение</string>
+    <string name="thisWillImprove">Это поможет нам улучшить проект</string>
+    <string name="redirectToGooglePlay">перенаправление в Google Play</string>
+    <string name="notNow">Не сейчас</string>
+    <string name="thanks">Спасибо</string>
+    <string name="premiumAlmostForFree">Получить премиум-аккаунт\n<u>Самая большая</u> скидка!</string>
+    <string name="monthlySubs">Месячная подписка</string>
+    <string name="discount68">68% Скидка</string>
+
     <string name="inYourLang">на русском</string>
-    <string name="groupOfWords">Группа</string>
-    <string name="words_s">слов</string>
-    <string name="noWords">Нету сохраненных слов,\n Читайте книги и добавляйте слова</string>
-    <string name="readBooks">Читать книги</string>
-    <string name="savedWords">Сохранённые слова</string>
-    <string name="addWord">Добавить</string>
-    <string name="learnRandom">Учить в случайном порядке</string>
-    <string name="gameWriteWord">Написать</string>
-    <string name="gameFlashCards">Карточки</string>
-    <string name="gameSelectWord">Выбор</string>
-    <string name="translate">Перевести</string>
-    <string name="pronunciation">Произнести</string>
-    <string name="noInternet">Плохое соединение с интернетом</string>
-    <string name="langDownloadInfo">Языковой пакет будет скачан ≈ 30 MB</string>
-    <string name="selectYourLang">Выберите свой язык:</string>
-    <string name="addToFavorites">Добавить к избранным</string>
-    <string name="selectedWords">Сохраненных слов:</string>
-    <string name="translatorLang">Язык переводчика</string>
-    <string name="newBooks">Новые книги</string>
-    <string name="viewAll">Смотреть все</string>
-    <string name="continueReading">Продолжить чтение</string>
-    <string name="lastSavedWord">Последние сохранённые слова</string>
-    <string name="premiumAccount">Премиум аккаунт</string>
-    <string name="getPremium">Получить</string>
-    <string name="oneTimePayment">Единоразовый платёж</string>
-    <string name="purchaseDetails">- Полная разблокировка контента
-        \n- Отключение рекламы
-        \n- Неограниченное количество слов
-        \n- Навсегда (∞)</string>
-    <string name="rateUs">Оцените приложение</string>
-    <string name="ourApps">Наши приложения</string>
-    <string name="thxForFeedback">Спасибо за оценку!</string>
-    <string name="continue_2">Продолжить</string>
-    <string name="toastSelectText">Выделите текст</string>
-    <string name="flashCards">Флэш-Карточки</string>
-    <string name="writeWord">Написать слово</string>
-    <string name="selectWord">Выбрать слово</string>
-    <string name="write">написать…</string>
+
+    <string name="blocked">Заблокировано</string>
+    <string name="restrictedContent">Контент ограничен</string>
+    <!-- } -->
+
+    <!-- Words Fragment { -->
+    <string name="wordsFragmentTitle">Сохранённые слова</string>
+    <string name="noWords">У Вас нету сохранённых слов,\nЧитайте книги и добавляйте слова!</string>
+    <!-- } -->
+
+    <!-- Translator Fragment { -->
+    <!-- } -->
+
+    <!-- Grammar Fragment { -->
+    <string name="or">или</string>
+    <!-- } -->
+    <!-- Practice Fragment { -->
+    <!-- } -->
+    <!-- Test Fragment { -->
+    <!-- } -->
+    <!-- Exams Fragment { -->
+    <!-- } -->
+    <!-- Game Fragments { -->
+    <string name="fleshCardsTitle">Карточки</string>
+    <string name="writeWordTitle">Написать</string>
+    <string name="selectWordTitle">Выбрать</string>
     <string name="show">Показать</string>
     <string name="next">Далее</string>
-    <string name="done">Готово</string>
+    <string name="write">напиши</string>
     <string name="check">Проверить</string>
-    <string name="toastMin4Words">Мин. 4 слов для этой игры</string>
-    <string name="germanTo">Немецкий -</string>
-    <string name="typeText">Введите текст…</string>
-    <string name="addToWords">Сохранить</string>
-    <string name="german">Немецкий</string>
-    <string name="offlineTranslator">Offline-Переводчик</string>
-    <string name="error">Ошибка</string>
-    <string name="toastCopied">Скопировано</string>
-    <string name="shop">Магазин</string>
-    <string name="clickForCurrency">*нажмите чтобы увидеть цену в вашей валюте</string>
-    <string name="locked">Закрыто</string>
-    <string name="limitedContent">Ограниченный контент</string>
-    <string name="max30Words">макс. 30 слов</string>
-    <string name="or">или</string>
-    <string name="showAds">Смотреть рекламу</string>
-    <string name="youHavePremium">У вас Премиум-Аккаунт</string>
+    <string name="toastTooFewWordsForGame">Минимум 5 слов для этой игры</string>
+    <!-- } -->
+    <!-- First Open { -->
+    <!-- } -->
+    <!-- Shop Fragment { -->
+    <string name="buy">Получить премиум</string>
+    <string name="premiumAccount">Premium Account</string>
+    <string name="purchaseDetails">
+        - Полная разблокировка контента
+        \n- Отключение рекламы
+        \n- Навсегда (∞)
+    </string>
+    <!-- } -->
+    <!-- Drawer Navigation { -->
+    <string name="ourApps">Другие приложения</string>
+    <!-- } -->
+
+    <string name="toastExitApp">Нажмите ещё раз, чтобы выйти</string>
+    <string name="done">Готово</string>
+    <string name="cancel">Отмена</string>
+    <string name="save">Сохранить</string>
+    <string name="free">Бесплатно</string>
+    <string name="install">Скачать</string>
+    <string name="app_name">Немецкий язык</string>
+
 </resources>

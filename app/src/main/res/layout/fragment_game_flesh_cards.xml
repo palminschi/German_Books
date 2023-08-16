@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/background_color"
     android:orientation="vertical"
-    android:background="@color/background"
-    tools:context=".presentation.screens.game_flesh_cards.GameFleshCardsFragment">
+    tools:context=".legacy.fragments.games.GameFleshCardsFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/header"
@@ -14,7 +14,7 @@
         android:layout_height="44dp"
         android:layout_marginTop="8dp">
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/btnBack"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -23,7 +23,7 @@
             android:layout_marginStart="10dp"
             android:adjustViewBounds="true"
             android:contentDescription="@null"
-            android:src="@drawable/ic_btn_back"
+            app:srcCompat="@drawable/ic_baseline_arrow_back_gray"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -33,8 +33,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="@string/flashCards"
-            android:textColor="@color/main_orange"
+            android:text="@string/fleshCardsTitle"
+            android:textColor="@color/blue_main"
             android:textSize="26sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -51,8 +51,8 @@
         android:layout_marginTop="10dp"
         android:max="10"
         android:progress="1"
-        android:progressBackgroundTint="@color/main_orange_second"
-        android:progressTint="@color/main_orange" />
+        android:progressBackgroundTint="@color/blue_pressed"
+        android:progressTint="@color/blue_pressed" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/topContainer"
@@ -62,7 +62,6 @@
         android:layout_marginTop="5dp"
         android:layout_weight="1"
         android:translationZ="2dp"
-        app:cardBackgroundColor="@color/background_second"
         app:cardCornerRadius="10dp"
         app:cardElevation="2dp">
 
@@ -74,7 +73,7 @@
                 android:id="@+id/tvWord"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -83,14 +82,25 @@
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Text" />
 
+            <TextView
+                android:id="@+id/tvPhrase"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/gray_03"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvWord"
+                tools:ignore="TextContrastCheck"
+                tools:text="Something" />
 
-            <ImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/btnSound"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:layout_margin="5dp"
                 android:contentDescription="@null"
-                android:src="@drawable/ic_sound"
+                app:srcCompat="@drawable/style_ic_sound_blue"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
 
@@ -105,7 +115,6 @@
         android:layout_marginTop="20dp"
         android:layout_weight="1"
         android:translationZ="2dp"
-        app:cardBackgroundColor="@color/background_second"
         app:cardCornerRadius="10dp"
         app:cardElevation="2dp">
 
@@ -117,7 +126,7 @@
                 android:id="@+id/tvTranslatedWord"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -125,12 +134,12 @@
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Текст" />
 
-            <ImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/hiddenText"
                 android:layout_width="120dp"
                 android:layout_height="40dp"
                 android:contentDescription="@null"
-                android:src="@drawable/img_hidden_text"
+                app:srcCompat="@drawable/img_hidden_text"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -145,7 +154,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginVertical="15dp"
-        app:cardBackgroundColor="@color/main_btn_color"
+        app:cardBackgroundColor="@color/button_blue"
         app:cardCornerRadius="10dp">
 
         <TextView
@@ -157,8 +166,6 @@
             android:text="@string/show"
             android:textColor="@color/white"
             android:textSize="19sp"
-            android:textStyle="bold"
-            tools:ignore="TextContrastCheck" />
+            android:textStyle="bold" />
     </androidx.cardview.widget.CardView>
-
 </LinearLayout>

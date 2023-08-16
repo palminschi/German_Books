@@ -1,94 +1,184 @@
 <resources>
-    <string name="app_name" translatable="false">German Books</string>
-    <string name="welcome" translatable="false">Willkommen!</string>
-    <string name="price" translatable="false">2,99$</string>
-    <string name="ADMOB_ID" translatable="false">ca-app-pub-6012847014470005~6834906431</string>
-    <string name="AD_REWARDED_ID" translatable="false">ca-app-pub-6012847014470005/8813368366</string>
-    <string name="AD_INTERSTITIAL_ID" translatable="false">ca-app-pub-6012847014470005/8286539154</string>
-    <string name="AD_NATIVE_TYPE_1_ID" translatable="false">ca-app-pub-6012847014470005/6118875507</string>
-    <string name="AD_NATIVE_TYPE_2_ID" translatable="false">ca-app-pub-6012847014470005/3711633192</string>
+    <string name="app_name">German Language</string>
+    <string name="centerPoint" translatable="false">·</string>
 
-    <string name="iSpeakAppTitle">iSpeak. German learning app</string>
+    <string name="joinUs">Join us</string>
+    <string name="joinUsInfo">Join our community to find friends and speaking partners</string>
 
-    <string name="save">Save</string>
+    <string name="hintReading1">Click on a word to see the translation</string>
+    <string name="hintReading2">Select text + Click on (Translation) to translate longer text</string>
+
+    <string name="welcomeBack" translatable="false">Willkommen!</string>
+    <string name="dailyStreak">Daily Streak</string>
+    <string name="unlockAllFeatures">Unlock all features</string>
+    <string name="getPremiumAccount">Get Premium Account</string>
+    <string name="tasksForToday">Tasks for today</string>
+    <string name="openTheApp"><strike>Open the app</strike></string>
+    <string name="newBooks">Newly added books</string>
+    <string name="mostPopularVideos">Most popular videos</string>
+    <string name="task1ReadBook">Start reading a book</string>
+    <string name="task2SaveWords">Save 5 new words</string>
+    <string name="task3WatchVideo">Watch at least 1 video</string>
+    <string name="settings">Settings</string>
+    <string name="yourLanguage">Your language</string>
+    <string name="learnOtherLanguages">Learn other languages</string>
+    <string name="inviteFriend">Invite a friend</string>
+    <string name="rateApp">Rate the app</string>
+    <string name="privacy">Privacy policy</string>
+    <string name="followUs">Join our community</string>
+    <string name="shareAppText">"Do you want to learn German language easily? Install this app:  "</string>
+
+    <string name="favoriteBooks">Favorite books</string>
+    <string name="continueReading">Continue reading</string>
+    <string name="a1Title">A1: Beginners</string>
+    <string name="a2Title">A2: Pre Intermediate</string>
+    <string name="b1Title">B1: Intermediate</string>
+    <string name="b2Title">B2: Upper Intermediate</string>
+    <string name="seeAll">See all</string>
+    <string name="selectText">Select the text to translate</string>
+    <string name="wordHasBeenSaved">The word has been saved</string>
+    <string name="deleteWordConfirmation">Do you want to delete this word?</string>
+    <string name="delete">Delete</string>
+    <string name="no">No</string>
+    <string name="video">Video</string>
+    <string name="videos">Videos</string>
+    <string name="views">views</string>
+    <string name="likes">likes</string>
+    <string name="savedVideos">Saved videos</string>
+    <string name="continueWatching">Continue watching</string>
+    <string name="topVideos1">Movies for beginners</string>
+    <string name="topVideos2">Most popular</string>
+    <string name="recommended">Recommended</string>
+    <string name="videosPerDay">3 videos / day</string>
+    <string name="videosLimitInfo">With your Basic Plan, you can watch only 3 videos per day. <b>Upgrade to PRO</b> to watch unlimited videos and more.\nHowever, you can still watch your saved videos</string>
+    <string name="saved">Saved</string>
+
+    <string name="loremIpsum" translatable="false">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s</string>
+    <string name="pleaseRateApp">Please rate the app</string>
+    <string name="thisWillImprove">This will help us to improve the project</string>
+    <string name="redirectToGooglePlay">redirect to Google Play</string>
+    <string name="notNow">Not now</string>
+    <string name="thanks">Thank you</string>
+    <string name="premiumAlmostForFree">Get Premium Account\nThe <u>Biggest</u> Discount!</string>
+    <string name="monthlySubs">Monthly subscription</string>
+    <string name="discount68">68% Discount</string>
+
+    <string name="A1Lvl" translatable="false">A1</string>
+    <string name="ok" translatable="false">OK</string>
+
+    <string name="start">Start</string>
+    <string name="viewAllOptions"><u>View all options</u></string>
+    <string name="startFreeTrial">Start free trial</string>
+    <string name="howItWorks">How it works?</string>
+    <string name="trialStep1">Start your 7-day free trial today and learn German</string>
+    <string name="trialStep2">We will remind you 2 days before the end</string>
+    <string name="trialStep3">You decide to continue with the free or paid version</string>
+    <string name="popular">Popular</string>
+    <string name="oneYear">12 months</string>
+    <string name="oneMonth">1 month</string>
+    <string name="threeMonth">3 months</string>
+    <string name="priceExample">10.50$</string>
+    <string name="trialInfo">7-day free trial</string>
+    <string name="featureUnlimitedWords">Unlimited saved words in <u>your vocabulary</u></string>
+    <string name="featureBooksAccess">Access to <u>Premium</u> books</string>
+    <string name="featureLessonAccess">Unlimited access to all videos</string>
+    <string name="featureExamsAccess">Access to <u>Premium</u> exams</string>
+    <string name="featureCustomerSupport">24/7 Customer support</string>
+    <string name="featureNoAds">No ads</string>
+    <string name="yourLimit">Your limit</string>
+    <string name="cancelAnytime">You can cancel anytime</string>
+    <string name="getPremium">Get Premium</string>
+    <string name="subscriptionInfo">Subscriptions can be cancelled anytime for any reason. You can disable auto-renewal at least 24 hours before the end of the current billing period to avoid surprise charges.\n\n
+You can manage your subscription at any time on your Google Play account settings. You will continue to have access to the premium content and features until the end of your subscription billing period.\n\n
+If you have any troubles with completing the purchase, please contact us.</string>
+    <string name="contactUsColon">Contact us:</string>
+    <string name="email">E-mail</string>
     <string name="close">Close</string>
-    <string name="cancel">Cancel</string>
-    <string name="back">Back</string>
-    <string name="ok">OK</string>
-    <string name="wait">wait…</string>
+    <string name="picture">Picture</string>
+    <string name="congratulations">Congratulations!</string>
+    <string name="details">Details</string>
+    <string name="somethingWentWrongQuestion">Something went wrong?</string>
+    <string name="manageSubscription">Manage subscriptions\n(Google Play)</string>
+    <string name="perMonth"> / month</string>
+    <string name="onBoardingStartInfo">Learn German in 15 minutes a day</string>
+    <string name="whatIsYourNativeLang">What\'s your native language?</string>
+    <string name="confirm">Confirm</string>
+    <string name="selectLanguage">Select the language</string>
+    <string name="languageMayBeDownloaded">Your language pack can be downloaded if needed</string>
+    <string name="whyAreUPracticing">Why are you practicing German?</string>
+    <string name="travel">Travel</string>
+    <string name="jobOpp">Job Opportunities</string>
+    <string name="education">Education</string>
+    <string name="communication">Communication</string>
+    <string name="other">Other</string>
+    <string name="whatIsUrLevel">What\'s your current German level?</string>
+    <string name="beginner">Beginner</string>
+    <string name="intermediate">Intermediate</string>
+    <string name="advanced">Advanced</string>
+    <string name="howMuchTime">How much time are you willing to spend on learning?</string>
+    <string name="tenMin">10 min / day</string>
+    <string name="fifteenMin">15 min / day</string>
+    <string name="thirtyMin">30 min / day</string>
+    <string name="whatBooksULike">What kind of books do you like?</string>
+    <string name="thriller">Thriller</string>
+    <string name="horror">Horror</string>
+    <string name="drama">Drama</string>
+    <string name="history">History</string>
+    <string name="novel">Novel</string>
+    <string name="shortStory">Short Story</string>
+    <string name="biography">Biography</string>
+    <string name="detective">Detective</string>
+    <string name="crime">Crime</string>
+    <string name="continueButton">Continue</string>
+    <string name="almostThere">Almost there!</string>
+    <string name="letsFindOut">Let\'s find out your German learning plan</string>
+    <string name="onBoardingExplore1">Read books and save words</string>
+    <string name="onBoardingExplore2">Repeat your saved words</string>
+    <string name="onBoardingExplore3">Watch videos with double subtitles</string>
+    <string name="allSet">All set</string>
+    <string name="startWith">You can start with:</string>
+    <string name="readingBooks">Reading books</string>
+    <string name="take5minTest">Take a 5-minute test</string>
+
+    <string name="selectedWords">Selected words:</string>
     <string name="home">Home</string>
     <string name="books">Books</string>
     <string name="words">Words</string>
-    <string name="translator">Translator</string>
-    <string name="all">All</string>
-    <string name="easy">Easy</string>
-    <string name="medium">Medium</string>
-    <string name="hard">Hard</string>
-    <string name="free">Free</string>
-    <string name="read">Read</string>
-    <string name="example">Example</string>
-    <string name="writeExample">write an example…</string>
-    <string name="inGerman">auf Deutsch</string>
+    <string name="btnRead">Read</string>
+    <string name="saveBook">Add to favorites</string>
+    <string name="darkMode">Dark Mode</string>
+    <string name="fontSize">Font size</string>
+    <string name="langSettings">Offline Translation</string>
+    <string name="chooseLang">Choose your native language:</string>
+    <string name="dialogLangInfo">The language package will be downloaded ~ 30MB</string>
+    <string name="back">Back</string>
+    <string name="noInternet">Internet not found</string>
     <string name="inYourLang">in your language</string>
-    <string name="groupOfWords">Group</string>
-    <string name="words_s">words</string>
+    <string name="blocked">Locked</string>
+    <string name="restrictedContent">Limited content</string>
+    <string name="wordsFragmentTitle">Selected Words</string>
     <string name="noWords">You have no words to learn,\nRead books and add words!</string>
-    <string name="readBooks">Read Books</string>
-    <string name="savedWords">Saved Words</string>
-    <string name="addWord">Add</string>
-    <string name="learnRandom">Learn random words</string>
-    <string name="gameWriteWord">Write</string>
-    <string name="gameFlashCards">Flash Cards</string>
-    <string name="gameSelectWord">Select</string>
-    <string name="translate">Translate</string>
-    <string name="pronunciation">Pronounce</string>
-    <string name="noInternet">You have a weak network connection.</string>
-    <string name="langDownloadInfo">The language package will be downloaded ≈ 30 MB</string>
-    <string name="selectYourLang">Select your language:</string>
-    <string name="addToFavorites">Add to favorites</string>
-    <string name="selectedWords">Saved words:</string>
-    <string name="translatorLang">Translator language</string>
-    <string name="newBooks">New books</string>
-    <string name="viewAll">View all</string>
-    <string name="continueReading">Continue reading</string>
-    <string name="lastSavedWord">Last saved word</string>
-    <string name="premiumAccount">Premium Account</string>
-    <string name="getPremium">Get Premium</string>
-    <string name="oneTimePayment">One-time payment</string>
-    <string name="purchaseDetails">- Full content unlock
-        \n- Disabling ads
-        \n- For ever (∞)</string>
-    <string name="rateUs">Rate this app</string>
-    <string name="ourApps">Our applications</string>
-    <string name="thxForFeedback">Thanks for your feedback</string>
-    <string name="continue_2">Continue</string>
-    <string name="toastSelectText">Select the text</string>
-    <string name="flashCards">Flash Cards</string>
-    <string name="writeWord">Write the word</string>
-    <string name="selectWord">Select the word</string>
-    <string name="write">write…</string>
+    <string name="or">or</string>
+    <string name="fleshCardsTitle">Flesh Cards</string>
+    <string name="writeWordTitle">Writing</string>
+    <string name="selectWordTitle">Select</string>
     <string name="show">Show</string>
     <string name="next">Next</string>
-    <string name="done">Done</string>
+    <string name="write">write</string>
     <string name="check">Check</string>
-    <string name="toastMin4Words">Min. 4 words for this game</string>
-    <string name="germanTo">German -</string>
-    <string name="typeText">Type something…</string>
-    <string name="addToWords">Add to words</string>
-    <string name="german">German</string>
-    <string name="offlineTranslator">Offline Translator</string>
-    <string name="error">Error</string>
-    <string name="toastCopied">Copied</string>
-    <string name="shop">Shop</string>
-    <string name="clickForCurrency">*click to see the price in your currency</string>
-    <string name="locked">Locked</string>
-    <string name="limitedContent">Limited content</string>
-    <string name="max30Words">max. 30 words</string>
-    <string name="or">or</string>
-    <string name="showAds">Watch an ad</string>
-    <string name="youHavePremium">You have Premium Account!</string>
-    <string name="ad" translatable="false">Ad •</string>
-    <string name="dismiss">Dismiss</string>
+    <string name="toastTooFewWordsForGame">You need 5 words for this game</string>
+    <string name="buy">GET PREMIUM</string>
+    <string name="premiumAccount">Premium Account</string>
+    <string name="purchaseDetails">
+        - Full content unlock
+        \n- Disabling ads
+        \n- For ever (∞)
+    </string>
+    <string name="ourApps">Our Apps</string>
+    <string name="toastExitApp">Click again to quit</string>
+    <string name="done">Done</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    <string name="free">Free</string>
     <string name="install">Install</string>
-    <string name="loading">loading…</string>
 </resources>

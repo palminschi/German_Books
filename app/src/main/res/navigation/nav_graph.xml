@@ -5,121 +5,197 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/homeFragment">
 
+
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.palmdev.german_books.presentation.screens.home.HomeFragment"
-        android:label="home_fragment"
-        tools:layout="@layout/home_fragment">
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
         <action
-            android:id="@+id/action_homeFragment_to_selectBookFragment"
-            app:destination="@id/selectBookFragment" />
+            android:id="@+id/action_homeFragment_to_booksFragment"
+            app:destination="@id/booksFragment" />
         <action
             android:id="@+id/action_homeFragment_to_wordsFragment"
             app:destination="@id/wordsFragment" />
         <action
-            android:id="@+id/action_homeFragment_to_translatorFragment"
-            app:destination="@id/translatorFragment" />
-        <action
             android:id="@+id/action_homeFragment_to_shopFragment"
             app:destination="@id/shopFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/booksFragment"
+        android:name="com.palmdev.german_books.presentation.screens.reading.books.BooksFragment"
+        android:label="fragment_books"
+        tools:layout="@layout/fragment_books" >
+        <action
+            android:id="@+id/action_booksFragment_to_readBookFragment"
+            app:destination="@id/readBookFragment" />
+        <action
+            android:id="@+id/action_booksFragment_to_wordsFragment"
+            app:destination="@id/wordsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/readBookFragment"
+        android:name="com.palmdev.german_books.presentation.screens.reading.ReadBookFragment"
+        android:label="fragment_book_read"
+        tools:layout="@layout/fragment_book_read" >
+        <action
+            android:id="@+id/action_readBookFragment_to_bottomSheetFragment"
+            app:destination="@id/bottomSheetFragment" />
+        <action
+            android:id="@+id/action_readBookFragment_to_wordsFragment"
+            app:destination="@id/wordsFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/bottomSheetFragment"
+        android:name="com.palmdev.german_books.presentation.screens.reading.settings.BottomSheetFragment"
+        android:label="fragment_bottom_sheet"
+        tools:layout="@layout/fragment_bottom_sheet" >
+        <action
+            android:id="@+id/action_bottomSheetFragment_to_wordsFragment"
+            app:destination="@id/wordsFragment" />
+    </dialog>
 
-    <fragment
-        android:id="@+id/selectBookFragment"
-        android:name="com.palmdev.german_books.presentation.screens.books.BooksFragment"
-        android:label="select_book_fragment"
-        tools:layout="@layout/books_fragment">
-        <action
-            android:id="@+id/action_selectBookFragment_to_bookReadingFragment"
-            app:destination="@id/bookReadingFragment" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/bookReadingFragment"
-        android:name="com.palmdev.german_books.presentation.screens.book_reading.BookReadingFragment"
-        android:label="book_reading_fragment"
-        tools:layout="@layout/book_reading_fragment">
-        <action
-            android:id="@+id/action_bookReadingFragment_to_translatorLanguagesDialogFragment"
-            app:destination="@id/translatorLanguagesDialogFragment" />
-        <action
-            android:id="@+id/action_bookReadingFragment_to_saveWordDialogFragment"
-            app:destination="@id/saveWordDialogFragment" />
-        <action
-            android:id="@+id/action_bookReadingFragment_to_readingBottomSheetFragment"
-            app:destination="@id/readingBottomSheetFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/translatorFragment"
-        android:name="com.palmdev.german_books.presentation.screens.translator.TranslatorFragment"
-        android:label="translator_fragment"
-        tools:layout="@layout/translator_fragment">
-        <action
-            android:id="@+id/action_translatorFragment_to_translatorLanguagesDialogFragment"
-            app:destination="@id/translatorLanguagesDialogFragment" />
-        <action
-            android:id="@+id/action_translatorFragment_to_saveWordDialogFragment2"
-            app:destination="@id/saveWordDialogFragment" />
-    </fragment>
     <fragment
         android:id="@+id/wordsFragment"
-        android:name="com.palmdev.german_books.presentation.screens.words.WordsFragment"
-        android:label="words_fragment"
-        tools:layout="@layout/words_fragment">
-        <action
-            android:id="@+id/action_wordsFragment_to_saveWordDialogFragment"
-            app:destination="@id/saveWordDialogFragment" />
-        <action
-            android:id="@+id/action_wordsFragment_to_groupOfWordsFragment"
-            app:destination="@id/groupOfWordsFragment" />
+        android:name="com.palmdev.german_books.presentation.screens.words.saved.SavedWordsFragment"
+        android:label="fragment_words"
+        tools:layout="@layout/fragment_saved_words" >
     </fragment>
-    <dialog
-        android:id="@+id/translatorLanguagesDialogFragment"
-        android:name="com.palmdev.german_books.presentation.screens.dialog_translator_languages.TranslatorLanguagesDialogFragment"
-        android:label="TranslatorLanguagesDialogFragment" />
-    <dialog
-        android:id="@+id/saveWordDialogFragment"
-        android:name="com.palmdev.german_books.presentation.screens.dialog_save_word.SaveWordDialogFragment"
-        android:label="SaveWordDialogFragment" />
-    <fragment
-        android:id="@+id/groupOfWordsFragment"
-        android:name="com.palmdev.german_books.presentation.screens.group_of_words.GroupOfWordsFragment"
-        android:label="group_of_words_fragment"
-        tools:layout="@layout/group_of_words_fragment" >
-        <action
-            android:id="@+id/action_groupOfWordsFragment_to_gameFleshCardsFragment"
-            app:destination="@id/gameFleshCardsFragment" />
-        <action
-            android:id="@+id/action_groupOfWordsFragment_to_gameSelectWordFragment"
-            app:destination="@id/gameSelectWordFragment" />
-        <action
-            android:id="@+id/action_groupOfWordsFragment_to_gameWriteWordFragment"
-            app:destination="@id/gameWriteWordFragment" />
-    </fragment>
-    <dialog
-        android:id="@+id/readingBottomSheetFragment"
-        android:name="com.palmdev.german_books.presentation.screens.book_reading.bottom_sheet.ReadingBottomSheetFragment"
-        android:label="reading_bottom_sheet_fragment"
-        tools:layout="@layout/reading_bottom_sheet_fragment" />
-    <fragment
-        android:id="@+id/shopFragment"
-        android:name="com.palmdev.german_books.presentation.screens.shop.ShopFragment"
-        android:label="shop_fragment"
-        tools:layout="@layout/shop_fragment" />
+
     <fragment
         android:id="@+id/gameFleshCardsFragment"
-        android:name="com.palmdev.german_books.presentation.screens.game_flesh_cards.GameFleshCardsFragment"
+        android:name="com.palmdev.german_books.legacy.fragments.games.GameFleshCardsFragment"
         android:label="fragment_game_flesh_cards"
         tools:layout="@layout/fragment_game_flesh_cards" />
     <fragment
         android:id="@+id/gameSelectWordFragment"
-        android:name="com.palmdev.german_books.presentation.screens.game_select_word.GameSelectWordFragment"
+        android:name="com.palmdev.german_books.legacy.fragments.games.GameSelectWordFragment"
         android:label="fragment_game_select_word"
         tools:layout="@layout/fragment_game_select_word" />
     <fragment
         android:id="@+id/gameWriteWordFragment"
-        android:name="com.palmdev.german_books.presentation.screens.game_write_word.GameWriteWordFragment"
+        android:name="com.palmdev.german_books.legacy.fragments.games.GameWriteWordFragment"
         android:label="fragment_game_write_word"
         tools:layout="@layout/fragment_game_write_word" />
 
+    <fragment
+        android:id="@+id/shopFragment"
+        android:name="com.palmdev.german_books.presentation.screens.purchases.ShopFragment"
+        android:label="fragment_shop" >
+        <action
+            android:id="@+id/action_shopFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/onBoardingAllOptionsFragment"
+        android:name="com.palmdev.german_books.presentation.screens.onboarding.paywall.OnBoardingAllOptionsFragment"
+        android:label="OnBoardingAllOptionsFragment" />
+    <fragment
+        android:id="@+id/onBoardingPaywallTrialFragment"
+        android:name="com.palmdev.german_books.presentation.screens.onboarding.paywall.OnBoardingPaywallTrialFragment"
+        android:label="OnBoardingPaywallTrialFragment" />
+    <fragment
+        android:id="@+id/purchasesEndFragment"
+        android:name="com.palmdev.german_books.presentation.screens.purchases.PurchasesEndFragment"
+        android:label="PurchasesEndFragment" />
+    <fragment
+        android:id="@+id/onBoardingLanguagesFragment"
+        android:name="com.palmdev.german_books.presentation.screens.onboarding.languages.OnBoardingLanguagesFragment"
+        android:label="OnBoardingLanguagesFragment" />
+    <fragment
+        android:id="@+id/onBoardingPurposeFragment"
+        android:name="com.palmdev.german_books.presentation.screens.onboarding.purpose.OnBoardingPurposeFragment"
+        android:label="OnBoardingPurposeFragment" />
+    <fragment
+        android:id="@+id/onBoardingStartFragment"
+        android:name="com.palmdev.german_books.presentation.screens.onboarding.start.OnBoardingStartFragment"
+        android:label="OnBoardingStartFragment" />
+    <fragment
+        android:id="@+id/onBoardingBooksFragment"
+        android:name="com.palmdev.german_books.presentation.screens.onboarding.books.OnBoardingBooksFragment"
+        android:label="OnBoardingBooksFragment" />
+    <fragment
+        android:id="@+id/onBoardingLevelFragment"
+        android:name="com.palmdev.german_books.presentation.screens.onboarding.level.OnBoardingLevelFragment"
+        android:label="OnBoardingLevelFragment" />
+    <fragment
+        android:id="@+id/onBoardingTimeFragment"
+        android:name="com.palmdev.german_books.presentation.screens.onboarding.time.OnBoardingTimeFragment"
+        android:label="OnBoardingTimeFragment" />
+    <fragment
+        android:id="@+id/onBoardingAlmostFragment"
+        android:name="com.palmdev.german_books.presentation.screens.onboarding.almost.OnBoardingAlmostFragment"
+        android:label="OnBoardingAlmostFragment" />
+    <fragment
+        android:id="@+id/onBoardingExploreFragment"
+        android:name="com.palmdev.german_books.presentation.screens.onboarding.explore.OnBoardingExploreFragment"
+        android:label="OnBoardingExploreFragment" />
+    <fragment
+        android:id="@+id/onBoardingEndFragment"
+        android:name="com.palmdev.german_books.presentation.screens.onboarding.end.OnBoardingEndFragment"
+        android:label="OnBoardingEndFragment" />
+    <dialog
+        android:id="@+id/rateAppDialogFragment"
+        android:name="com.palmdev.german_books.presentation.screens.dialogs.RateAppDialogFragment"
+        android:label="RateAppDialogFragment" />
+    <fragment
+        android:id="@+id/discountPurchaseFragment"
+        android:name="com.palmdev.german_books.presentation.screens.purchases.DiscountPurchaseFragment"
+        android:label="DiscountPurchaseFragment" />
+    <fragment
+        android:id="@+id/moreBooksFragment"
+        android:name="com.palmdev.german_books.presentation.screens.reading.more.MoreBooksFragment"
+        android:label="MoreBooksFragment" />
+    <dialog
+        android:id="@+id/translatorLanguagesDialogFragment"
+        android:name="com.palmdev.german_books.presentation.screens.dialogs.translator_languages.TranslatorLanguagesDialogFragment"
+        android:label="TranslatorLanguagesDialogFragment" />
+    <dialog
+        android:id="@+id/saveWordDialogFragment"
+        android:name="com.palmdev.german_books.presentation.screens.dialogs.save_word.SaveWordDialogFragment"
+        android:label="SaveWordDialogFragment" />
+    <fragment
+        android:id="@+id/allVideosFragment"
+        android:name="com.palmdev.german_books.presentation.screens.videos.AllVideosFragment"
+        android:label="AllVideosFragment" />
+    <fragment
+        android:id="@+id/videoHistoryFragment"
+        android:name="com.palmdev.german_books.presentation.screens.videos.history.VideoHistoryFragment"
+        android:label="fragment_video_history"
+        tools:layout="@layout/fragment_video_history" />
+    <fragment
+        android:id="@+id/videoPlayerFragment"
+        android:name="com.palmdev.german_books.presentation.screens.videos.video_player.VideoPlayerFragment"
+        android:label="fragment_video_player"
+        tools:layout="@layout/fragment_video_player" />
+    <fragment
+        android:id="@+id/videosFragment"
+        android:name="com.palmdev.german_books.presentation.screens.videos.VideosFragment"
+        android:label="fragment_videos"
+        tools:layout="@layout/fragment_videos" />
+    <fragment
+        android:id="@+id/savedVideoFragment"
+        android:name="com.palmdev.german_books.presentation.screens.videos.saved_videos.SavedVideoFragment"
+        android:label="SavedVideoFragment" />
+
+    <dialog
+        android:id="@+id/videosLimitDialogFragment"
+        android:name="com.palmdev.german_books.presentation.screens.dialogs.VideosLimitDialogFragment"
+        android:label="VideosLimitDialogFragment" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.palmdev.german_books.presentation.screens.settings.SettingsFragment"
+        android:label="SettingsFragment" />
+    <fragment
+        android:id="@+id/otherLanguagesFragment"
+        android:name="com.palmdev.german_books.presentation.screens.settings.our_apps.OtherLanguagesFragment"
+        android:label="OtherLanguagesFragment" />
+    <dialog
+        android:id="@+id/restrictedContentDialogFragment"
+        android:name="com.palmdev.german_books.presentation.screens.dialogs.RestrictedContentDialogFragment"
+        android:label="RestrictedContentDialogFragment" />
+    <dialog
+        android:id="@+id/hintReadingDialogFragment"
+        android:name="com.palmdev.german_books.presentation.screens.dialogs.HintReadingDialogFragment"
+        android:label="HintReadingDialogFragment" />
 </navigation>

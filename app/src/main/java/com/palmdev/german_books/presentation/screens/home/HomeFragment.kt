@@ -1,287 +1,287 @@
 package com.palmdev.german_books.presentation.screens.home
 
 import android.annotation.SuppressLint
-import android.content.ActivityNotFoundException
-import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
+import android.content.res.ColorStateList
+import android.graphics.Paint
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.core.os.bundleOf
-import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
-import com.google.android.material.snackbar.Snackbar
-import com.palmdev.data.util.Base64Coder
-import com.palmdev.data.util.Constants
-import com.palmdev.german_books.BuildConfig
+import com.bumptech.glide.Glide
 import com.palmdev.german_books.R
-import com.palmdev.german_books.databinding.HomeFragmentBinding
-import com.palmdev.german_books.presentation.screens.books.BooksFragment
-import com.palmdev.german_books.presentation.screens.dialog_restricted_content.RestrictedContentDialogFragment
-import org.koin.androidx.viewmodel.ext.android.viewModel
+import com.palmdev.german_books.data.model.ToDoTask
+import com.palmdev.german_books.data.storage.UserStorage
+import com.palmdev.german_books.databinding.FragmentHomeBinding
+import com.palmdev.german_books.domain.model.Book
+import com.palmdev.german_books.domain.model.VideoInfo
+import com.palmdev.german_books.extensions.toAssetsUri
+import com.palmdev.german_books.presentation.BaseFragment
+import com.palmdev.german_books.presentation.MainActivity
+import com.palmdev.german_books.presentation.screens.reading.ReadBookFragment
+import com.palmdev.german_books.presentation.screens.reading.books.BooksAdapter
+import com.palmdev.german_books.presentation.screens.videos.SmallVideosAdapter
+import com.palmdev.german_books.presentation.screens.videos.video_player.VideoPlayerFragment
+import com.palmdev.german_books.utils.FACEBOOK_URL
+import com.palmdev.german_books.utils.INSTAGRAM_URL
+import com.palmdev.german_books.utils.LIMIT_VIDEOS_WATCH
+import com.palmdev.german_books.utils.TELEGRAM_INVITE_URL
+import com.palmdev.german_books.utils.TIKTOK_URL
+import dagger.hilt.android.AndroidEntryPoint
+import kotlin.system.exitProcess
 
+@AndroidEntryPoint
+class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::inflate) {
 
-class HomeFragment : Fragment(R.layout.home_fragment) {
-
-
-    private lateinit var binding: HomeFragmentBinding
-    private val viewModel: HomeViewModel by viewModel()
-
+    private var mBackPressedTime: Long = 0
+    private val viewModel by activityViewModels<HomeViewModel>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding = HomeFragmentBinding.bind(view)
 
-        initNavButtons()
-        initRatingButtons()
-        setLastBookRead()
-        setLastSavedWord()
-        initNewBooks(id1 = 8, id2 = 0, id3 = 2)
+        val firstOpen = UserStorage(requireContext()).isFirstOpen
+        if (firstOpen) {
+            if (!viewModel.hasPremium()) {
+                findNavController().navigate(R.id.onBoardingStartFragment)
+            }
+        } else if (viewModel.isFirstSessionToday()) {
+            if (!viewModel.userRatedApp) {
+                findNavController().navigate(R.id.rateAppDialogFragment)
+            } else if (!viewModel.hasPremium()) {
+                findNavController().navigate(R.id.discountPurchaseFragment)
+            }
+        }
 
-        binding.nativeAdView.setOnClickListener {
-            val intent = Intent(
-                Intent.ACTION_VIEW,
-                Uri.parse("market://details?id=ispeak.german.learning.app.words.german.conversations.dialogues")
-            )
+        if (viewModel.hasPremium()) {
+            binding.btnGetPremium.visibility = View.GONE
+        } else {
+            binding.btnGetPremium.visibility = View.VISIBLE
+            binding.btnGetPremium.setOnClickListener {
+                findNavController().navigate(R.id.shopFragment)
+            }
+        }
+
+        loadImages()
+        initDailyTasks()
+        initContinueReading()
+        initNewBooks()
+        initVideos()
+        initSocials()
+        binding.tvDailyStreakCount.text = viewModel.dailyStreak.toString()
+
+        binding.btnSettings.setOnClickListener {
+            findNavController().navigate(R.id.settingsFragment)
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.updateTasks()
+        viewModel.updateLastReadBook()
+        viewModel.checkSubscription()
+    }
+
+    override fun onBackPressed(): Boolean {
+        if (mBackPressedTime + 2000 > System.currentTimeMillis()) {
+            activity?.moveTaskToBack(true)
+            exitProcess(0)
+        } else {
+            Toast.makeText(
+                requireContext(), getString(R.string.toastExitApp), Toast.LENGTH_SHORT
+            ).show()
+        }
+        mBackPressedTime = System.currentTimeMillis()
+        return true
+    }
+
+    private fun initSocials() {
+        binding.btnSocialFB.setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(FACEBOOK_URL))
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-            try {
-                requireContext().startActivity(intent)
-            } catch (e: Exception) {
-                e.message?.let { Log.e("TAG", it) }
-            }
+            startActivity(intent)
         }
 
-    }
-
-    private fun initNewBooks(id1: Int, id2: Int, id3: Int) {
-
-        binding.newBook1.visibility = View.GONE
-        binding.newBook2.visibility = View.GONE
-        binding.newBook3.visibility = View.GONE
-
-        viewModel.initNewBooks(id1, id2, id3)
-
-        viewModel.newBooks.observe(viewLifecycleOwner) { books ->
-            books[0]?.let { book ->
-                binding.newBook1.visibility = View.VISIBLE
-                binding.bookTitle1.text = book.title
-                binding.bookAuthor1.text = book.author
-                binding.imgBook1.setImageBitmap(Base64Coder.decodeImageToByte(book.encodedImage))
-                binding.newBook1.setOnClickListener {
-                    if (book.isPremium && viewModel.userPremiumStatus.value == false) {
-                        val dialog = RestrictedContentDialogFragment(
-                            withAdsOption = true,
-                            onUserEarnedRewardListener = {
-                                findNavController().navigate(
-                                    R.id.bookReadingFragment,
-                                    bundleOf(BooksFragment.ARG_OPENED_BOOK to book.id)
-                                )
-                            }
-                        )
-                        dialog.show(parentFragmentManager, "TAG")
-                    } else {
-                        findNavController().navigate(
-                            R.id.bookReadingFragment,
-                            bundleOf(BooksFragment.ARG_OPENED_BOOK to book.id)
-                        )
-                    }
-                }
-            }
-            books[1]?.let { book ->
-                binding.newBook2.visibility = View.VISIBLE
-                binding.bookTitle2.text = book.title
-                binding.bookAuthor2.text = book.author
-                binding.imgBook2.setImageBitmap(Base64Coder.decodeImageToByte(book.encodedImage))
-                binding.newBook2.setOnClickListener {
-                    if (book.isPremium) {
-                        val dialog = RestrictedContentDialogFragment(
-                            withAdsOption = true,
-                            onUserEarnedRewardListener = {
-                                findNavController().navigate(
-                                    R.id.bookReadingFragment,
-                                    bundleOf(BooksFragment.ARG_OPENED_BOOK to book.id)
-                                )
-                            }
-                        )
-                        dialog.show(parentFragmentManager, "TAG")
-                    } else {
-                        findNavController().navigate(
-                            R.id.bookReadingFragment,
-                            bundleOf(BooksFragment.ARG_OPENED_BOOK to book.id)
-                        )
-                    }
-                }
-            }
-            books[2]?.let { book ->
-                binding.newBook3.visibility = View.VISIBLE
-                binding.bookTitle3.text = book.title
-                binding.bookAuthor3.text = book.author
-                binding.imgBook3.setImageBitmap(Base64Coder.decodeImageToByte(book.encodedImage))
-                binding.newBook3.setOnClickListener {
-                    if (book.isPremium) {
-                        val dialog = RestrictedContentDialogFragment(
-                            withAdsOption = true,
-                            onUserEarnedRewardListener = {
-                                findNavController().navigate(
-                                    R.id.bookReadingFragment,
-                                    bundleOf(BooksFragment.ARG_OPENED_BOOK to book.id)
-                                )
-                            }
-                        )
-                        dialog.show(parentFragmentManager, "TAG")
-                    } else {
-                        findNavController().navigate(
-                            R.id.bookReadingFragment,
-                            bundleOf(BooksFragment.ARG_OPENED_BOOK to book.id)
-                        )
-                    }
-                }
-            }
-
+        binding.btnSocialInstagram.setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(INSTAGRAM_URL))
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
+        }
+        binding.btnSocialTikTok.setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(TIKTOK_URL))
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
+        }
+        binding.btnSocialTelegram.setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(TELEGRAM_INVITE_URL))
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
         }
     }
 
-    private fun setLastSavedWord() {
-        viewModel.setLastSavedWord()
-        viewModel.lastWord.observe(viewLifecycleOwner) {
-            if (it == null) {
-                binding.lastWordContainer.visibility = View.GONE
-            } else {
-                binding.lastWordContainer.visibility = View.VISIBLE
-                binding.lastWord.text = it.word
-                binding.lastWordTranslation.text = it.translation
+    private fun loadImages() {
+        Glide.with(this)
+            .load(R.drawable.avatar_m_b1)
+            .into(binding.imgProfile)
+        Glide.with(this)
+            .load(R.drawable.img_people_community)
+            .into(binding.imgCommunity)
+        Glide.with(this)
+            .load(R.drawable.ic_social_fb)
+            .into(binding.iconFacebook)
+        Glide.with(this)
+            .load(R.drawable.ic_social_tiktok)
+            .into(binding.iconTikTok)
+        Glide.with(this)
+            .load(R.drawable.ic_social_insta)
+            .into(binding.iconInstagram)
+        Glide.with(this)
+            .load(R.drawable.ic_social_telegram)
+            .into(binding.iconTelegram)
+        Glide.with(this)
+            .load(R.drawable.ic_premium)
+            .into(binding.iconPremium)
+        Glide.with(this)
+            .load(R.drawable.settings)
+            .into(binding.iconSettings)
+        Glide.with(this)
+            .load(R.drawable.ic_daily_streak)
+            .into(binding.imgDailyStreak)
+    }
+
+    private fun initDailyTasks() {
+        viewModel.toDoTasks.observe(viewLifecycleOwner) {
+            it.forEach { task ->
+                when (task.taskType) {
+                    ToDoTask.TaskType.READ_BOOK -> {
+                        binding.task1Progress.max = task.max
+                        binding.task1Progress.progress = task.progress
+                        if (task.isCompleted) {
+                            binding.task1Checkbox.isChecked = true
+                            binding.task1Checkbox.buttonTintList =
+                                ColorStateList.valueOf(requireContext().getColor(R.color.blue_accent))
+                            binding.task1Text.paintFlags =
+                                binding.task1Text.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+                        }
+                        binding.task1.setOnClickListener {
+                            (requireActivity() as MainActivity).navigateToNavBarDestination(R.id.booksFragment)
+                        }
+                    }
+                    ToDoTask.TaskType.SAVE_WORDS -> {
+                        binding.task2Progress.max = task.max
+                        binding.task2Progress.progress = task.progress
+                        if (task.isCompleted) {
+                            binding.task2Checkbox.isChecked = true
+                            binding.task2Checkbox.buttonTintList =
+                                ColorStateList.valueOf(requireContext().getColor(R.color.blue_accent))
+                            binding.task2Text.paintFlags =
+                                binding.task2Text.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+                        }
+                        binding.task2.setOnClickListener {
+                            (requireActivity() as MainActivity).navigateToNavBarDestination(R.id.booksFragment)
+                        }
+                    }
+                    ToDoTask.TaskType.WATCH_VIDEO -> {
+                        binding.task3Progress.max = task.max
+                        binding.task3Progress.progress = task.progress
+                        if (task.isCompleted) {
+                            binding.task3Checkbox.isChecked = true
+                            binding.task3Checkbox.buttonTintList =
+                                ColorStateList.valueOf(requireContext().getColor(R.color.blue_accent))
+                            binding.task3Text.paintFlags =
+                                binding.task3Text.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+                        }
+                        binding.task3.setOnClickListener {
+                            (requireActivity() as MainActivity).navigateToNavBarDestination(R.id.videosFragment)
+                        }
+                    }
+                }
             }
         }
     }
 
     @SuppressLint("SetTextI18n")
-    private fun setLastBookRead() {
-        viewModel.setLastBook()
-        if (viewModel.lastBook.value == null) {
-            binding.lastBookContainer.visibility = View.GONE
-        }
-        viewModel.lastBook.observe(viewLifecycleOwner) { book ->
-            if (book != null) {
-                binding.lastBookContainer.visibility = View.VISIBLE
-                binding.lastBookTitle.text = book.title
-                binding.lastBookAuthor.text = book.author
-                val decodedImageBitmap = Base64Coder.decodeImageToByte(book.encodedImage)
-                binding.imgLastBook.setImageBitmap(decodedImageBitmap)
-                binding.lastBookContainer.setOnClickListener {
+    private fun initContinueReading() {
+        viewModel.lastReadBook.observe(viewLifecycleOwner) { book ->
+            if (book == null) {
+                binding.continueContainer.visibility = View.GONE
+            } else {
+                Glide.with(this)
+                    .load("books/images/${book.imagePath}.jpg".toAssetsUri())
+                    .into(binding.imgBookContinueReading)
+
+                binding.continueContainer.visibility = View.VISIBLE
+                binding.continueBookTitle.text = book.title
+                binding.continueBookAuthor.text = book.author
+
+                val readPercent = (book.currentPage * 100) / book.totalPages
+                binding.continueProgress.progress = readPercent
+                binding.continueProgress.max = 100
+                binding.continueReadPercent.text = "$readPercent%"
+
+                binding.continueContainer.setOnClickListener {
                     findNavController().navigate(
-                        R.id.bookReadingFragment,
-                        bundleOf(BooksFragment.ARG_OPENED_BOOK to book.id)
+                        R.id.readBookFragment,
+                        bundleOf(ReadBookFragment.ARG_SELECTED_BOOK_ID to book.id)
                     )
                 }
-
-                viewModel.setReadingProgress(book.id)
-                viewModel.lastBookReadingProgress.observe(viewLifecycleOwner) {
-                    val currentPage = (it.currentPage + 1).toFloat()
-                    val totalPages = (it.totalPages + 1).toFloat()
-                    val progress = (currentPage / totalPages * 100).toInt()
-
-                    binding.readingProgressBar.progress = progress
-                    binding.tvReadingProgress.text = "$progress%"
-                }
-            }
-        }
-
-    }
-
-    private fun initNavButtons() {
-        binding.btnTranslator.setOnClickListener {
-            findNavController().navigate(R.id.translatorFragment)
-        }
-        binding.btnViewAllBooks.setOnClickListener {
-            findNavController().navigate(R.id.selectBookFragment)
-        }
-        binding.btnAllWords.setOnClickListener {
-            findNavController().navigate(R.id.wordsFragment)
-        }
-        binding.btnGetPremium.setOnClickListener {
-            findNavController().navigate(R.id.shopFragment)
-        }
-        binding.btnOurApps.setOnClickListener {
-            try {
-                startActivity(
-                    Intent(
-                        Intent.ACTION_VIEW,
-                        Uri.parse("market://dev?id=8261851803988829969")
-                    )
-                )
-            } catch (anfe: ActivityNotFoundException) {
-                startActivity(
-                    Intent(
-                        Intent.ACTION_VIEW,
-                        Uri.parse("https://play.google.com/store/apps/dev?id=8261851803988829969")
-                    )
-                )
             }
         }
     }
 
-    private fun initRatingButtons() {
-        viewModel.userRatedApp.observe(viewLifecycleOwner) { isRated ->
-            if (isRated) binding.ratingContainer.visibility = View.GONE
-            else binding.ratingContainer.visibility = View.VISIBLE
-        }
-
-        fun goToPlayMarket() {
-            startActivity(
-                Intent(
-                    Intent.ACTION_VIEW,
-                    Uri.parse("https://play.google.com/store/apps/details?id=${BuildConfig.APPLICATION_ID}")
+    private fun initNewBooks() {
+        val onClickBookListener = object : BooksAdapter.Companion.OnClickBookListener {
+            override fun onClick(book: Book) {
+                if (book.isPremium) {
+                    if (!viewModel.hasPremium()) {
+                        findNavController().navigate(R.id.restrictedContentDialogFragment)
+                        return
+                    }
+                }
+                findNavController().navigate(
+                    R.id.readBookFragment, bundleOf(
+                        ReadBookFragment.ARG_SELECTED_BOOK_ID to book.id
+                    )
                 )
-            )
-        }
-
-        fun hideRatingView() {
-            binding.ratingContainer.animate().alpha(0f).setDuration(500).withEndAction {
-                binding.ratingContainer.visibility = View.GONE
-            }
-            viewModel.setAppIsRated(true)
-
-            val snackBar = Snackbar.make(
-                binding.root,
-                getString(R.string.thxForFeedback),
-                Snackbar.LENGTH_LONG
-            )
-            snackBar.setActionTextColor(resources.getColor(R.color.main_orange))
-            snackBar.setAction(getString(R.string.close)) {
-                snackBar.dismiss()
-            }
-            snackBar.show()
-        }
-
-        binding.apply {
-            star2.setOnClickListener {
-                star1.isChecked = true
-                hideRatingView()
-            }
-            star3.setOnClickListener {
-                star1.isChecked = true
-                star2.isChecked = true
-                hideRatingView()
-            }
-            star4.setOnClickListener {
-                goToPlayMarket()
-                star1.isChecked = true
-                star2.isChecked = true
-                star3.isChecked = true
-                hideRatingView()
-            }
-            star5.setOnClickListener {
-                goToPlayMarket()
-                star1.isChecked = true
-                star2.isChecked = true
-                star3.isChecked = true
-                star4.isChecked = true
-                hideRatingView()
             }
         }
+        val adapter = BooksAdapter(onClickBookListener)
+        binding.booksRecView.adapter = adapter
 
+        binding.btnToBooks.setOnClickListener {
+            (requireActivity() as MainActivity).navigateToNavBarDestination(R.id.booksFragment)
+        }
+        viewModel.newBooks.observe(viewLifecycleOwner) {
+            adapter.addBooks(it)
+        }
+    }
+
+    private fun initVideos() {
+        binding.btnToVideos.setOnClickListener {
+            (requireActivity() as MainActivity).navigateToNavBarDestination(R.id.videosFragment)
+        }
+        val adapter = SmallVideosAdapter(object : SmallVideosAdapter.Companion.OnItemClickListener {
+            override fun onClick(item: VideoInfo) {
+                viewModel.addNewWatchedVideo()
+                if (
+                    !viewModel.hasPremium() && viewModel.watchedVideosToday.value!! >= LIMIT_VIDEOS_WATCH
+                ) {
+                    findNavController().navigate(R.id.videosLimitDialogFragment)
+                } else {
+                    findNavController().navigate(
+                        R.id.videoPlayerFragment, bundleOf(
+                            VideoPlayerFragment.ARG_VIDEO_ID to item.videoId
+                        )
+                    )
+                }
+            }
+        })
+        binding.videosRecView.adapter = adapter
+        viewModel.videos.observe(viewLifecycleOwner) {
+            if (!it.isNullOrEmpty()) adapter.addAll(it)
+        }
     }
 
 }

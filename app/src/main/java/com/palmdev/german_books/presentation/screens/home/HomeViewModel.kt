@@ -1,80 +1,112 @@
 package com.palmdev.german_books.presentation.screens.home
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.palmdev.domain.model.Book
-import com.palmdev.domain.model.BookReadingProgress
-import com.palmdev.domain.model.Word
-import com.palmdev.domain.usecase.books.GetBookByIdUseCase
-import com.palmdev.domain.usecase.books.GetLastBookReadUseCase
-import com.palmdev.domain.usecase.books.GetReadingProgressUseCase
-import com.palmdev.domain.usecase.purchases.GetPremiumStatusUseCase
-import com.palmdev.domain.usecase.user.HasUserRatedAppUseCase
-import com.palmdev.domain.usecase.user.SetAppIsRatedUseCase
-import com.palmdev.domain.usecase.words.GetAllWordsUseCase
+import com.palmdev.german_books.data.model.ToDoTask
+import com.palmdev.german_books.data.storage.ToDoTasksStorage
+import com.palmdev.german_books.domain.model.Book
+import com.palmdev.german_books.domain.model.ReadBook
+import com.palmdev.german_books.domain.model.VideoInfo
+import com.palmdev.german_books.domain.model.Word
+import com.palmdev.german_books.domain.repository.BooksRepository
+import com.palmdev.german_books.domain.repository.SavedWordsRepository
+import com.palmdev.german_books.domain.repository.UserRepository
+import com.palmdev.german_books.domain.repository.VideoRepository
+import com.palmdev.german_books.domain.usecases.CheckSubscriptionUseCase
+import com.palmdev.german_books.domain.usecases.words.SaveNewWordsUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class HomeViewModel(
-    private val getLastBookReadUseCase: GetLastBookReadUseCase,
-    private val getAllWordsUseCase: GetAllWordsUseCase,
-    private val setAppIsRatedUseCase: SetAppIsRatedUseCase,
-    private val hasUserRatedAppUseCase: HasUserRatedAppUseCase,
-    private val getReadingProgressUseCase: GetReadingProgressUseCase,
-    private val getBookByIdUseCase: GetBookByIdUseCase,
-    private val getPremiumStatusUseCase: GetPremiumStatusUseCase
+@HiltViewModel
+class HomeViewModel @Inject constructor(
+    private val userRepository: UserRepository,
+    private val savedWordsRepository: SavedWordsRepository,
+    private val saveNewWordsUseCase: SaveNewWordsUseCase,
+    private val toDoTasksStorage: ToDoTasksStorage,
+    private val booksRepository: BooksRepository,
+    private val videoRepository: VideoRepository,
+    private val checkSubscriptionUseCase: CheckSubscriptionUseCase
 ) : ViewModel() {
 
-    private val _userRatedApp = MutableLiveData<Boolean>()
-    val userRatedApp: LiveData<Boolean> = _userRatedApp
-
-    private val _lastBook = MutableLiveData<Book>()
-    val lastBook: LiveData<Book> = _lastBook
-
-    private val _lastWord = MutableLiveData<Word?>()
-    val lastWord: LiveData<Word?> = _lastWord
-
-    private val _lastBookReadingProgress = MutableLiveData<BookReadingProgress>()
-    val lastBookReadingProgress: LiveData<BookReadingProgress> = _lastBookReadingProgress
-
-    private val _newBooks = MutableLiveData<List<Book?>>()
-    val newBooks: LiveData<List<Book?>> = _newBooks
-
-    private val _userPremiumStatus = MutableLiveData<Boolean>()
-    val userPremiumStatus: LiveData<Boolean> = _userPremiumStatus
+    var userRatedApp: Boolean = userRepository.hasRatedApp
+    val savedWordsCount = MutableLiveData<Int>()
+    val toDoTasks = MutableLiveData<List<ToDoTask>>()
+    val lastReadBook = MutableLiveData<ReadBook>(null)
+    val newBooks = MutableLiveData<List<Book>>()
+    val videos = MutableLiveData<List<VideoInfo>>()
+    val watchedVideosToday = MutableLiveData(0)
+    val dailyStreak = userRepository.dailyStreak
 
     init {
-        _userRatedApp.value = hasUserRatedAppUseCase.execute()
-        _userPremiumStatus.value = getPremiumStatusUseCase.execute()
+        initSavedWordsCount()
+        setNewBooks()
+        initVideos()
     }
 
-    fun initNewBooks(id1: Int, id2: Int, id3: Int) {
-        _newBooks.value = arrayListOf(
-            getBookByIdUseCase.execute(id1),
-            getBookByIdUseCase.execute(id2),
-            getBookByIdUseCase.execute(id3)
+    fun isFirstSessionToday(): Boolean = userRepository.isFirstSessionToday
+
+    fun hasPremium(): Boolean = userRepository.hasPremium
+
+    fun setUserRatedApp() {
+        userRepository.setUserRatedApp(true)
+        userRatedApp = true
+    }
+
+    fun saveWords(words: List<Word>) {
+        viewModelScope.launch(Dispatchers.IO) {
+            saveNewWordsUseCase.invoke(words)
+            initSavedWordsCount()
+        }
+    }
+
+    private fun initSavedWordsCount() {
+        viewModelScope.launch(Dispatchers.IO) {
+            savedWordsCount.postValue(savedWordsRepository.getWordsCount())
+        }
+    }
+
+    fun updateTasks() {
+        toDoTasks.postValue(
+            toDoTasksStorage.getAllTasks()
         )
     }
 
-    fun setAppIsRated(boolean: Boolean) {
-        setAppIsRatedUseCase.execute(boolean)
+    fun updateLastReadBook() {
+        viewModelScope.launch (Dispatchers.IO){
+            lastReadBook.postValue(booksRepository.getLastReadBook())
+        }
     }
 
-    fun setLastBook() {
-        _lastBook.value = getLastBookReadUseCase.execute()
+    private fun setNewBooks() {
+        viewModelScope.launch (Dispatchers.IO) {
+            val list = listOf(
+                booksRepository.getBookById(1),
+                booksRepository.getBookById(2),
+                booksRepository.getBookById(3),
+                booksRepository.getBookById(4),
+                booksRepository.getBookById(5)
+            )
+            newBooks.postValue(list.requireNoNulls())
+        }
     }
 
-    fun setReadingProgress(bookId: Int) {
-        _lastBookReadingProgress.value = getReadingProgressUseCase.execute(bookId)
-    }
-
-    fun setLastSavedWord() {
-        viewModelScope.launch {
-            getAllWordsUseCase.invoke().collect {
-                if (it.isNullOrEmpty()) _lastWord.value = null
-                else _lastWord.value = it.last()
+    private fun initVideos() {
+        viewModelScope.launch(Dispatchers.IO) {
+            videoRepository.getPopularVideos().collect {
+                videos.postValue(it.shuffled())
             }
         }
+    }
+
+    fun addNewWatchedVideo() {
+        userRepository.addNewWatchedVideoToday()
+        watchedVideosToday.postValue(userRepository.getCountWatchedVideosToday())
+    }
+
+    fun checkSubscription() {
+        checkSubscriptionUseCase()
     }
 }

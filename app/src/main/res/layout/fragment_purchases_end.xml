@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.palmdev.german_books.presentation.custom_view.MainButtonView
+        android:id="@+id/btnCloseMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginBottom="24dp"
+        android:elevation="10dp"
+        app:buttonCornerRadius="14dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:textButton="@string/close" />
+
+    <ScrollView
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/btnClose"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:contentDescription="@string/picture"
+                app:srcCompat="@drawable/ic_close" />
+
+            <TextView
+                android:layout_marginTop="100dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:gravity="center"
+                android:text="@string/congratulations"
+                android:textSize="30sp"
+                android:textStyle="bold"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_marginVertical="12dp"
+                android:layout_gravity="center"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                app:srcCompat="@drawable/avatar_m_a2"
+                android:contentDescription="@string/picture"/>
+
+            <TextView
+                android:id="@+id/tvMainInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:text="@string/premiumAccount"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/details"
+                android:layout_gravity="center"
+                android:id="@+id/btnDetails"
+                android:layout_marginTop="24dp"
+                android:textStyle="bold"
+                android:backgroundTint="@color/gray_extra_light"
+                android:textSize="14sp"
+                android:textAllCaps="false"
+                android:textColor="@color/textColorSecondary" />
+
+            <LinearLayout
+                android:visibility="gone"
+                tools:visibility="visible"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/layoutInfo"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="24dp"
+                    android:text="@string/somethingWentWrongQuestion"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center"
+                    android:paddingHorizontal="34dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:text="@string/contactUsColon"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:id="@+id/btnContactEmail"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/rounded_border"
+                        android:gravity="center"
+                        android:paddingHorizontal="6dp"
+                        android:paddingVertical="10dp">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:contentDescription="@string/picture"
+                            app:srcCompat="@drawable/ic_gmail" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:lines="1"
+                            android:text="@string/email"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="30dp"
+                    android:layout_marginTop="30dp"
+                    android:gravity="center"
+                    android:textSize="13sp"
+                    android:text="@string/subscriptionInfo"
+                    android:textColor="@color/textColorGrayAccent" />
+
+                <TextView
+                    android:id="@+id/btnManageSubs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="24dp"
+                    android:text="@string/manageSubscription"
+                    android:gravity="center"
+                    android:textColor="@color/purple_accent"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="140dp"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
